@@ -3,12 +3,12 @@ import streamvibeplayerlogo from '../../../../public/Logo/streamvibeplayerlogo.s
 
 const StreamVibeSppiner = () => {
   return (
-    <div className='loaderContainer'>
-      <div className="h-screen w-full flex items-center justify-center">
-        <div className="outerWrap h-18 w-18 absolute"> 
+    <div className='loaderContainer h-full'>
+      <div className="w-full h-full flex items-center justify-center">
+        <div className="outerWrap h-18 w-18"> 
           <img src={streamvibeborderlogo} alt="streamvibeborderlogo" />
         </div>
-        <div className="innerwrap h-4 w-4 absolute">
+        <div className="innerwrap h-4 w-4">
           <img src={streamvibeplayerlogo} alt="streamvibeborderlogo" />
         </div>
       </div>

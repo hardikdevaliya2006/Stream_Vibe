@@ -2,9 +2,9 @@ import StreamVibeSppiner from "../Components/Common/Loader/StreamVibeSppiner"
 
 const Home = () => {
   return (
-    <main className="homePage">
+    <main className="homePage h-full">
       <header></header>
-      <div className="mainContant">
+      <div className="mainContant h-full">
         <StreamVibeSppiner></StreamVibeSppiner>
       </div>
       <footer></footer>
