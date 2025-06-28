@@ -1,19 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
-*{
-    font-family: "Manrope";
-    color: #fff;
+* {
+  font-family: "Manrope";
+  color: #fff;
 }
 
-html, body, #root {
-    width: 100%;
-    height: 100%;
-    background: #141414;
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  background: #141414;
 }
 
 .outerWrap {
-  height: 72px;  
-  width: 72px;    
+  height: 72px;
+  width: 72px;
   position: absolute;
   animation: rotate 1.5s linear infinite;
 }

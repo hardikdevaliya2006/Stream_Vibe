@@ -5,7 +5,7 @@ const StreamVibeSppiner = () => {
   return (
     <div className='loaderContainer h-full'>
       <div className="w-full h-full flex items-center justify-center">
-        <div className="outerWrap h-18 w-18"> 
+        <div className="outerWrap sm:w-24 xss:h-18 xss:w-18 sm:h-24"> 
           <img src={streamvibeborderlogo} alt="streamvibeborderlogo" />
         </div>
         <div className="innerwrap h-4 w-4">

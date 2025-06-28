@@ -5,7 +5,7 @@ const Home = () => {
     <main className="homePage h-full">
       <header></header>
       <div className="mainContant h-full">
-        <StreamVibeSppiner></StreamVibeSppiner>
+        
       </div>
       <footer></footer>
     </main>
