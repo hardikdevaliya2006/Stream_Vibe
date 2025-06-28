@@ -1,8 +1,14 @@
-import React from 'react'
+import StreamVibeSppiner from "../Components/Common/Loader/StreamVibeSppiner"
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <main className="homePage">
+      <header></header>
+      <div className="mainContant">
+        <StreamVibeSppiner></StreamVibeSppiner>
+      </div>
+      <footer></footer>
+    </main>
   )
 }
 
