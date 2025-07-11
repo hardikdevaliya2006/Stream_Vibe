@@ -1,15 +1,18 @@
-import StreamVibeSppiner from "../Components/Common/Loader/StreamVibeSppiner"
+import StreamVibeSppiner from "../Components/Common/Loader/StreamVibeSppiner";
+import HeroSecationWrap from "../Components/Home/Hero-Section/HeroSecationWrap";
 
 const Home = () => {
   return (
     <main className="homePage h-full">
-      <header></header>
       <div className="mainContant h-full">
-        
+        <header>
+          <HeroSecationWrap></HeroSecationWrap>
+        </header>
+        {/* <StreamVibeSppiner></StreamVibeSppiner> */}
+        <footer></footer>
       </div>
-      <footer></footer>
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
