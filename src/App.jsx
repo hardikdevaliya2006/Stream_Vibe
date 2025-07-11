@@ -1,9 +1,12 @@
-import Home from './Page/Home'
+import Home from "./Page/Home";
+import AppRouter from "./Router/AppRouter";
 
 const App = () => {
   return (
-    <Home></Home>
-  )
-}
+    <AppRouter>
+      <Home></Home>
+    </AppRouter>
+  );
+};
 
-export default App
+export default App;

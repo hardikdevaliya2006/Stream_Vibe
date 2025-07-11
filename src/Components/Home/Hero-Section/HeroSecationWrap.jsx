@@ -14,10 +14,10 @@ const HeroSecationWrap = () => {
           <img
             src={streamvibetransperentlogo}
             alt="transperantLogoWrap"
-            className="h-35"
+            className="h-35 md:h-45 lg:h-55"
           />
         </div>
-        <div className="acationSecation flex flex-col items-center justify-center gap-2">
+        <div className="acationSecation flex flex-col items-center justify-center gap-4">
           <HeaderText></HeaderText>
           <div className="actionBtn cursor-pointer flex justify-center items-center gap-2 text-white bg-red-45 w-fit px-3 py-2 rounded-md">
             <img src={playBtn} alt="playNow" className="h-3" />
