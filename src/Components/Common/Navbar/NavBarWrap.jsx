@@ -9,7 +9,7 @@ const NavBarWrap = () => {
       </div>
       <div></div>
       <div>
-        <div className="search bg-gray-10 border border-gray-15 rounded-md w-fit px-1 py-1">
+        <div className="search bg-gray-10 border-2 border-gray-15 rounded-md w-fit px-1 py-1">
           <CgMenuRightAlt className="text-white text-2xl"></CgMenuRightAlt>
         </div>
       </div>
