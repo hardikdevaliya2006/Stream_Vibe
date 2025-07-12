@@ -8,7 +8,6 @@ const Home = () => {
         <header>
           <HeroSecationWrap></HeroSecationWrap>
         </header>
-        {/* <StreamVibeSppiner></StreamVibeSppiner> */}
         <footer></footer>
       </div>
     </main>
