@@ -2,7 +2,7 @@ import React from "react";
 
 const HeaderText = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col md:gap-2 items-center justify-center">
       <h1 className="text-white lg:text-4xl md:text-3xl md:font-bold text-2xl text-center font-semibold">
         The Best Streaming Experience
       </h1>

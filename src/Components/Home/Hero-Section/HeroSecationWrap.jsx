@@ -17,11 +17,13 @@ const HeroSecationWrap = () => {
             className="h-35 md:h-45 lg:h-55"
           />
         </div>
-        <div className="acationSecation flex flex-col items-center justify-center gap-4">
+        <div className="acationSecation flex flex-col items-center justify-center gap-5">
           <HeaderText></HeaderText>
           <div className="actionBtn cursor-pointer flex justify-center items-center gap-2 text-white bg-red-45 w-fit px-3 py-2 rounded-md">
-            <img src={playBtn} alt="playNow" className="h-3" />
-            <button className="text- font-semibold">Start Watching Now</button>
+            <img src={playBtn} alt="playNow" className="h-3 cursor-pointer" />
+            <button className="text- font-semibold cursor-pointer">
+              Start Watching Now
+            </button>
           </div>
         </div>
       </div>
