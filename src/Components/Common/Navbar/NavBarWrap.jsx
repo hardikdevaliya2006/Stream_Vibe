@@ -22,7 +22,7 @@ const NavBarWrap = () => {
       </div>
       <div className="lg:hidden">
         <div
-          className="bg-gray-10 border-2 border-gray-15 rounded-md w-fit px-1 py-1"
+          className="bg-gray-10 cursor-pointer border-2 border-gray-15 rounded-md w-fit px-1 py-1"
           onClick={handleMenu}
         >
           <CgMenuRightAlt className="text-white md:text-3xl text-2xl" />

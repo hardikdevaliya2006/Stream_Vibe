@@ -25,7 +25,7 @@ const NavLinks = () => {
       </NavLink>
       <NavLink
         to={"/Support"}
-        className={({ isActive }) =>
+        className={({ isActive }) => 
           isActive
             ? "text-white bg-gray-10 rounded-md px-2.5 py-1.5"
             : "p-2 text-gray-75"

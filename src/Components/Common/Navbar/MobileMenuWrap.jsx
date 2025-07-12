@@ -1,4 +1,4 @@
-import React from "react";
+import { RxArrowTopRight } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
 import { NavLink } from "react-router";
 
@@ -54,10 +54,13 @@ const MobileMenuWrap = ({ isOpen }) => {
                       : "text-gray-75 w-full px-2.5 py-1.5"
                   }
                 >
-                  Home
+                  <div className="navElm w-full flex items-center justify-between">
+                    <p>Home</p>
+                    <RxArrowTopRight className="text-lg text-shadow-white"></RxArrowTopRight>
+                  </div>
                 </NavLink>
               </li>
-              <li className="w-full">
+              <li className="w-full flex">
                 <NavLink
                   to={"/Movies-Shows"}
                   className={({ isActive }) =>
@@ -66,10 +69,13 @@ const MobileMenuWrap = ({ isOpen }) => {
                       : "text-gray-75 w-full px-2.5 py-1.5"
                   }
                 >
-                  Movies & Shows
+                  <div className="navElm w-full flex items-center justify-between">
+                    <p>Movies & Shows</p>
+                    <RxArrowTopRight className="text-lg text-shadow-white"></RxArrowTopRight>
+                  </div>
                 </NavLink>
               </li>
-              <li className="w-full">
+              <li className="w-full flex">
                 <NavLink
                   to={"/Support"}
                   className={({ isActive }) =>
@@ -78,10 +84,13 @@ const MobileMenuWrap = ({ isOpen }) => {
                       : "text-gray-75 w-full px-2.5 py-1.5"
                   }
                 >
-                  Support
+                  <div className="navElm w-full flex items-center justify-between">
+                    <p>Support</p>
+                    <RxArrowTopRight className="text-lg text-shadow-white"></RxArrowTopRight>
+                  </div>
                 </NavLink>
               </li>
-              <li className="w-full">
+              <li className="w-full flex">
                 <NavLink
                   to={"/Subscriptions"}
                   className={({ isActive }) =>
@@ -90,7 +99,10 @@ const MobileMenuWrap = ({ isOpen }) => {
                       : "text-gray-75 w-full px-2.5 py-1.5"
                   }
                 >
-                  Subscriptions
+                  <div className="navElm w-full flex items-center justify-between">
+                    <p>Subscriptions</p>
+                    <RxArrowTopRight className="text-lg text-shadow-white"></RxArrowTopRight>
+                  </div>
                 </NavLink>
               </li>
             </ul>
