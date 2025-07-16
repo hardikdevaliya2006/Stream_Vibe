@@ -14,7 +14,7 @@ const HeaderText = () => {
           </p>
           <p className="hidden lg:inline">
             With StreamVibe, you can enjoy a wide variety of content, including
-            the latest blockbusters, classic movies, popular TV shows, and more.
+            the latest blockbusters, classic movie, popular TV shows, and more.
             You can also create your own watchlists, so you can easily find the
             content you want to watch.
           </p>

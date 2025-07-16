@@ -1,4 +1,3 @@
-import StreamVibeSppiner from "../Components/Common/Loader/StreamVibeSppiner";
 import HeroSecationWrap from "../Components/Home/Hero-Section/HeroSecationWrap";
 
 const Home = () => {
@@ -8,6 +7,9 @@ const Home = () => {
         <header>
           <HeroSecationWrap></HeroSecationWrap>
         </header>
+        <div className="Main">
+          
+        </div>
         <footer></footer>
       </div>
     </main>
