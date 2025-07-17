@@ -8,7 +8,7 @@ const Home = () => {
         <header>
           <HeroSecationWrap></HeroSecationWrap>
         </header>
-        <div className="Main mx-4">
+        <div className="Main xl:w-[78vw] lg:w-[80vw] lg:m-auto mx-4">
           <MoviesGenerWrap></MoviesGenerWrap>
         </div>
         <footer></footer>
