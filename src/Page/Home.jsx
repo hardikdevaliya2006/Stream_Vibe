@@ -1,4 +1,5 @@
 import HeroSecationWrap from "../Components/Home/Hero-Section/HeroSecationWrap";
+import { MoviesGenerWrap } from "../Components/Home/Movie-Categories/MoviesGenerWrap";
 
 const Home = () => {
   return (
@@ -7,8 +8,8 @@ const Home = () => {
         <header>
           <HeroSecationWrap></HeroSecationWrap>
         </header>
-        <div className="Main">
-          
+        <div className="Main mx-4">
+          <MoviesGenerWrap></MoviesGenerWrap>
         </div>
         <footer></footer>
       </div>
