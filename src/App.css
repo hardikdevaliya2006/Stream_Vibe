@@ -43,6 +43,12 @@ body,
     -ms-overflow-style: initial;
     scrollbar-width: 5px;
   }
+  .generSlider::-webkit-scrollbar-track {
+    width: 5px;
+  }
+  .generSlider::-webkit-scrollbar {
+    height: 5px;
+  }
 }
 
 @keyframes rotate {

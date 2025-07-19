@@ -33,7 +33,7 @@ const MoviesCategoryCardWrap = () => {
         {genresWithMovies.map((genre) => {
           return (
             <div className="MoviesGenreWrap w-full" key={genre.id}>
-              <ul className="flex mb-2  items-center justify-start flex-wrap gap-4">
+              <ul className="flex mb-2 items-center justify-start flex-wrap gap-4">
                 <li className="w-fit relative p-2 bg-gray-10 border-2 border-gray-15 rounded-xl overflow-hidden">
                   <div className="genreMoviesPosterWrap gap-2 grid grid-cols-2 grid-rows-2">
                     {genre.moviesData.slice(0, 4).map((img) => {
