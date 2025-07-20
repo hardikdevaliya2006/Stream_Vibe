@@ -1,5 +1,3 @@
-import React from "react";
-
 const SecationHeader = ({ subText, mainText }) => {
   return (
     <div className="secationHeaderTextWrap flex flex-col justify-start gap-2">

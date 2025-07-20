@@ -9,7 +9,7 @@ const Navigator = () => {
     <div className="NavigatorWrap flex items-start justify-end w-full">
       <div className="Navigtor flex items-center justify-center p-1 w-fit gap-1 text-white border-1 border-gray-15 rounded-xl bg-gray-06">
         <div
-          className="LeftArrow p-2 border-1 border-gray-15 rounded-md bg-gray-10 w-fit cursor-pointer"
+          className="LeftArrow hover:scale-105 transition-transform p-2 border-1 border-gray-15 rounded-md bg-gray-10 w-fit cursor-pointer"
           onClick={scrollLeft}
         >
           <IoArrowBackOutline />
@@ -27,7 +27,7 @@ const Navigator = () => {
         </div>
 
         <div
-          className="RightArrow p-2 border-1 border-gray-15 rounded-md bg-gray-10 w-fit cursor-pointer"
+          className="RightArrow hover:scale-105 transition-transform p-2 border-1 border-gray-15 rounded-md bg-gray-10 w-fit cursor-pointer"
           onClick={scrollRight}
         >
           <IoArrowForwardOutline />
