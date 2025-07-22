@@ -16,7 +16,7 @@ const DevicesSupportWrap = () => {
           />
         </div>
       </div>
-      <div className="deviceSupportCard">
+      <div className="deviceSupportCard mt-5">
         <DeviceSupportCard></DeviceSupportCard>
       </div>
     </section>
