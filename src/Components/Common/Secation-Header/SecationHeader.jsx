@@ -5,7 +5,8 @@ const SecationHeader = ({ subText, mainText }) => {
         <h1>{mainText}</h1>
       </div>
       <div className="subText break-words text-sm text-gray-60">
-        <h4>{subText}</h4>
+        <p className="inline">{subText.split("\n")[0]}</p>
+        <p className="hidden lg:inline">{subText.split("\n")[1]}</p>
       </div>
     </div>
   );

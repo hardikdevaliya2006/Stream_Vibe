@@ -28,7 +28,7 @@ const MoviesCategoryCardWrap = () => {
       className="MoviesGenreWrap w-full generSlider overflow-x-auto"
       ref={scrollRef}
     >
-      <ul className="flex items-center justify-start w-max gap-4">
+      <ul className="flex items-center mb-2 justify-start w-max gap-4">
         {genresLoading || error || !genresWithMovies?.length ? (
           <div className="w-full mb-2 overflow-x-auto">
             <ul className="flex w-max items-start gap-4 px-1">
