@@ -1,5 +1,5 @@
 import SecationHeader from "../../Common/Secation-Header/SecationHeader";
-import DeviceSupportCard from "./deviceSupportCard";
+import DeviceSupportCard from "./DeviceSupportCard";
 
 const DevicesSupportWrap = () => {
   return (
