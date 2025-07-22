@@ -7,7 +7,7 @@ const DeviceSupportCard = () => {
         return (
           <li
             key={index}
-            className="flex flex-col items-start justify-center gap-4 border bg-[linear-gradient(35deg,_#0F0F0F_70%,_rgba(255,0,0,0.15)_100%)] p-4 border-gray-15 rounded-lg"
+            className="flex cursor-pointer hover:border-red-45/80  transition-all duration-300 flex-col items-start justify-center gap-4 border bg-[linear-gradient(35deg,_#0F0F0F_70%,_rgba(255,0,0,0.15)_100%)] p-4 border-gray-15 rounded-lg"
           >
             <div className="heading flex items-center justify-start gap-2">
               <div className="svg border border-gray-15 rounded-md flex items-center justify-center bg-gray-08 lg:h-11 h-10 lg:w-11 w-10">
