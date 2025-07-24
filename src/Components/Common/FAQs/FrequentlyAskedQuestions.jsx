@@ -9,9 +9,7 @@ const PlusMinusIcon = ({ isOpen }) => {
         layout
         className="absolute top-1/2 left-0 w-full h-[0.02rem] bg-white"
         initial={false}
-        animate={{
-          rotate: 0,
-        }}
+        animate={{ rotate: 0 }}
       />
       <motion.span
         layout
@@ -31,12 +29,17 @@ const PlusMinusIcon = ({ isOpen }) => {
 const FAQItem = ({ id, activeId, setActiveId, question, answer }) => {
   const isOpen = id === activeId;
   const toggle = () => setActiveId(isOpen ? null : id);
+
   return (
-    <div className="quetionItem flex flex-col items-start justify-center pb-2">
-      <div onClick={toggle} className="flex cursor-pointer w-full items-center justify-between pb-4">
-        <div
-          className="numberQuetion flex items-center justify-start gap-2"
-        >
+    <motion.div
+      layout
+      className="quetionItem flex flex-col items-start justify-center pb-2 w-full"
+    >
+      <div
+        onClick={toggle}
+        className="flex cursor-pointer w-full items-center justify-between pb-4"
+      >
+        <div className="numberQuetion flex items-center justify-start gap-2">
           <div className="number text-white border border-gray-15 rounded-md flex items-center justify-center bg-gray-08 lg:min-h-11 min-h-10 lg:min-w-11 min-w-10">
             <span>{id}</span>
           </div>
@@ -48,29 +51,35 @@ const FAQItem = ({ id, activeId, setActiveId, question, answer }) => {
           <PlusMinusIcon isOpen={isOpen} />
         </div>
       </div>
-      <div>
+
+      <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            layout
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden mt-2 text-gray-600"
+            className="overflow-hidden mt-2 text-gray-400 w-full"
           >
             <div className="ans text-gray-60 w-full pb-4">
               <span className="w-full text-sm">{answer}</span>
             </div>
           </motion.div>
         )}
-      </div>
-      <div
-        className="line h-[0.092rem] w-[90%]"
+      </AnimatePresence>
+
+      <motion.div
+        initial={{ width: 0 }}
+        animate={{ width: "100%" }}
+        transition={{ duration: 0.5 }}
+        className="h-[1px]"
         style={{
           backgroundImage:
-            "linear-gradient(to right, rgb(0, 0, 0,0.5) 0%, rgb(220, 0, 0) 50%, rgb(0, 0, 0, 0.5) 100%)",
+            "linear-gradient(to right, rgba(0,0,0,0.5), rgb(220,0,0), rgba(0,0,0,0.5))",
         }}
-      ></div>
-    </div>
+      />
+    </motion.div>
   );
 };
 
@@ -79,17 +88,18 @@ const FrequentlyAskedQuestions = () => {
 
   return (
     <AnimatePresence>
-      <div className="quetionsWraper">
-        <div className="quetions grid md:grid-cols-2 md:grid-rows-2 grid-cols-1 gap-4">
+      <div className="quetionsWraper h-[25rem]">
+        <div className="quetions flex flex-wrap gap-4">
           {faqs.map((item, index) => (
-            <FAQItem
-              key={index}
-              id={item.id}
-              activeId={activeId}
-              setActiveId={setActiveId}
-              question={item.question}
-              answer={item.answer}
-            />
+            <div key={index} className="w-full md:w-[48%]">
+              <FAQItem
+                id={item.id}
+                activeId={activeId}
+                setActiveId={setActiveId}
+                question={item.question}
+                answer={item.answer}
+              />
+            </div>
           ))}
         </div>
       </div>
