@@ -28,7 +28,7 @@ const PlusMinusIcon = ({ isOpen }) => {
   );
 };
 
-const FAQItem = ({ key, id, activeId, setActiveId, question, answer }) => {
+const FAQItem = ({ id, activeId, setActiveId, question, answer }) => {
   const isOpen = id === activeId;
   const toggle = () => setActiveId(isOpen ? null : id);
   return (
@@ -37,7 +37,7 @@ const FAQItem = ({ key, id, activeId, setActiveId, question, answer }) => {
         <div
           className="numberQuetion flex items-center justify-start gap-2"
         >
-          <div className="number text-white border border-gray-15 rounded-md flex items-center justify-center bg-gray-08 lg:h-11 h-10 lg:w-11 w-10">
+          <div className="number text-white border border-gray-15 rounded-md flex items-center justify-center bg-gray-08 lg:min-h-11 min-h-10 lg:min-w-11 min-w-10">
             <span>{id}</span>
           </div>
           <div className="quetion text-white">
