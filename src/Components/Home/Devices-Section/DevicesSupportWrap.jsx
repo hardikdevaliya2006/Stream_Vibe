@@ -3,8 +3,8 @@ import DeviceSupportCard from "./DeviceSupportCard";
 
 const DevicesSupportWrap = () => {
   return (
-    <section className="DevicesSupportWrap pb-4">
-      <div className="HeaderTextAndNavigotr flex w-full">
+    <section className="DevicesSupportWrap pb-4 my-10">
+      <div className="flex w-full">
         <div className="HeaderText w-full">
           <SecationHeader
             mainText={

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+.test{
+  color: rgb(229, 0, 0);
+}
+
 @theme {
   --breakpoint-xss: 450px;
 
