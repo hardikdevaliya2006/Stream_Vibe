@@ -1,4 +1,5 @@
 import FrequentlyAskedQuestionsWrap from "../Components/Common/FAQs/FrequentlyAskedQuestionsWrap";
+import PricingSecationWrap from "../Components/Common/Pricing-Section/PricingSecationWrap";
 import DevicesSupportWrap from "../Components/Home/Devices-Section/DevicesSupportWrap";
 import HeroSecationWrap from "../Components/Home/Hero-Section/HeroSecationWrap";
 import { MoviesGenerWrap } from "../Components/Home/Movie-Categories/MoviesGenerWrap";
@@ -14,6 +15,7 @@ const Home = () => {
           <MoviesGenerWrap></MoviesGenerWrap>
           <DevicesSupportWrap></DevicesSupportWrap>
           <FrequentlyAskedQuestionsWrap></FrequentlyAskedQuestionsWrap>
+          <PricingSecationWrap></PricingSecationWrap>
         </div>
         <footer></footer>
       </div>

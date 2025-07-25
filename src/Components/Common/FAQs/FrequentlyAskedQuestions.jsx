@@ -88,8 +88,8 @@ const FrequentlyAskedQuestions = () => {
 
   return (
     <AnimatePresence>
-      <div className="quetionsWraper h-[25rem]">
-        <div className="quetions flex flex-wrap gap-4">
+      <div className="quetionsWraper ">
+        <div className="quetions flex flex-wrap justify-between gap-4">
           {faqs.map((item, index) => (
             <div key={index} className="w-full md:w-[48%]">
               <FAQItem

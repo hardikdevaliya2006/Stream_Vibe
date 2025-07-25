@@ -1,0 +1,51 @@
+plans = [
+  {
+    name: "Basic",
+    price: "$9.99/Month",
+    features: {
+      Content:
+        "Access to a wide selection of movies and shows, including some new releases.",
+      Devices: "Watch on one device simultaneously",
+      "Free Trial": "7 Days",
+      "Cancel Anytime": "Yes",
+      HDR: "No",
+      "Dolby Atmos": "No",
+      "Ad-Free": "No",
+      "Offline Viewing": "No",
+      "Family Sharing": "No",
+    },
+  },
+  {
+    name: "Standard",
+    tag: "Popular",
+    price: "$12.99/Month",
+    features: {
+      Content:
+        "Access to a wider selection of movies and shows, including most new releases and exclusive content",
+      Devices: "Watch on Two device simultaneously",
+      "Free Trial": "7 Days",
+      "Cancel Anytime": "Yes",
+      HDR: "Yes",
+      "Dolby Atmos": "Yes",
+      "Ad-Free": "Yes",
+      "Offline Viewing": "Yes, for select titles.",
+      "Family Sharing": "Yes, up to 5 family members.",
+    },
+  },
+  {
+    name: "Premium",
+    price: "$14.99/Month",
+    features: {
+      Content:
+        "Access to a widest selection of movies and shows, including all new releases and Offline Viewing",
+      Devices: "Watch on Four device simultaneously",
+      "Free Trial": "7 Days",
+      "Cancel Anytime": "Yes",
+      HDR: "Yes",
+      "Dolby Atmos": "Yes",
+      "Ad-Free": "Yes",
+      "Offline Viewing": "Yes, for all titles.",
+      "Family Sharing": "Yes, up to 6 family members.",
+    },
+  },
+];
