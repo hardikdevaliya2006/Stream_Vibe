@@ -1,5 +1,6 @@
 import CallToActionWrap from "../Components/Common/CTA/CallToActionWrap";
 import FrequentlyAskedQuestionsWrap from "../Components/Common/FAQs/FrequentlyAskedQuestionsWrap";
+import FooterWrap from "../Components/Common/Footer/FooterWrap";
 import PricingSecationWrap from "../Components/Common/Pricing-Section/PricingSecationWrap";
 import DevicesSupportWrap from "../Components/Home/Devices-Section/DevicesSupportWrap";
 import HeroSecationWrap from "../Components/Home/Hero-Section/HeroSecationWrap";
@@ -19,7 +20,9 @@ const Home = () => {
           <PricingSecationWrap></PricingSecationWrap>
           <CallToActionWrap></CallToActionWrap>
         </div>
-        <footer></footer>
+        <footer>
+          <FooterWrap></FooterWrap>
+        </footer>
       </div>
     </main>
   );
