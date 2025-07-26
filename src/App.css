@@ -35,6 +35,33 @@ body,
   border-radius: 80px;
 }
 
+.responsive-banner {
+  background: linear-gradient(
+      to right,
+      rgb(15, 15, 15) 10%,
+      rgba(20, 15, 15, 0.9747) 20%,
+      rgba(34, 14, 14, 0.9096) 60%,
+      rgba(229, 0, 0, 0.5)
+    ),
+    url("/img/CTABanner.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media (max-width: 1024px) {
+  .responsive-banner {
+    background-image: linear-gradient(
+        to bottom,
+        rgb(15, 15, 15) 10%,
+        rgba(20, 15, 15, 0.9747) 20%,
+        rgba(34, 14, 14, 0.9096) 60%,
+        rgba(229, 0, 0, 0.5)
+      ),
+      url("/img/CTABanner.png");
+  }
+}
+
 @media (max-width: 768px) {
   .generSlider::-webkit-scrollbar {
     display: flex;

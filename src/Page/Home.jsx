@@ -1,3 +1,4 @@
+import CallToActionWrap from "../Components/Common/CTA/CallToActionWrap";
 import FrequentlyAskedQuestionsWrap from "../Components/Common/FAQs/FrequentlyAskedQuestionsWrap";
 import PricingSecationWrap from "../Components/Common/Pricing-Section/PricingSecationWrap";
 import DevicesSupportWrap from "../Components/Home/Devices-Section/DevicesSupportWrap";
@@ -16,6 +17,7 @@ const Home = () => {
           <DevicesSupportWrap></DevicesSupportWrap>
           <FrequentlyAskedQuestionsWrap></FrequentlyAskedQuestionsWrap>
           <PricingSecationWrap></PricingSecationWrap>
+          <CallToActionWrap></CallToActionWrap>
         </div>
         <footer></footer>
       </div>
