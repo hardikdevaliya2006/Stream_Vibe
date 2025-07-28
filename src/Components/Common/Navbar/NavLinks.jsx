@@ -8,7 +8,7 @@ const NavLinks = () => {
         className={({ isActive }) =>
           isActive
             ? "text-white bg-gray-10 rounded-md px-2.5 py-1.5"
-            : "p-2 text-gray-75"
+            : "px-2.5 py-1.5 text-gray-75"
         }
       >
         Home
@@ -18,7 +18,7 @@ const NavLinks = () => {
         className={({ isActive }) =>
           isActive
             ? "text-white bg-gray-10 rounded-xl px-2.5 py-1.5"
-            : "p-2 text-gray-75"
+            : "px-2.5 py-1.5 text-gray-75"
         }
       >
         Movies & Shows
@@ -28,7 +28,7 @@ const NavLinks = () => {
         className={({ isActive }) => 
           isActive
             ? "text-white bg-gray-10 rounded-md px-2.5 py-1.5"
-            : "p-2 text-gray-75"
+            : "px-2.5 py-1.5 text-gray-75"
         }
       >
         Support
@@ -38,7 +38,7 @@ const NavLinks = () => {
         className={({ isActive }) =>
           isActive
             ? "text-white bg-gray-10 rounded-md px-2.5 py-1.5"
-            : "p-2 text-gray-75"
+            : "px-2.5 py-1.5 text-gray-75"
         }
       >
         Subscriptions

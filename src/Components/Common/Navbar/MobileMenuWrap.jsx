@@ -51,7 +51,7 @@ const MobileMenuWrap = ({ isOpen }) => {
                   className={({ isActive }) =>
                     isActive
                       ? "text-white flex w-full bg-gray-15 rounded-md px-2.5 py-1.5"
-                      : "text-gray-75 w-full px-2.5 py-1.5"
+                      : "text-gray-75 w-full flex px-2.5 py-1.5"
                   }
                 >
                   <div className="navElm w-full flex items-center justify-between">
@@ -65,8 +65,8 @@ const MobileMenuWrap = ({ isOpen }) => {
                   to={"/Movies-Shows"}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-white flex w-full bg-gray-10 rounded-xl px-2.5 py-1.5"
-                      : "text-gray-75 w-full px-2.5 py-1.5"
+                      ? "text-white flex w-full bg-gray-15 rounded-xl px-2.5 py-1.5"
+                      : "text-gray-75 w-full flex px-2.5 py-1.5"
                   }
                 >
                   <div className="navElm w-full flex items-center justify-between">
@@ -80,8 +80,8 @@ const MobileMenuWrap = ({ isOpen }) => {
                   to={"/Support"}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-white flex w-full bg-gray-10 rounded-md px-2.5 py-1.5"
-                      : "text-gray-75 w-full px-2.5 py-1.5"
+                      ? "text-white flex w-full bg-gray-15 rounded-md px-2.5 py-1.5"
+                      : "text-gray-75 w-full flex px-2.5 py-1.5"
                   }
                 >
                   <div className="navElm w-full flex items-center justify-between">
@@ -95,8 +95,8 @@ const MobileMenuWrap = ({ isOpen }) => {
                   to={"/Subscriptions"}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-white flex w-full bg-gray-10 rounded-md px-2.5 py-1.5"
-                      : "text-gray-75 w-full px-2.5 py-1.5"
+                      ? "text-white flex w-full bg-gray-15 rounded-md px-2.5 py-1.5"
+                      : "text-gray-75 w-full flex px-2.5 py-1.5"
                   }
                 >
                   <div className="navElm w-full flex items-center justify-between">

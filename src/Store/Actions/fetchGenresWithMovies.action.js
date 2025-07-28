@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import tmdbApi from "../../Services/tmdbApi";
 
-export const fetchGenresWithMovies = createAsyncThunk(
+export const fetchGenresWithMovies = createAsyncThunk( 
   "moviesGenre/fetchGenresWithMovies",
   async (__dirname, thunkApi) => {
     try {
