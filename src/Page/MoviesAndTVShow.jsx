@@ -1,4 +1,3 @@
-import React from "react";
 import FooterWrap from "../Components/Common/Footer/FooterWrap";
 import NavBarWrap from "../Components/Common/Navbar/NavBarWrap";
 import CarouselWrap from "../Components/Movies-TV-Show/Carousel/CarouselWrap";
@@ -10,7 +9,7 @@ const MoviesAndTVShow = () => {
         <header className="headerWrap">
           <NavBarWrap></NavBarWrap>
         </header>
-        <div className="Main xl:w-[78vw] lg:w-[80vw] lg:m-auto mx-4">
+        <div className="Main xl:max-w-[78vw] lg:max-w-[80vw] lg:m-auto ">
           <CarouselWrap></CarouselWrap>
         </div>
         <footer>

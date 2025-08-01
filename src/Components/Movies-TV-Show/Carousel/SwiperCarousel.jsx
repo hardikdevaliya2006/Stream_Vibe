@@ -33,30 +33,32 @@ const SwiperCarousel = () => {
         spaceBetween={20}
         slidesPerView={1}
       >
-        {carousleImg.slice(0, 6).map((img, index) => (
+        {carousleImg.slice(0, 10).map((img, index) => (
           <SwiperSlide key={index}>
-            <div className="relative sm:h-full h-[350px] sm:w-full">
+            <div className="relative sm:h-full 2xl:h-[820px] h-[350px] sm:w-full">
               <img
                 src={`https://image.tmdb.org/t/p/original${img.backdrop_path}`}
                 alt={index}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
-              <div className="information absolute flex gap-2 flex-col w-full items-center justify-center bottom-10 z-10">
-                <div className="text-white font-semibold text-2xl">
+              <div className="information absolute flex gap-2 2xl:gap-4 flex-col w-full items-center justify-center bottom-10 2xl:bottom-25 z-10">
+                <div className="text-white font-semibold 2xl:text-4xl 2xl:font-extrabold lg:text-3xl text-2xl">
                   <h3>{img.title || img.name}</h3>
                 </div>
-                <div className="text-gray-65 text-center text-sm hidden sm:flex">
-                  <p>{img.overview}</p>
+                <div className="text-gray-65 w-[90%] text-center 2xl:text-[1.1rem] text-sm hidden lg:flex">
+                  <p className="line-clamp-2">{img.overview}</p>
                 </div>
-                <div className="buttensWrap flex items-center justify-center gap-2">
+                <div className="buttensWrap flex items-center justify-center 2xl:gap-4 gap-2">
                   <div className="playNow">
                     <div className="actionBtn cursor-pointer flex justify-center items-center gap-2 text-white bg-red-45 px-5 py-1.5 rounded-md">
                       <img
                         src={playBtn}
                         alt="playNow"
-                        className="h-3 cursor-pointer"
+                        className="h-3 2xl:h-4 cursor-pointer"
                       />
-                      <button className="cursor-pointer">Play Now</button>
+                      <button className="cursor-pointer 2xl:font-semibold 2xl:text-[1.1rem]">
+                        Play Now
+                      </button>
                     </div>
                   </div>
                   <div className="flex items-center justify-center gap-2">
@@ -90,13 +92,13 @@ const SwiperCarousel = () => {
         ))}
       </Swiper>
 
-      <div className="absolute bottom-1 px-1 w-full z-40 flex items-center justify-between">
+      <div className="absolute 2xl:bottom-4 bottom-1 2xl:px-4 px-1 w-full z-40 flex items-center justify-between">
         <div className="custom-prev bg-gray-06 border border-gray-15 text-white p-2 rounded-md cursor-pointer">
-          <IoArrowBackOutline className="text-[1.2rem]" />
+          <IoArrowBackOutline className="text-[1.2rem] 2xl:text-[1.5rem]" />
         </div>
-        <div className="custom-pagination flex w-fit items-center justify-center gap-1 " />
+        <div className="custom-pagination flex w-fit items-center justify-center lg:gap-1 gap-[0.3rem]" />
         <div className="custom-next bg-gray-06 border border-gray-15 text-white p-2 rounded-md cursor-pointer">
-          <IoArrowForwardOutline className="text-[1.2rem]" />
+          <IoArrowForwardOutline className="text-[1.2rem] 2xl:text-[1.5rem]" />
         </div>
       </div>
     </div>
