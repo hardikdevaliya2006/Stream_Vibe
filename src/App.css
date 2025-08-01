@@ -70,7 +70,7 @@ body,
 /* All bullets */
 .custom-pagination .swiper-pagination-bullet {
   width: 20px;
-  height: 3px;
+  height: 5px;
   background-color: #ffffff;
   opacity: 0.3;
   border-radius: 5px;

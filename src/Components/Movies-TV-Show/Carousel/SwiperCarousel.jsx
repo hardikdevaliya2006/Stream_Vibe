@@ -56,9 +56,7 @@ const SwiperCarousel = () => {
                         alt="playNow"
                         className="h-3 cursor-pointer"
                       />
-                      <button className="cursor-pointer">
-                        Play Now
-                      </button>
+                      <button className="cursor-pointer">Play Now</button>
                     </div>
                   </div>
                   <div className="flex items-center justify-center gap-2">
@@ -94,11 +92,11 @@ const SwiperCarousel = () => {
 
       <div className="absolute bottom-1 px-1 w-full z-40 flex items-center justify-between">
         <div className="custom-prev bg-gray-06 border border-gray-15 text-white p-2 rounded-md cursor-pointer">
-          <IoArrowBackOutline className="text-sm" />
+          <IoArrowBackOutline className="text-[1rem]" />
         </div>
         <div className="custom-pagination flex w-fit items-center justify-center gap-1 " />
         <div className="custom-next bg-gray-06 border border-gray-15 text-white p-2 rounded-md cursor-pointer">
-          <IoArrowForwardOutline className="text-sm" />
+          <IoArrowForwardOutline className="text-[1.2rem]" />
         </div>
       </div>
     </div>
