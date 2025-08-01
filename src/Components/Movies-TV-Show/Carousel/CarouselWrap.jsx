@@ -1,25 +1,11 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCarouselImg } from "../../../Store/Actions/fetchCarouselImg.action";
+import SwiperCarousel from "./SwiperCarousel";
 
 const CarouselWrap = () => {
-  const { carousleImg, carousleImgLoading, error } = useSelector(
-    (state) => state.carousleImgData
-  );
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCarouselImg());
-  }, []);
-
-  
-  if (carousleImg) {
-    console.log(carousleImg);
-  }
-
   return (
-    <section>
-      <div className="carouselWrap"></div>
+    <section className="pb-4 mb-10">
+      <div className="carouselWrap">
+        <SwiperCarousel></SwiperCarousel>
+      </div>
     </section>
   );
 };

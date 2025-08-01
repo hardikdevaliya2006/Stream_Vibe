@@ -17,7 +17,7 @@ const NavLinks = () => {
         to={"/Movies-Shows"}
         className={({ isActive }) =>
           isActive
-            ? "text-white bg-gray-10 rounded-xl px-2.5 py-1.5"
+            ? "text-white bg-gray-10 rounded-md px-2.5 py-1.5"
             : "px-2.5 py-1.5 text-gray-75"
         }
       >

@@ -65,7 +65,7 @@ const MobileMenuWrap = ({ isOpen }) => {
                   to={"/Movies-Shows"}
                   className={({ isActive }) =>
                     isActive
-                      ? "text-white flex w-full bg-gray-15 rounded-xl px-2.5 py-1.5"
+                      ? "text-white flex w-full bg-gray-15 rounded-md px-2.5 py-1.5"
                       : "text-gray-75 w-full flex px-2.5 py-1.5"
                   }
                 >
