@@ -92,7 +92,7 @@ const SwiperCarousel = () => {
 
       <div className="absolute bottom-1 px-1 w-full z-40 flex items-center justify-between">
         <div className="custom-prev bg-gray-06 border border-gray-15 text-white p-2 rounded-md cursor-pointer">
-          <IoArrowBackOutline className="text-[1rem]" />
+          <IoArrowBackOutline className="text-[1.2rem]" />
         </div>
         <div className="custom-pagination flex w-fit items-center justify-center gap-1 " />
         <div className="custom-next bg-gray-06 border border-gray-15 text-white p-2 rounded-md cursor-pointer">
