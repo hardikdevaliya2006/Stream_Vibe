@@ -44,14 +44,20 @@ const SwiperCarousel = () => {
                 className="w-full h-full object-cover object-top"
               />
               <div className="information absolute flex gap-2 2xl:gap-4 flex-col w-full items-center justify-center bottom-10 2xl:bottom-25 z-10">
-                <div className="text-white justify-center w-[98%] text-center flex items-baseline gap-1 font-semibold 2xl:text-4xl 2xl:font-extrabold lg:text-3xl text-2xl">
+                <div className="text-white justify-center w-[95%] text-center flex items-baseline gap-0.5 font-semibold 2xl:text-4xl 2xl:font-extrabold lg:text-3xl text-2xl">
                   <h3>{img.title || img.name}</h3>
                   <span>
-                    {img.media_type === "movie" ? <MdOutlineMovie className="text-sm pt-1"/> : <LuTv className="text-sm pt-1"/>}
+                    {img.media_type === "movie" ? (
+                      <MdOutlineMovie className="text-sm lg:pt-2 lg:text-xl pt-1" />
+                    ) : (
+                      <LuTv className="text-sm lg:pt-2 lg:text-xl pt-1" />
+                    )}
                   </span>
                 </div>
                 <div className="text-gray-65 w-[90%] text-center 2xl:text-[1.1rem] text-sm hidden lg:flex">
-                  <p className="line-clamp-2">{img.overview}</p>
+                  <p className="line-clamp-2 text-center w-full">
+                    {img.overview}
+                  </p>
                 </div>
                 <div className="buttensWrap flex items-center justify-center 2xl:gap-4 gap-2">
                   <div className="playNow">
