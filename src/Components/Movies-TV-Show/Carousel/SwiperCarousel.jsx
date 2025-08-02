@@ -4,6 +4,8 @@ import { fetchCarouselImg } from "../../../Store/Actions/fetchCarouselImg.action
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { IoArrowForwardOutline, IoArrowBackOutline } from "react-icons/io5";
+import { LuTv } from "react-icons/lu";
+import { MdOutlineMovie } from "react-icons/md";
 import playBtn from "../../../../public/Logo/streamvibeplayerlogo.svg";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -29,21 +31,24 @@ const SwiperCarousel = () => {
           clickable: true,
           el: ".custom-pagination",
         }}
-        loop={true}
+        loop={carousleImg.slice(0, 10).length > 1}
         spaceBetween={20}
         slidesPerView={1}
       >
         {carousleImg.slice(0, 10).map((img, index) => (
           <SwiperSlide key={index}>
-            <div className="relative sm:h-full 2xl:h-[820px] h-[350px] sm:w-full">
+            <div className="relative sm:h-full 2xl:h-[720px] h-[350px] sm:w-full">
               <img
                 src={`https://image.tmdb.org/t/p/original${img.backdrop_path}`}
                 alt={index}
                 className="w-full h-full object-cover object-top"
               />
               <div className="information absolute flex gap-2 2xl:gap-4 flex-col w-full items-center justify-center bottom-10 2xl:bottom-25 z-10">
-                <div className="text-white font-semibold 2xl:text-4xl 2xl:font-extrabold lg:text-3xl text-2xl">
+                <div className="text-white justify-center w-[98%] text-center flex items-baseline gap-1 font-semibold 2xl:text-4xl 2xl:font-extrabold lg:text-3xl text-2xl">
                   <h3>{img.title || img.name}</h3>
+                  <span>
+                    {img.media_type === "movie" ? <MdOutlineMovie className="text-sm pt-1"/> : <LuTv className="text-sm pt-1"/>}
+                  </span>
                 </div>
                 <div className="text-gray-65 w-[90%] text-center 2xl:text-[1.1rem] text-sm hidden lg:flex">
                   <p className="line-clamp-2">{img.overview}</p>
@@ -93,11 +98,11 @@ const SwiperCarousel = () => {
       </Swiper>
 
       <div className="absolute 2xl:bottom-4 bottom-1 2xl:px-4 px-1 w-full z-40 flex items-center justify-between">
-        <div className="custom-prev bg-gray-06 border border-gray-15 text-white p-2 rounded-md cursor-pointer">
+        <div className="custom-prev hover:scale-105 transition-transform bg-gray-06 border border-gray-15 text-white p-2 rounded-md cursor-pointer">
           <IoArrowBackOutline className="text-[1.2rem] 2xl:text-[1.5rem]" />
         </div>
-        <div className="custom-pagination flex w-fit items-center justify-center lg:gap-1 gap-[0.3rem]" />
-        <div className="custom-next bg-gray-06 border border-gray-15 text-white p-2 rounded-md cursor-pointer">
+        <div className="custom-pagination flex w-fit items-center justify-center lg:gap-1 gap-[0.2rem]" />
+        <div className="custom-next hover:scale-105 transition-transform bg-gray-06 border border-gray-15 text-white p-2 rounded-md cursor-pointer">
           <IoArrowForwardOutline className="text-[1.2rem] 2xl:text-[1.5rem]" />
         </div>
       </div>
