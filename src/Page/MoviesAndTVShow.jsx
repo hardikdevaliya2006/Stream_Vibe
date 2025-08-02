@@ -9,7 +9,7 @@ const MoviesAndTVShow = () => {
         <header className="headerWrap">
           <NavBarWrap></NavBarWrap>
         </header>
-        <div className="Main xl:max-w-[78vw] lg:max-w-[80vw] lg:m-auto py-8">
+        <div className="Main xl:max-w-[78vw] lg:max-w-[80vw] lg:m-auto md:py-8">
           <CarouselWrap></CarouselWrap>
         </div>
         <footer>
