@@ -10,16 +10,19 @@ const carousleImgSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchCarouselImg.pending, (state) => {
-      state.carousleImgLoading = true;
-    }).addCase(fetchCarouselImg.fulfilled, (state, action) => {
+    builder
+      .addCase(fetchCarouselImg.pending, (state) => {
+        state.carousleImgLoading = true;
+      })
+      .addCase(fetchCarouselImg.fulfilled, (state, action) => {
         state.carousleImgLoading = false;
         state.carousleImg = action.payload;
-    }).addCase(fetchCarouselImg.rejected,(state, action) => {
-        state.carousleImgLoading = false;
-        state.error = action.payload
-    })
+      })
+      .addCase(fetchCarouselImg.rejected, (state, action) => {
+        state.carousleImgLoading = true;
+        state.error = action.payload;
+      });
   },
 });
 
-export default carousleImgSlice.reducer
+export default carousleImgSlice.reducer;

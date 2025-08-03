@@ -67,22 +67,20 @@ body,
   display: none;
 }
 
-/* All bullets */
 .custom-pagination .swiper-pagination-bullet {
   width: 15px;
   height: 5px;
   background-color: #ffffff;
   opacity: 0.3;
   border-radius: 5px;
+  margin: 0 !important;
   transition: all 0.3s ease;
 }
 
-/* Active bullet */
 .custom-pagination .swiper-pagination-bullet-active {
   background-color: #ff0000;
   opacity: 1;
 }
-
 
 @media (max-width: 768px) {
   .generSlider::-webkit-scrollbar {
@@ -108,3 +106,28 @@ body,
     transform: rotate(360deg);
   }
 }
+
+@keyframes shimmer {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.shimmer {
+  background: rgba(255, 255, 255, 0.08);
+  animation: pulseGlow 1.5s infinite ease-in-out;
+  pointer-events: none;
+}
+

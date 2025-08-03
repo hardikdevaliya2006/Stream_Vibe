@@ -10,14 +10,37 @@ import playBtn from "../../../../public/Logo/streamvibeplayerlogo.svg";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import SaveButton from "../../Common/AnimationIcon/SaveButton";
+import LikeButton from "../../Common/AnimationIcon/LikeButton";
 
 const SwiperCarousel = () => {
-  const { carousleImg } = useSelector((state) => state.carousleImgData);
+  const { carousleImg, carousleImgLoading } = useSelector(
+    (state) => state.carousleImgData
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCarouselImg());
   }, []);
+
+  if (carousleImgLoading) {
+    return (
+      <section
+        style={{
+          backgroundImage:
+            "linear-gradient(to top, rgba(20, 20, 20, 1) 20%, rgba(20, 20, 20, 0.6) 50%, transparent 100%), url('/img/banner.jpg')",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          position: "relative",
+          overflow: "hidden",
+        }}
+        className="relative 2xl:h-[720px] lg:h-[480px] h-[350px] sm:w-full rounded-md border border-gray-15"
+      >
+        <div className="absolute inset-0 shimmer" />
+        <div className="relative z-10 text-white text-center pt-10 text-2xl"></div>
+      </section>
+    );
+  }
 
   return (
     <div className="relative rounded-lg overflow-hidden border border-gray-15">
@@ -75,23 +98,12 @@ const SwiperCarousel = () => {
                   <div className="flex items-center justify-center gap-2">
                     <div>
                       <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15  p-2">
-                        <lord-icon
-                          src="https://cdn.lordicon.com/gzqofmcx.json"
-                          trigger="click"
-                          className={"h-5 w-5"}
-                          colors="primary:#fff"
-                        ></lord-icon>
+                        <SaveButton></SaveButton>
                       </div>
                     </div>
                     <div>
                       <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15  p-2">
-                        <lord-icon
-                          src="https://cdn.lordicon.com/nvsfzbop.json"
-                          trigger="click"
-                          state="hover-heartbeat-alt"
-                          className={"h-5 w-5"}
-                          colors="primary:#ffffff,secondary:#ffffff"
-                        ></lord-icon>
+                        <LikeButton></LikeButton>
                       </div>
                     </div>
                   </div>
