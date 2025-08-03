@@ -2,8 +2,7 @@ import { IoArrowForwardOutline, IoArrowBackOutline } from "react-icons/io5";
 import { useGenreSlider } from "../../../context/GenreSliderContext";
 
 const Navigator = () => {
-  const { currentSlide, scrollLeft, scrollRight } =
-    useGenreSlider();
+  const { currentSlide, scrollLeft, scrollRight } = useGenreSlider();
 
   return (
     <div className="NavigatorWrap flex items-start justify-end w-full">

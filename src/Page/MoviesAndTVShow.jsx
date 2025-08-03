@@ -3,6 +3,7 @@ import FooterWrap from "../Components/Common/Footer/FooterWrap";
 import MoviesAndTVStructure from "../Components/Common/MoviesAndTVStructure/MoviesAndTVStructure";
 import NavBarWrap from "../Components/Common/Navbar/NavBarWrap";
 import CarouselWrap from "../Components/Movies-TV-Show/Carousel/CarouselWrap";
+import MoviesGenresWrap from "../Components/Movies-TV-Show/Movies-Section/Movies-Genres/MoviesGenresWrap";
 
 const MoviesAndTVShow = () => {
   return (
@@ -13,7 +14,9 @@ const MoviesAndTVShow = () => {
         </header>
         <div className="Main xl:max-w-[78vw] lg:max-w-[80vw] lg:m-auto md:py-8 mx-4">
           <CarouselWrap></CarouselWrap>
-          <MoviesAndTVStructure frameName={"Movies"}></MoviesAndTVStructure>
+          <MoviesAndTVStructure frameName={"Movies"}>
+            <MoviesGenresWrap></MoviesGenresWrap>
+          </MoviesAndTVStructure>
           <MoviesAndTVStructure frameName={"Shows"}></MoviesAndTVStructure>
           <CallToActionWrap></CallToActionWrap>
         </div>
