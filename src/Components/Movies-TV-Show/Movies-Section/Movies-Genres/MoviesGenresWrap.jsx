@@ -20,7 +20,7 @@ const MoviesGenresWrap = () => {
   const [isEnd, setIsEnd] = useState(false);
 
   return (
-    <div className="w-full max-w-[1000px] mx-auto py-8 px-4">
+    <div className="w-full max-w-[1000px] mx-auto py-6 px-4">
       <div className="slideHeader flex w-full items-center h-15 justify-between">
         <div className="text-white text-lg font-semibold">Our Genres</div>
         <div className="Navigtor flex items-center justify-center p-1 w-fit gap-1 text-white border-1 border-gray-15 rounded-xl bg-gray-06">
