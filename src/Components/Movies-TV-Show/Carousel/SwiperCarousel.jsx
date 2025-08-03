@@ -97,12 +97,12 @@ const SwiperCarousel = () => {
                   </div>
                   <div className="flex items-center justify-center gap-2">
                     <div>
-                      <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15  p-2">
+                      <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15 p-[0.56rem]">
                         <SaveButton></SaveButton>
                       </div>
                     </div>
                     <div>
-                      <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15  p-2">
+                      <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15 p-[0.56rem]">
                         <LikeButton></LikeButton>
                       </div>
                     </div>

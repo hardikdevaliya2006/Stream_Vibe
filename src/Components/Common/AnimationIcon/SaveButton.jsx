@@ -12,9 +12,9 @@ const SaveButton = () => {
       className="text-xl text-white"
     >
       {saved ? (
-        <BsBookmarkFill className="text-gray-400 text-[1rem]" />
+        <BsBookmarkFill className="text-gray-300 text-[1rem]" />
       ) : (
-        <BsBookmark className="text-gray-400 text-[1rem]" />
+        <BsBookmark className="text-gray-300 text-[1rem]" />
       )}
     </motion.button>
   );

@@ -15,7 +15,7 @@ const LikeButton = () => {
       {liked ? (
         <FaHeart className="text-red-500" />
       ) : (
-        <FaRegHeart className="text-gray-400" />
+        <FaRegHeart className="text-gray-300" />
       )}
     </motion.button>
   );

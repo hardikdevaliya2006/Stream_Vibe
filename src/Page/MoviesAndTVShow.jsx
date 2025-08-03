@@ -13,9 +13,7 @@ const MoviesAndTVShow = () => {
         </header>
         <div className="Main xl:max-w-[78vw] lg:max-w-[80vw] lg:m-auto md:py-8 mx-4">
           <CarouselWrap></CarouselWrap>
-          <MoviesAndTVStructure frameName={"Movies"}>
-            
-          </MoviesAndTVStructure>
+          <MoviesAndTVStructure frameName={"Movies"}></MoviesAndTVStructure>
           <MoviesAndTVStructure frameName={"Shows"}></MoviesAndTVStructure>
           <CallToActionWrap></CallToActionWrap>
         </div>
