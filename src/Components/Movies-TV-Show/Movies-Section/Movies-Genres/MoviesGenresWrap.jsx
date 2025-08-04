@@ -78,7 +78,7 @@ const MoviesGenresWrap = () => {
               {slide}
             </div>
           </SwiperSlide>
-        ))}
+        ))}           
       </Swiper>
     </div>
   );
