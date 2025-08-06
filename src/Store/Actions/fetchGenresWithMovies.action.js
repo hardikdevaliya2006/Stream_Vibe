@@ -3,7 +3,7 @@ import tmdbApi from "../../Services/tmdbApi";
 
 export const fetchGenresWithMovies = createAsyncThunk(
   "moviesGenre/fetchGenresWithMovies",
-  async (_, thunkApi) => {
+  async (_, thunkApi) => { 
     try {
       const [movieGenresRes, tvGenresRes] = await Promise.all([
         tmdbApi.get("/genre/movie/list"),

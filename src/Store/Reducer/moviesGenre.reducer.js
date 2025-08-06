@@ -6,7 +6,7 @@ const moviesGenreSlice = createSlice({
   initialState: {
     genresWithMovies: [],
     genresLoading: false,
-    error: null, 
+    error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -20,7 +20,8 @@ const moviesGenreSlice = createSlice({
       })
       .addCase(fetchGenresWithMovies.rejected, (state, action) => {
         state.genresLoading = false;
-        state.error = action.payload;
+        state.error =
+          action.payload || "Something went wrong in moviesGenreSlice";
       });
   },
 });

@@ -20,7 +20,7 @@ const carousleImgSlice = createSlice({
       })
       .addCase(fetchCarouselImg.rejected, (state, action) => {
         state.carousleImgLoading = true;
-        state.error = action.payload;
+        state.error = action.payload || "Something went wrong in carousleImg";
       });
   },
 });

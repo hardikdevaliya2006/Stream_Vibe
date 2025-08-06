@@ -22,7 +22,6 @@ const MoviesCategoryCardWrap = () => {
       setTotalSlides(slides);
     }
   }, [genresWithMovies]);
-  console.log(genresWithMovies);
   return (
     <div
       className="MoviesGenreWrap w-full generSlider overflow-x-auto"
@@ -59,7 +58,6 @@ const MoviesCategoryCardWrap = () => {
                     );
                   })}
                 </div>
-
                 <div
                   className="absolute bottom-0 left-0 w-full h-1/2"
                   style={{
