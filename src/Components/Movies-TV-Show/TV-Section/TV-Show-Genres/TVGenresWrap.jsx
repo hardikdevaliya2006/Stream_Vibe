@@ -1,19 +1,19 @@
-import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGenerByMoviesAndTV } from "../../../../Store/Actions/fetchGenerByMoviesAndTV.action";
+import { useEffect, useRef, useState } from "react";
 import SwiperNavigator from "./SwiperNavigator";
 import GenresSwiper from "./GenresSwiper";
 
 const MoviesGenresWrap = () => {
   const dispatch = useDispatch();
-  const { movieGenres } = useSelector((state) => state.genreByMoviesAndTV);
+  const { tvGenres } = useSelector((state) => state.genreByMoviesAndTV);
 
   useEffect(() => {
-    dispatch(fetchGenerByMoviesAndTV("movie"));
+    dispatch(fetchGenerByMoviesAndTV("tv"));
   }, []);
 
   const swiperRef = useRef(null);
-  const slides = movieGenres || [];
+  const slides = tvGenres || [];
   const slidesPerGroup = 4;
 
   const totalGroups = Math.ceil(slides.length / slidesPerGroup);
@@ -30,12 +30,14 @@ const MoviesGenresWrap = () => {
 
   const handleDotClick = (groupIndex) => {
     swiperRef.current?.slideTo(groupIndex * slidesPerGroup);
-  }; 
+  };
 
   return (
     <div className="w-full py-6 px-4">
       <div className="slideHeader flex w-full items-center h-15 justify-between">
-        <div className="text-white md:text-2xl text-lg font-semibold">Our Genres</div>
+        <div className="text-white md:text-2xl text-lg font-semibold">
+          Our Genres
+        </div>
         <SwiperNavigator
           totalGroups={totalGroups}
           activeGroup={activeGroup}

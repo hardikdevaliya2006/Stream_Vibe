@@ -18,7 +18,7 @@ const GenresSwiper = ({ slides, swiperRef, slidesPerGroup, onSlideChange }) => {
       <div className="MoviesGenreWrap w-full generSlider overflow-x-auto">
         <ul className="flex items-center mb-2 justify-start w-fit gap-4">
           {slides.map((slide, i) => (
-            <SwiperSlide key={i} tag="div" className="!w-fit">
+            <SwiperSlide key={i} tag="li" className="!w-fit">
               {
                 <div
                   key={slide.id}

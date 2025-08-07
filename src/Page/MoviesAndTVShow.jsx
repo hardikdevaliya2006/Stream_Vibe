@@ -3,6 +3,7 @@ import FooterWrap from "../Components/Common/Footer/FooterWrap";
 import MoviesAndTVStructure from "../Components/Common/MoviesAndTVStructure/MoviesAndTVStructure";
 import NavBarWrap from "../Components/Common/Navbar/NavBarWrap";
 import CarouselWrap from "../Components/Movies-TV-Show/Carousel/CarouselWrap";
+import TVGenresWrap from "../Components/Movies-TV-Show/TV-Section/TV-Show-Genres/TVGenresWrap"
 import MoviesGenresWrap from "../Components/Movies-TV-Show/Movies-Section/Movies-Genres/MoviesGenresWrap";
 
 const MoviesAndTVShow = () => {
@@ -17,7 +18,9 @@ const MoviesAndTVShow = () => {
           <MoviesAndTVStructure frameName={"Movies"}>
             <MoviesGenresWrap></MoviesGenresWrap>
           </MoviesAndTVStructure>
-          <MoviesAndTVStructure frameName={"Shows"}></MoviesAndTVStructure>
+          <MoviesAndTVStructure frameName={"Shows"}>
+            <TVGenresWrap></TVGenresWrap>
+          </MoviesAndTVStructure>
           <CallToActionWrap></CallToActionWrap>
         </div>
         <footer>

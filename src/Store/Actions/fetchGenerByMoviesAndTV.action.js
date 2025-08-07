@@ -3,29 +3,33 @@ import tmdbApi from "../../Services/tmdbApi";
 
 export const fetchGenerByMoviesAndTV = createAsyncThunk(
   "moviesAndTVGenreSlice/fetchGenerByMoviesAndTV",
-  async (type = "movie", thunkAPI) => {
+  async (type , thunkAPI) => {
     try {
       const validType = type === "tv" ? "tv" : "movie";
-
-      const genre = await tmdbApi.get(`/genre/${validType}/list`);
-      const genres = genre.data.genres;
+      const genreRes = await tmdbApi.get(`/genre/${validType}/list`);
+      const genres = genreRes.data.genres;
 
       const genresWithContent = await Promise.all(
         genres.map(async (genre) => {
-          const res = tmdbApi.get(`/discover/${validType}`, {
+          const res = await tmdbApi.get(`/discover/${validType}`, {
             params: {
               with_genres: genre.id,
               sort_by: "popularity.desc",
             },
           });
+
+          const results = res.data.results;
+          if (!results || results.length === 0) return null;
+
           return {
             ...genre,
             type: validType,
-            items: (await res).data.results,
+            items: results.slice(0, 10),
           };
         })
       );
-      return genresWithContent;
+
+      return genresWithContent.filter(Boolean);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data || error.message);
     }

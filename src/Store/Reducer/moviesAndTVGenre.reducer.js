@@ -4,7 +4,8 @@ import { fetchGenerByMoviesAndTV } from "../Actions/fetchGenerByMoviesAndTV.acti
 const typeByMoviesAndTV = createSlice({
   name: "moviesAndTVGenreSlice",
   initialState: {
-    genreWithContent: [],
+    tvGenres: [],
+    movieGenres: [],
     genreWithContentLoading: false,
     error: null,
   },
@@ -16,8 +17,13 @@ const typeByMoviesAndTV = createSlice({
         state.error = null;
       })
       .addCase(fetchGenerByMoviesAndTV.fulfilled, (state, action) => {
-        state.genreWithContentLoading = false;
-        state.genreWithContent = action.payload;
+        state.loading = false;
+        const type = action.payload[0]?.type;
+        if (type === "movie") {
+          state.movieGenres = action.payload;
+        } else if (type === "tv") {
+          state.tvGenres = action.payload;
+        }
       })
       .addCase(fetchGenerByMoviesAndTV.rejected, (state, action) => {
         state.genreWithContentLoading = false;
