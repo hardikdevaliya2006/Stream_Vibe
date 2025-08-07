@@ -14,7 +14,7 @@ const MoviesGenresWrap = () => {
 
   const swiperRef = useRef(null);
   const slides = genreWithContent || [];
-  const slidesPerGroup = 5;
+  const slidesPerGroup = 4;
 
   const totalGroups = Math.ceil(slides.length / slidesPerGroup);
   const [activeGroup, setActiveGroup] = useState(0);
@@ -35,7 +35,7 @@ const MoviesGenresWrap = () => {
   return (
     <div className="w-full py-6 px-4">
       <div className="slideHeader flex w-full items-center h-15 justify-between">
-        <div className="text-white text-lg font-semibold">Our Genres</div>
+        <div className="text-white md:text-2xl text-lg font-semibold">Our Genres</div>
         <SwiperNavigator
           totalGroups={totalGroups}
           activeGroup={activeGroup}

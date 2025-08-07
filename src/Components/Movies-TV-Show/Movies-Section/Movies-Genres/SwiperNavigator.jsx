@@ -14,7 +14,7 @@ const SwiperNavigator = ({
       <button
         onClick={onPrev}
         disabled={isBeginning}
-        className="LeftArrow hover:scale-105 transition-transform p-1 border-1 border-gray-15 rounded-md bg-gray-10 w-fit cursor-pointer"
+        className="LeftArrow hover:scale-105 transition-transform p-1 md:p-1.5 border-1 border-gray-15 rounded-md bg-gray-10 w-fit cursor-pointer"
       >
         <IoArrowBackOutline />
       </button>
@@ -26,8 +26,8 @@ const SwiperNavigator = ({
             onClick={() => onDotClick(i)}
             className={`text-xl transition ${
               i === activeGroup
-                ? "bg-red-45 h-1 rounded-md w-3"
-                : "bg-white/40 h-1 rounded-md w-3"
+                ? "bg-red-45 md:h-[0.3rem] h-1 rounded-md md:w-3.5 w-3"
+                : "bg-white/40 md:h-[0.3rem] h-1 rounded-md md:w-3.5 w-3"
             }`}
           ></li>
         ))}
@@ -36,7 +36,7 @@ const SwiperNavigator = ({
       <button
         onClick={onNext}
         disabled={isEnd}
-        className="RightArrow hover:scale-105 transition-transform p-1 border-1 border-gray-15 rounded-md bg-gray-10 w-fit cursor-pointer"
+        className="RightArrow hover:scale-105 transition-transform p-1 md:p-1.5 border-1 border-gray-15 rounded-md bg-gray-10 w-fit cursor-pointer"
       >
         <IoArrowForwardOutline />
       </button>
