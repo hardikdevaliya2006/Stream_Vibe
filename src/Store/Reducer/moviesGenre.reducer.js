@@ -6,7 +6,7 @@ const moviesGenreSlice = createSlice({
   initialState: {
     genresWithMovies: [],
     genresLoading: false,
-    error: null,
+    error: null, 
   },
   reducers: {},
   extraReducers: (builder) => {
