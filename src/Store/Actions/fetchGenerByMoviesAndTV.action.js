@@ -21,7 +21,7 @@ export const fetchGenerByMoviesAndTV = createAsyncThunk(
           const results = res.data.results;
           if (!results || results.length === 0) return null;
 
-          return {
+          return { 
             ...genre,
             type: validType,
             items: results.slice(0, 10),
