@@ -30,12 +30,14 @@ const MoviesGenresWrap = () => {
 
   const handleDotClick = (groupIndex) => {
     swiperRef.current?.slideTo(groupIndex * slidesPerGroup);
-  }; 
+  };
 
   return (
     <div className="w-full py-6 px-4">
       <div className="slideHeader flex w-full items-center h-15 justify-between">
-        <div className="text-white md:text-2xl text-lg font-semibold">Our Genres</div>
+        <div className="text-white md:text-2xl text-lg font-semibold">
+          Our Genres
+        </div>
         <SwiperNavigator
           totalGroups={totalGroups}
           activeGroup={activeGroup}

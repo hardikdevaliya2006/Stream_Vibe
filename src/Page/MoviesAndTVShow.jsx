@@ -3,8 +3,10 @@ import FooterWrap from "../Components/Common/Footer/FooterWrap";
 import MoviesAndTVStructure from "../Components/Common/MoviesAndTVStructure/MoviesAndTVStructure";
 import NavBarWrap from "../Components/Common/Navbar/NavBarWrap";
 import CarouselWrap from "../Components/Movies-TV-Show/Carousel/CarouselWrap";
-import TVGenresWrap from "../Components/Movies-TV-Show/TV-Section/TV-Show-Genres/TVGenresWrap"
+import TVGenresWrap from "../Components/Movies-TV-Show/TV-Section/TV-Show-Genres/TVGenresWrap";
 import MoviesGenresWrap from "../Components/Movies-TV-Show/Movies-Section/Movies-Genres/MoviesGenresWrap";
+import TrendingMoviesWrap from "../Components/Movies-TV-Show/Movies-Section/Trending-Movies/TrendingMoviesWrap";
+import TrendingTVWrap from "../Components/Movies-TV-Show/TV-Section/Trending-TV-Section/TrendingTVWrap";
 
 const MoviesAndTVShow = () => {
   return (
@@ -17,9 +19,11 @@ const MoviesAndTVShow = () => {
           <CarouselWrap></CarouselWrap>
           <MoviesAndTVStructure frameName={"Movies"}>
             <MoviesGenresWrap></MoviesGenresWrap>
+            <TrendingMoviesWrap></TrendingMoviesWrap>
           </MoviesAndTVStructure>
           <MoviesAndTVStructure frameName={"Shows"}>
             <TVGenresWrap></TVGenresWrap>
+            <TrendingTVWrap></TrendingTVWrap>
           </MoviesAndTVStructure>
           <CallToActionWrap></CallToActionWrap>
         </div>
