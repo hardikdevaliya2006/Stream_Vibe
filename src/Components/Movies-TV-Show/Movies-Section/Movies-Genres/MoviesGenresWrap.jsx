@@ -6,7 +6,7 @@ import GenresSwiper from "./GenresSwiper";
 
 const MoviesGenresWrap = () => {
   const dispatch = useDispatch();
-  const { movieGenres } = useSelector((state) => state.genreByMoviesAndTV);
+  const { movieGenres, genreWithContentLoading } = useSelector((state) => state.genreByMoviesAndTV);
 
   useEffect(() => {
     dispatch(fetchGenerByMoviesAndTV("movie"));
