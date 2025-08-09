@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation } from "swiper/modules";
 import { MdRemoveRedEye } from "react-icons/md";
 import { AiFillThunderbolt } from "react-icons/ai";
-import GenreSkeletonSlide from "../../../Common/Loader/GenreSkeletonSlide";
+import TrendingContantLoader from "../../../Common/Loader/TrendingContantLoader";
 
 const GenresSwiper = ({
   slides,
@@ -30,7 +30,7 @@ const GenresSwiper = ({
           {loading
             ? Array.from({ length: skeletonCount }).map((_, i) => (
                 <SwiperSlide key={i} tag="li" className="!w-fit">
-                  <GenreSkeletonSlide />
+                  <TrendingContantLoader />
                 </SwiperSlide>
               ))
             : slides.map((slide, i) => (
