@@ -16,7 +16,7 @@ const trendingMovieAndTV = createSlice({
         state.trendigDataLoading = true;
       })
       .addCase(fetchTrendingMovieAndTV.fulfilled, (state, action) => {
-        state.trendigDataLoading = true;
+        state.trendigDataLoading = false;
         const {results ,type} = action.payload;
         if (type === "movie") {
           state.movieTrending = results;
