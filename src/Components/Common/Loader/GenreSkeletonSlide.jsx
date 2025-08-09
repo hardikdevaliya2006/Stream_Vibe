@@ -1,7 +1,7 @@
 // GenreSkeletonSlide.jsx
 const GenreSkeletonSlide = () => {
   return (
-    <li className="w-fit list-none relative mr-[0.5rem] p-2 border border-gray-15 bg-gray-10 overflow-hidden rounded-xl animate-pulse">
+    <div className="w-fit list-none relative mr-[0.5rem] p-2 border border-gray-15 bg-gray-10 overflow-hidden rounded-xl animate-pulse">
       <div className="grid w-full grid-cols-2 grid-rows-2 gap-2 genreMoviesPosterWrap">
         {Array(4)
           .fill()
@@ -20,7 +20,7 @@ const GenreSkeletonSlide = () => {
             "linear-gradient(to top, rgba(20, 20, 20, 1) 20%, rgba(20, 20, 20, 0.6) 50%, transparent 100%)",
         }}
       ></div>
-    </li>
+    </div>
   );
 };
 

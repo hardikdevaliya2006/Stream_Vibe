@@ -17,11 +17,11 @@ const trendingMovieAndTV = createSlice({
       })
       .addCase(fetchTrendingMovieAndTV.fulfilled, (state, action) => {
         state.trendigDataLoading = false;
-        const { type} = action.payload;
+        const {results ,type} = action.payload;
         if (type === "movie") {
-          state.movieTrending = action.payload;
+          state.movieTrending = results;
         } else if (type === "tv") {
-          state.tvTrending = action.payload;
+          state.tvTrending = results;
         }
       })
       .addCase(fetchTrendingMovieAndTV.rejected, (state, action) => {

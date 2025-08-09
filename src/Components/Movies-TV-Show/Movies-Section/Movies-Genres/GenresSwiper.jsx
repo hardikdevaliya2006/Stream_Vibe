@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { FreeMode, Navigation } from "swiper/modules";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import GenreSkeletonSlide from "../../../Common/Loader/GenreSkeletonSlide";
 
@@ -13,8 +13,9 @@ const GenresSwiper = ({
   const skeletonCount = 8;
   return (
     <Swiper
-      modules={[Navigation]}
+      modules={[Navigation, FreeMode]}
       slidesPerView={"auto"}
+      freeMode={true}
       slidesPerGroup={slidesPerGroup}
       onBeforeInit={(swiper) => {
         swiperRef.current = swiper;
