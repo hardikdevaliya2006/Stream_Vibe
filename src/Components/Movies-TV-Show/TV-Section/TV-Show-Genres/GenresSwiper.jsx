@@ -26,7 +26,7 @@ const GenresSwiper = ({
     >
       <div className="MoviesGenreWrap w-full generSlider overflow-x-auto">
         <ul className="flex items-center mb-2 justify-start w-fit gap-4">
-          {!loading
+          {loading
             ? Array.from({ length: skeletonCount }).map((_, i) => (
                 <SwiperSlide key={i} tag="li" className="!w-fit">
                   <GenreSkeletonSlide />

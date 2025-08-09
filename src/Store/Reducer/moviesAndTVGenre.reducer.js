@@ -17,7 +17,7 @@ const typeByMoviesAndTV = createSlice({
         state.error = null;
       })
       .addCase(fetchGenerByMoviesAndTV.fulfilled, (state, action) => {
-        state.loading = false;
+        state.genreWithContentLoading = false;
         const type = action.payload[0]?.type;
         if (type === "movie") {
           state.movieGenres = action.payload;

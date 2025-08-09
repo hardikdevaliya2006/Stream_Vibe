@@ -6,7 +6,9 @@ import GenresSwiper from "./GenresSwiper";
 
 const MoviesGenresWrap = () => {
   const dispatch = useDispatch();
-  const { movieGenres, genreWithContentLoading } = useSelector((state) => state.genreByMoviesAndTV);
+  const { movieGenres, genreWithContentLoading } = useSelector(
+    (state) => state.genreByMoviesAndTV
+  );
 
   useEffect(() => {
     dispatch(fetchGenerByMoviesAndTV("movie"));
@@ -38,15 +40,17 @@ const MoviesGenresWrap = () => {
         <div className="text-white md:text-2xl text-lg font-semibold">
           Our Genres
         </div>
-        <SwiperNavigator
-          totalGroups={totalGroups}
-          activeGroup={activeGroup}
-          isBeginning={isBeginning}
-          isEnd={isEnd}
-          onDotClick={handleDotClick}
-          onPrev={() => swiperRef.current?.slidePrev()}
-          onNext={() => swiperRef.current?.slideNext()}
-        />
+        {!genreWithContentLoading && totalGroups > 0 && (
+          <SwiperNavigator
+            totalGroups={totalGroups}
+            activeGroup={activeGroup}
+            isBeginning={isBeginning}
+            isEnd={isEnd}
+            onDotClick={handleDotClick}
+            onPrev={() => swiperRef.current?.slidePrev()}
+            onNext={() => swiperRef.current?.slideNext()}
+          />
+        )}
       </div>
 
       <GenresSwiper
@@ -54,6 +58,7 @@ const MoviesGenresWrap = () => {
         swiperRef={swiperRef}
         slidesPerGroup={slidesPerGroup}
         onSlideChange={handleSlideChange}
+        loading={genreWithContentLoading}
       />
     </div>
   );
