@@ -8,9 +8,7 @@ export const fetchTrendingMovieAndTV = createAsyncThunk(
       const validType = type === "tv" ? "tv" : "movie";
 
       const trendigData = await tmdbApi.get(`/trending/${validType}/week`);
-      const results = trendigData.data.results;      
-        console.log(results);
-        
+      const results = trendigData.data.results;              
       if (!results || results.length === 0) return null;
 
       return { type, results };

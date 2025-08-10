@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTrendingMovieAndTV } from "../../../../Store/Actions/fetchTrendingMovieAndTV.action";
-import SwiperNavigator from "./SwiperNavigator";
 import TrendingMoviesSwiper from "./TrendingMoviesSwiper";
+import SwiperNavigator from "../../../Common/MoviesAndTVStructure/SwiperNavigator";
 
 const TrendingMoviesWrap = () => {
   const { movieTrending, trendigDataLoading, error } = useSelector(
@@ -32,8 +32,6 @@ const TrendingMoviesWrap = () => {
   const handleDotClick = (groupIndex) => {
     swiperRef.current?.slideTo(groupIndex * slidesPerGroup);
   };
-
-  console.log(movieTrending);
 
   return (
     <div className="w-full py-6 px-4">

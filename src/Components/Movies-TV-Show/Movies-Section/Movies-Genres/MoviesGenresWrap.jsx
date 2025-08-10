@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGenerByMoviesAndTV } from "../../../../Store/Actions/fetchGenerByMoviesAndTV.action";
-import SwiperNavigator from "./SwiperNavigator";
 import GenresSwiper from "./GenresSwiper";
+import SwiperNavigator from "../../../Common/MoviesAndTVStructure/SwiperNavigator";
 
 const MoviesGenresWrap = () => {
   const dispatch = useDispatch();

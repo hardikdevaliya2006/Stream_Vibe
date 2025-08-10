@@ -19,7 +19,7 @@ const SwiperNavigator = ({
         <IoArrowBackOutline />
       </button>
 
-      <ul className="flex items-center gap-1">
+      <ul className="flex items-center gap-1"> 
         {Array.from({ length: totalGroups }).map((_, i) => (
           <li
             key={i}
