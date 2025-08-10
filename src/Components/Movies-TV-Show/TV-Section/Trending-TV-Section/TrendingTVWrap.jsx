@@ -37,7 +37,7 @@ const TrendingMoviesWrap = () => {
     <div className="w-full py-6 px-4">
       <div className="slideHeader flex w-full items-center h-15 justify-between">
         <div className="text-white md:text-2xl text-lg font-semibold">
-          Trending Show Now
+          Trending Show
         </div>
         {!trendigDataLoading && totalGroups > 0 && (
           <SwiperNavigator
