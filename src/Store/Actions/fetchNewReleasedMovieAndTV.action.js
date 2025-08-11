@@ -1,6 +1,5 @@
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import tmdbApi from "../../Services/tmdbApi";
-
-const { createAsyncThunk } = require("@reduxjs/toolkit");
 
 export const fetchNewReleasedMovieAndTV = createAsyncThunk(
   "newReleasedMovieAndTVSlice/fetchNewReleasedMovieAndTV",
