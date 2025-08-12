@@ -9,11 +9,12 @@ export const fetchNewReleasedMovieAndTV = createAsyncThunk(
       const validType = type === "tv" ? "tv" : "movie";
 
       if (validType === "movie") {
-        const get = tmdbApi.get(`/trending/${movie}/day`);
+        const get = await tmdbApi.get(`${validType}/now_playing`);
+
         newReleasedData = get.data.results;
       } else {
       }
-      return {newReleasedData, type};
+      return { newReleasedData, type };
     } catch (error) {
       return thunkApi.rejectWithValue(err.message || "Fetch error");
     }

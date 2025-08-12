@@ -17,11 +17,11 @@ const newReleasedMovieAndTVSlice = createSlice({
       })
       .addCase(fetchNewReleasedMovieAndTV.fulfilled, (state, action) => {
         state.newReleasedDataLoading = false;
-        const { results, type } = action.payload;
+        const { newReleasedData, type } = action.payload;
         if (type === "movie") {
-          state.newReleasedMovies = results;
+          state.newReleasedMovies = newReleasedData;
         } else if (type === "tv") {
-          state.newReleasedTV = results;
+          state.newReleasedTV = newReleasedData;
         }
       })
       .addCase(fetchNewReleasedMovieAndTV.rejected, (state, action) => {
