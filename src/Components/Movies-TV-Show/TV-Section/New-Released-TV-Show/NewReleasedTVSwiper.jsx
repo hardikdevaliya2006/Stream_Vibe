@@ -1,33 +1,16 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation } from "swiper/modules";
-import { MdRemoveRedEye } from "react-icons/md";
+import { HiRectangleStack } from "react-icons/hi2";
 import { AiFillThunderbolt } from "react-icons/ai";
 import TrendingContantLoader from "../../../Common/Loader/TrendingContantLoader";
 
-const NewReleaseMoviesSwiper = ({
+const NewReleasedTVSwiper = ({
   slides,
   swiperRef,
   slidesPerGroup,
   onSlideChange,
   loading,
 }) => {
-  function formatDate(dateStr, format = "full") {
-    const dateObj = new Date(dateStr);
-
-    const day = dateObj.getDate();
-    const monthFull = dateObj.toLocaleString("en-US", { month: "long" });
-    const monthShort = dateObj.toLocaleString("en-US", { month: "short" });
-    const year = dateObj.getFullYear();
-
-    if (format === "narrow") {
-      return `${day} ${monthShort} ${year}`;
-    } else if (format === "short") {
-      return `${day} ${monthShort} ${year}`;
-    } else {
-      return `${day} ${monthFull} ${year}`;
-    }
-  }
-
   const skeletonCount = 8;
   return (
     <Swiper
@@ -67,17 +50,14 @@ const NewReleaseMoviesSwiper = ({
                             className="h-44 w-full lg:h-58 xl:h-70 rounded-md"
                           />
                         </div>
-                        <div className="slideInformation flex justify-center items-center text-[0.675rem] lg:text-sm text-gray-60 ">
-                          <div className="ReleseDate px-2 w-full py-0.5 flex items-center justify-center bg-gray-08 border border-gray-15 rounded-full">
-                            <p>
-                              <span>Released </span>
-                              <span className="text-gray-75">
-                                {formatDate(
-                                  slide.release_date,
-                                  window.innerWidth < 768 ? "narrow" : "full"
-                                )}
-                              </span>
-                            </p>
+                        <div className="slideInformation flex justify-between items-center text-[0.725rem] lg:text-sm text-gray-60 ">
+                          <div className="voterAvg flex items-center justify-center gap-0.5 px-1.5 py-0.5 bg-gray-08 border border-gray-15 rounded-full">
+                            <AiFillThunderbolt></AiFillThunderbolt>
+                            <p>{slide.vote_average.toFixed(1)}</p>
+                          </div>
+                          <div className="popularity flex items-center justify-center gap-0.5 px-1.5 py-0.5 bg-gray-08 border border-gray-15 rounded-full">
+                            <HiRectangleStack></HiRectangleStack>
+                            <p>{slide.number_of_seasons} Seasons</p>
                           </div>
                         </div>
                       </div>
@@ -91,4 +71,4 @@ const NewReleaseMoviesSwiper = ({
   );
 };
 
-export default NewReleaseMoviesSwiper;
+export default NewReleasedTVSwiper;

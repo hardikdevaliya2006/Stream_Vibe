@@ -8,6 +8,7 @@ import MoviesGenresWrap from "../Components/Movies-TV-Show/Movies-Section/Movies
 import TrendingMoviesWrap from "../Components/Movies-TV-Show/Movies-Section/Trending-Movies/TrendingMoviesWrap";
 import TrendingTVWrap from "../Components/Movies-TV-Show/TV-Section/Trending-TV-Section/TrendingTVWrap";
 import NewReleasedMoviesWrap from "../Components/Movies-TV-Show/Movies-Section/New-Released-Movies/NewReleasedMoviesWrap";
+import NewReleasedTVShowWrap from "../Components/Movies-TV-Show/TV-Section/New-Released-TV-Show/NewReleasedTVShowWrap";
 
 const MoviesAndTVShow = () => {
   return (
@@ -26,6 +27,7 @@ const MoviesAndTVShow = () => {
           <MoviesAndTVStructure frameName={"Shows"}>
             <TVGenresWrap></TVGenresWrap>
             <TrendingTVWrap></TrendingTVWrap>
+            <NewReleasedTVShowWrap></NewReleasedTVShowWrap>
           </MoviesAndTVStructure>
           <CallToActionWrap></CallToActionWrap>
         </div>
