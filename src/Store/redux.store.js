@@ -4,6 +4,7 @@ import carousleImgSlice from "./Reducer/carousleImg.reducer";
 import moviesAndTVGenreSlice from "./Reducer/moviesAndTVGenre.reducer";
 import trendingMovieAndTVSlice from "./Reducer/trendingMovieAndTV.reducer";
 import newReleasedMovieAndTVSlice from "./Reducer/newReleasedMovieAndTV.reducer";
+import mustWatchMovieAndTVSlice from "./Reducer/mustWatchMovieAndTV.reducer";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     genreByMoviesAndTV: moviesAndTVGenreSlice,
     trendingData: trendingMovieAndTVSlice,
     newReleasedData: newReleasedMovieAndTVSlice,
+    mustWatchData: mustWatchMovieAndTVSlice
   },
 });
