@@ -54,11 +54,11 @@ const SwiperCarousel = () => {
           clickable: true,
           el: ".custom-pagination",
         }}
-        loop={carousleImg.slice(0, 10).length > 1}
+        loop={carousleImg.slice(0, 12).length > 1}
         spaceBetween={20}
         slidesPerView={1}
       >
-        {carousleImg.slice(0, 10).map((img, index) => (
+        {carousleImg.slice(0, 12).map((img, index) => (
           <SwiperSlide key={index}>
             <div className="relative sm:h-full 2xl:h-[720px] h-[350px] sm:w-full">
               <img
