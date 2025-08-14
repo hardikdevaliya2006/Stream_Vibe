@@ -3,7 +3,7 @@ import tmdbApi from "../../Services/tmdbApi";
 
 export const fetchMustWatchMovieAndTV = createAsyncThunk(
   "mustWatchMovieAndTVSlice/fetchMustWatchMovieAndTV",
-  async (type, thunkApi) => { 
+  async (type, thunkApi) => {
     try {
       let mustWatchData;
       const validType = type === "tv" ? "tv" : "movie";
@@ -16,22 +16,59 @@ export const fetchMustWatchMovieAndTV = createAsyncThunk(
         });
         mustWatchData = requst.data.results;
       } else {
-        const get = await tmdbApi.get(`/discover/tv`, {
+        const page1 = await tmdbApi.get(`/discover/tv`, {
           params: {
             with_original_language: "hi",
-            region: "IN",
+            page: 1,
           },
         });
-        const mustWatchTV = get.data.results;
 
-        const detailedShows = await Promise.all(
-          mustWatchTV.map(async (show) => {
+        const detailedPage1 = await Promise.all(
+          page1.data.results.map(async (show) => {
             const detailRes = await tmdbApi.get(`/tv/${show.id}`);
             return detailRes.data;
           })
         );
-        mustWatchData = detailedShows;
+
+        const filteredPage1 = detailedPage1.filter((show) => {
+          const isFromUllu = show.networks?.some(
+            (net) => net.id === 2902 || net.name.toLowerCase() === "ullu"
+          );
+          const hasPoster = !!show.poster_path;
+          return !isFromUllu && hasPoster;
+        });
+
+        const skippedCount = detailedPage1.length - filteredPage1.length;
+        let finalShows = [...filteredPage1];
+        if (skippedCount > 0) {
+          const page2 = await tmdbApi.get(`/discover/tv`, {
+            params: {
+              with_original_language: "hi",
+              page: 2,
+            },
+          });
+
+          const detailedPage2 = await Promise.all(
+            page2.data.results.map(async (show) => {
+              const detailRes = await tmdbApi.get(`/tv/${show.id}`);
+              return detailRes.data;
+            })
+          );
+
+          const filteredPage2 = detailedPage2.filter((show) => {
+            const isFromUllu = show.networks?.some(
+              (net) => net.id === 2902 || net.name.toLowerCase() === "ullu"
+            );
+            const hasPoster = !!show.poster_path;
+            return !isFromUllu && hasPoster;
+          });
+
+          finalShows = [...finalShows, ...filteredPage2.slice(0, skippedCount)];
+        }
+
+        mustWatchData = finalShows;
       }
+
       return { mustWatchData, type };
     } catch (error) {
       return thunkApi.rejectWithValue(err.message || "Fetch error");

@@ -1,21 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMustWatchMovieAndTV } from "../../../../Store/Actions/fetchMustWatchMovieAndTV.action";
 import { useEffect, useRef, useState } from "react";
+import MustWatchTVSwiper from "./MustWatchTVSwiper";
 import SwiperNavigator from "../../../Common/MoviesAndTVStructure/SwiperNavigator";
-import MustWatchMoviesSwiper from "./MustWatchMoviesSwiper";
 
-const MustWatchMovieWrap = () => {
-  const { mustWatchMovies, mustWatchDataLoading, error } = useSelector(
+const MustWatchTVWrap = () => {
+  const { mustWatchTV, mustWatchDataLoading, error } = useSelector(
     (state) => state.mustWatchData
   );
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchMustWatchMovieAndTV("movie"));
+    dispatch(fetchMustWatchMovieAndTV("tv"));
   }, []);
 
   const swiperRef = useRef(null);
-  const slides = mustWatchMovies || [];
+  const slides = mustWatchTV || [];
   const slidesPerGroup = 4;
 
   const totalGroups = Math.ceil(slides.length / slidesPerGroup);
@@ -52,7 +52,7 @@ const MustWatchMovieWrap = () => {
         )}
       </div>
 
-      <MustWatchMoviesSwiper
+      <MustWatchTVSwiper
         slides={slides}
         swiperRef={swiperRef}
         slidesPerGroup={slidesPerGroup}
@@ -63,4 +63,4 @@ const MustWatchMovieWrap = () => {
   );
 };
 
-export default MustWatchMovieWrap;
+export default MustWatchTVWrap;
