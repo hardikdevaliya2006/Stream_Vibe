@@ -1,6 +1,7 @@
 import FooterWrap from "../Components/Common/Footer/FooterWrap";
 import HeaderWrap from "../Components/Common/Header/HeaderWrap";
 import NavBarWrap from "../Components/Common/Navbar/NavBarWrap";
+import MovieInformationWrap from "../Components/Movie-Open-Page/MovieInformationWrap";
 
 const MoviesOpenPage = () => {
   return (
@@ -11,6 +12,7 @@ const MoviesOpenPage = () => {
         </header>
         <div className="Main xl:max-w-[78vw] lg:max-w-[80vw] lg:m-auto md:py-8 mx-4">
           <HeaderWrap></HeaderWrap>
+          <MovieInformationWrap></MovieInformationWrap>
         </div>
         <footer>
           <FooterWrap></FooterWrap>
