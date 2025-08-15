@@ -5,16 +5,27 @@ export const fetchMustWatchMovieAndTV = createAsyncThunk(
   "mustWatchMovieAndTVSlice/fetchMustWatchMovieAndTV",
   async (type, thunkApi) => {
     try {
-      let mustWatchData;
+      let mustWatchData = [];
       const validType = type === "tv" ? "tv" : "movie";
       if (validType === "movie") {
-        const requst = await tmdbApi.get("/discover/movie", {
-          params: {
-            with_original_language: "hi",
-            region: "IN",
-          },
-        });
-        mustWatchData = requst.data.results;
+        const langConfig = [
+          { code: "hi", count: 7 }, 
+          { code: "te", count: 7 },
+          { code: "ta", count: 6 }, 
+        ];
+
+        for (const { code, count } of langConfig) {
+          const request = await tmdbApi.get("/discover/movie", {
+            params: {
+              with_original_language: code,
+              region: "IN",
+              sort_by: "popularity.desc",
+              page: 1,
+            },
+          });
+
+          mustWatchData.push(...request.data.results.slice(0, count));
+        }
       } else {
         const page1 = await tmdbApi.get(`/discover/tv`, {
           params: {

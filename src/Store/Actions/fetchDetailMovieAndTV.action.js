@@ -13,8 +13,6 @@ export const fetchDetailMovieAndTV = createAsyncThunk(
         },
       });
       const fullDetails = getData.data;
-console.log(fullDetails);
-
       return { fullDetails, type };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data || error.message);

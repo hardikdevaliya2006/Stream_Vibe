@@ -14,6 +14,8 @@ const MustWatchMoviesSwiper = ({
   loading,
 }) => {
   const skeletonCount = 8;
+  console.log(slides);
+  
   return (
     <Swiper
       modules={[Navigation, FreeMode]}

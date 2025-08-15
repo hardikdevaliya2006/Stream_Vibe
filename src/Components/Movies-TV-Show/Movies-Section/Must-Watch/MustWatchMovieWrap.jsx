@@ -52,6 +52,8 @@ const MustWatchMovieWrap = () => {
         )}
       </div>
 
+      {console.log(mustWatchMovies)}
+
       <MustWatchMoviesSwiper
         slides={slides}
         swiperRef={swiperRef}
