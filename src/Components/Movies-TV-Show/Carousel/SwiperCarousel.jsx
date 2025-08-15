@@ -12,6 +12,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import SaveButton from "../../Common/AnimationIcon/SaveButton";
 import LikeButton from "../../Common/AnimationIcon/LikeButton";
+import { NavLink } from "react-router";
 
 const SwiperCarousel = () => {
   const { carousleImg, carousleImgLoading } = useSelector(
@@ -66,12 +67,12 @@ const SwiperCarousel = () => {
                 alt={index}
                 className="w-full h-full object-cover object-top"
               />
-              <div className="information absolute flex gap-2 2xl:gap-4 flex-col w-full items-center justify-center bottom-10 2xl:bottom-25 z-10">
+              <div className="information absolute flex gap-2 2xl:gap-4 flex-col w-full items-center justify-center bottom-10 2xl:bottom-25 z-50">
                 <div className="text-white w-[95%] text-center flex justify-center">
                   <h3 className="max-w-full inline-block font-semibold leading-tight 2xl:text-4xl 2xl:font-extrabold lg:text-3xl text-2xl">
                     {img.title || img.name}
                     {"\u00A0"}
-                    {img.media_type === "movie" ? (
+                    {img.media_type == "movie" ? (
                       <MdOutlineMovie className="inline-block align-middle text-sm lg:text-xl" />
                     ) : (
                       <LuTv className="inline-block align-middle text-sm lg:text-xl" />
@@ -86,16 +87,33 @@ const SwiperCarousel = () => {
                 </div>
                 <div className="buttensWrap flex items-center justify-center 2xl:gap-4 gap-2">
                   <div className="playNow">
-                    <div className="actionBtn cursor-pointer flex justify-center items-center gap-2 text-white bg-red-45 px-5 py-1.5 rounded-md">
-                      <img
-                        src={playBtn}
-                        alt="playNow"
-                        className="h-3 2xl:h-4 cursor-pointer"
-                      />
-                      <button className="cursor-pointer 2xl:font-semibold 2xl:text-[1.1rem]">
-                        Play Now
-                      </button>
-                    </div>
+                    {img.media_type === "movie" ? (
+                      <NavLink to={`/movie/${img.id}`}>
+                        <div className="actionBtn cursor-pointer flex justify-center items-center gap-2 text-white bg-red-45 px-5 py-1.5 rounded-md">
+                          <img
+                            src={playBtn}
+                            alt="playNow"
+                            className="h-3 2xl:h-4 cursor-pointer"
+                          />
+                          <button className="cursor-pointer 2xl:font-semibold 2xl:text-[1.1rem]">
+                            Play Now
+                          </button>
+                        </div>
+                      </NavLink>
+                    ) : (
+                      <NavLink to={`/tv/${img.id}`}>
+                        <div className="actionBtn cursor-pointer flex justify-center items-center gap-2 text-white bg-red-45 px-5 py-1.5 rounded-md">
+                          <img
+                            src={playBtn}
+                            alt="playNow"
+                            className="h-3 2xl:h-4 cursor-pointer"
+                          />
+                          <button className="cursor-pointer 2xl:font-semibold 2xl:text-[1.1rem]">
+                            Play Now
+                          </button>
+                        </div>
+                      </NavLink>
+                    )}
                   </div>
                   <div className="flex items-center justify-center gap-2">
                     <div>

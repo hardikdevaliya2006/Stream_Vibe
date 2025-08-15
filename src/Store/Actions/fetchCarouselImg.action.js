@@ -7,33 +7,19 @@ export const fetchCarouselImg = createAsyncThunk(
     try {
       const clean = (data) =>
         data.results.map((item) => ({
+          id: item.id,
           backdrop_path: item.backdrop_path,
           overview: item.overview,
-          media_type: "movie",
+          media_type: item.media_type, 
           title: item.title || item.name,
           original_language: item.original_language,
         }));
 
-      const hindiRes = await tmdbApi.get("/discover/movie", {
-        params: {
-          with_original_language: "hi",
-          sort_by: "popularity.desc", 
-          page: 1,
-        },
+      const res = await tmdbApi.get("/trending/all/week", {
+        params: { page: 1 },
       });
-      const hindiMovies = clean(hindiRes.data).slice(0, 6);
 
-      const englishRes = await tmdbApi.get("/discover/tv", {
-        params: {
-          with_original_language: "en",
-          sort_by: "popularity.desc",
-          page: 1,
-        },
-      });
-      const englishMovies = clean(englishRes.data).slice(0, 6);
-
-      // Hindi first, then English
-      return [...hindiMovies, ...englishMovies];
+      return clean(res.data).slice(0, 12);
     } catch (error) {
       return thunkApi.rejectWithValue(error.message || "Fetch error");
     }
