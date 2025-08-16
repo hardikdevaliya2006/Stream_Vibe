@@ -1,7 +1,6 @@
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
 
-const StarRating = ({ voteAverage }) => {
-  // Convert 10-point rating to 5-star rating
+const StarRating = ({ voteAverage, textSize }) => {
   const rating = voteAverage / 2;
 
   return (
@@ -10,9 +9,9 @@ const StarRating = ({ voteAverage }) => {
         const starNumber = index + 1;
 
         if (rating >= starNumber) {
-          return <FaStar key={index} className="text-red-45 text-[0.725rem] lg:text-sm" />;
+          return <FaStar key={index} className={`text-red-45 ${textSize}`}/>;
         } else {
-          return <FaStar key={index} className="text-gray-60 text-[0.725rem] lg:text-sm"  />;
+          return <FaStar key={index} className={`text-gray-60 ${textSize}`}  />;
         }
       })}
     </div>

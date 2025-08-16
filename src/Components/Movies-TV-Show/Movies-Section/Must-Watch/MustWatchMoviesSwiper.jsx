@@ -13,9 +13,7 @@ const MustWatchMoviesSwiper = ({
   onSlideChange,
   loading,
 }) => {
-  const skeletonCount = 8;
-  console.log(slides);
-  
+  const skeletonCount = 8;  
   return (
     <Swiper
       modules={[Navigation, FreeMode]}
@@ -61,7 +59,7 @@ const MustWatchMoviesSwiper = ({
                               <p>{slide.vote_average.toFixed(1)}</p>
                             </div>
                             <div className="star flex items-center justify-center px-1.5 py-1 bg-gray-08 border border-gray-15 rounded-full">
-                              <StarRating voteAverage={slide.vote_average} />
+                              <StarRating voteAverage={slide.vote_average} textSize={"text-[0.725rem] lg:text-sm"} />
                             </div>
                           </div>
                         </div>

@@ -21,27 +21,38 @@ const MovieInformationWrap = () => {
   const detailsData = type === "movie" ? movieDetail : tvDetail;
 
   return (
-    <section className="pb-4 my-18">
-      <div className="castCrewAndDescription flex flex-col gap-4">
+    <section className="pb-4 my-12 flex items-start gap-2 justify-center">
+      <div className="castCrewAndDescription flex flex-col lg:w-[70%] gap-4">
         <div className="description">
           <Description text={detailsData.overview}></Description>
         </div>
-        <div className="movieTvInformation">
+        <div className="movieTvInformation lg:hidden">
           <OtherInfo
             budget={detailsData.budget}
             genres={detailsData.genres}
-            // director={detailsData.credits.crew}
+            director={detailsData?.credits?.crew}
             popularity={detailsData.popularity}
             releaseDate={detailsData.release_date}
             runTime={detailsData.runtime}
-            spokenLanguages={detailsData.spoken_languages}
+            spokenLanguages={detailsData?.spoken_languages}
             voteAverage={detailsData.vote_average}
           ></OtherInfo>
         </div>
         <div className="castWrap"></div>
         <div className="trailer"></div>
       </div>
-      <div className="movieTvInformation hidden"></div>
+      <div className="movieTvInformation lg:w-[30%] lg:flex hidden">
+        <OtherInfo
+          budget={detailsData.budget}
+          genres={detailsData.genres}
+          director={detailsData?.credits?.crew}
+          popularity={detailsData.popularity}
+          releaseDate={detailsData.release_date}
+          runTime={detailsData.runtime}
+          spokenLanguages={detailsData?.spoken_languages}
+          voteAverage={detailsData.vote_average}
+        ></OtherInfo>
+      </div>
     </section>
   );
 };

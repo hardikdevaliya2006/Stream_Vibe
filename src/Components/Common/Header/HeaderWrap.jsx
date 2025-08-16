@@ -58,11 +58,15 @@ const HeaderWrap = ({}) => {
             <div className="text-white w-[95%] text-center flex justify-center items-center">
               <h3 className="max-w-full inline-block font-semibold leading-tight 2xl:text-4xl 2xl:font-extrabold lg:text-3xl text-2xl">
                 <div className="w-48 h-16 md:w-50 md:h-20 xl:w-60 xl:h-30 flex items-baseline-last justify-center">
-                  <img
-                    src={`https://image.tmdb.org/t/p/original/${detailsData?.images?.logos?.[0]?.file_path}`}
-                    alt={detailsData?.title || detailsData?.name}
-                    className="max-w-full max-h-full object-contain"
-                  />
+                  {detailsData?.images?.logos?.length > 0 ? (
+                    <img
+                      src={`https://image.tmdb.org/t/p/original/${detailsData?.images?.logos?.[0]?.file_path}`}
+                      alt={detailsData?.title || detailsData?.name}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  ) : (
+                    <h3>{detailsData?.title || detailsData?.name}</h3>
+                  )}
                 </div>
               </h3>
             </div>
