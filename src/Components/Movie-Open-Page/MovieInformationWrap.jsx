@@ -28,9 +28,8 @@ const MovieInformationWrap = () => {
         </div>
         <div className="movieTvInformation lg:hidden">
           <OtherInfo
-            budget={detailsData.budget}
             genres={detailsData.genres}
-            director={detailsData?.credits?.crew}
+            castAndDirector={detailsData?.credits}
             popularity={detailsData.popularity}
             releaseDate={detailsData.release_date}
             runTime={detailsData.runtime}
@@ -43,9 +42,8 @@ const MovieInformationWrap = () => {
       </div>
       <div className="movieTvInformation lg:w-[30%] lg:flex hidden">
         <OtherInfo
-          budget={detailsData.budget}
           genres={detailsData.genres}
-          director={detailsData?.credits?.crew}
+          castAndDirector={detailsData?.credits}
           popularity={detailsData.popularity}
           releaseDate={detailsData.release_date}
           runTime={detailsData.runtime}

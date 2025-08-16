@@ -4,12 +4,12 @@ import { FaRegStar } from "react-icons/fa";
 import { GrAppsRounded } from "react-icons/gr";
 import StarRating from "../AnimationIcon/StarRating";
 import { AiFillThunderbolt } from "react-icons/ai";
+import { IoMdDisc } from "react-icons/io";
 import person from "../../../../public/Icons/person.svg";
 
 const OtherInfo = ({
-  budget,
   genres,
-  director,
+  castAndDirector,
   popularity,
   releaseDate,
   runTime,
@@ -27,8 +27,12 @@ const OtherInfo = ({
     return `${day} ${monthShort} ${year}`;
   }
 
-  const directorInfo = director?.filter((person) => person.job === "Director");
-  const music = director?.filter((person) => person.job === "Music");
+  const directorInfo = castAndDirector?.crew?.filter(
+    (person) => person.job == "Director"
+  );
+  const music = castAndDirector?.crew?.filter(
+    (person) => person.job == "Music" || "Sound"
+  );
 
   return (
     <div className="text-sm flex w-full flex-col items-start justify-center gap-4 bg-gray-10 backdrop-blur-2xl border border-gray-15 p-4 rounded-md">
@@ -65,7 +69,7 @@ const OtherInfo = ({
                 voteAverage={voteAverage + 1}
                 textSize={"text-sm"}
               ></StarRating>
-              <p>{voteAverage / 2 + 1}</p>
+              <p>{(voteAverage / 2 + 1).toFixed(2)}</p>
             </div>
           </li>
           <li className="flex-col flex items-start gap-1 px-2.5 border border-gray-15 rounded-md py-1.5 bg-gray-08">
@@ -75,7 +79,7 @@ const OtherInfo = ({
                 voteAverage={voteAverage}
                 textSize={"text-sm"}
               ></StarRating>
-              <p>{voteAverage / 2}</p>
+              <p>{(voteAverage / 2).toFixed(2)}</p>
             </div>
           </li>
         </ul>
@@ -91,6 +95,17 @@ const OtherInfo = ({
               {genre?.name}
             </li>
           ))}
+        </ul>
+      </div>
+      <div className="otherInfo flex flex-col items-start justify-center gap-2">
+        <h3 className="text-gray-60 font-semibold flex items-center justify-center gap-0.5">
+          <IoMdDisc></IoMdDisc>
+          <span className="font-semibold">Other Info</span>
+        </h3>
+        <ul className="text-white flex items-center justify-center gap-1">
+          <li>{runTime} Min</li>
+          <li className="text-gray-65">|</li>
+          <li>{popularity} K</li>
         </ul>
       </div>
       <div className="dirctorAndSound w-full flex flex-col gap-4">
