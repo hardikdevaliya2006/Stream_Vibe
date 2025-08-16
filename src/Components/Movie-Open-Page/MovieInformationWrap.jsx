@@ -4,6 +4,8 @@ import { fetchDetailMovieAndTV } from "../../Store/Actions/fetchDetailMovieAndTV
 import { useEffect } from "react";
 import Description from "../Common/Movie-TV-Info/Description";
 import OtherInfo from "../Common/Movie-TV-Info/OtherInfo";
+import Trailer from "../Common/Movie-TV-Info/Trailer";
+import { video } from "framer-motion/client";
 
 const MovieInformationWrap = () => {
   const location = useLocation();
@@ -38,7 +40,9 @@ const MovieInformationWrap = () => {
           ></OtherInfo>
         </div>
         <div className="castWrap"></div>
-        <div className="trailer"></div>
+        <div className="trailer">
+          <Trailer videos={detailsData?.videos}></Trailer>
+        </div>
       </div>
       <div className="movieTvInformation lg:w-[30%] lg:flex hidden">
         <OtherInfo
