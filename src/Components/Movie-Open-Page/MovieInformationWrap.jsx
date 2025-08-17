@@ -22,6 +22,13 @@ const MovieInformationWrap = () => {
   );
   const detailsData = type === "movie" ? movieDetail : tvDetail;
 
+  if (detailsDataLoading) {
+    return <div>Loading........</div>;
+  }
+
+  console.log(detailsData);
+  
+
   return (
     <section className="pb-4 my-12 flex items-start gap-2 flex-col lg:flex-row justify-center">
       <div className="movieTvInformation flex flex-col lg:order-2 gap-2 w-full lg:w-[30%] ">

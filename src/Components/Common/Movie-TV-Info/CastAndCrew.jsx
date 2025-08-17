@@ -4,7 +4,8 @@ import CastandCrewSwiper from "./CastandCrewSwiper";
 
 const CastAndCrew = ({ dataType, castAndCrew }) => {
   const swiperRef = useRef(null);
-  const slides = dataType  === "cast" ? castAndCrew?.cast : castAndCrew?.crew || []
+  const slides =
+    dataType === "cast" ? castAndCrew?.cast : castAndCrew?.crew || [];
   const slidesPerGroup = 2;
 
   const [isBeginning, setIsBeginning] = useState(true);
@@ -21,7 +22,9 @@ const CastAndCrew = ({ dataType, castAndCrew }) => {
   return (
     <div className="w-auto flex-col flex gap-2 bg-gray-10 backdrop-blur-2xl border border-gray-15 p-4 rounded-md">
       <div className="slideHeader flex w-full items-center justify-between">
-        <div className="text-gray-60 text-sm font-semibold capitalize">{dataType}</div>
+        <div className="text-gray-60 text-sm font-semibold capitalize">
+          {dataType}
+        </div>
         <MiniSwiperNavigator
           isBeginning={isBeginning}
           isEnd={isEnd}
@@ -29,13 +32,14 @@ const CastAndCrew = ({ dataType, castAndCrew }) => {
           onNext={() => swiperRef.current?.slideNext()}
         />
       </div>
-
-      <CastandCrewSwiper
-        slides={slides}
-        swiperRef={swiperRef}
-        slidesPerGroup={slidesPerGroup}
-        onSlideChange={handleSlideChange}
-      />
+      {castAndCrew?.cast?.length > 0 && castAndCrew?.crew?.length > 0 &&
+        <CastandCrewSwiper
+          slides={slides}
+          swiperRef={swiperRef}
+          slidesPerGroup={slidesPerGroup}
+          onSlideChange={handleSlideChange}
+        />
+      }
     </div>
   );
 };
