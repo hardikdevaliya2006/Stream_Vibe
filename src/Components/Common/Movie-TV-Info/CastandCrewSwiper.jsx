@@ -19,15 +19,15 @@ const CastandCrewSwiper = ({ slides, swiperRef, slidesPerGroup, onSlideChange })
         <SwiperSlide key={i} className="!w-fit mr-2">
           <div className="cursor-pointer w-fit bg-gray-10 rounded-xl">
             <div className="slideData flex flex-col gap-2">
-              <div className="genreMoviesPosterWrap border rounded-md overflow-hidden border-gray-15 h-32 w-22 flex items-center justify-center">
+              <div className="genreMoviesPosterWrap border rounded-md overflow-hidden border-gray-15 h-35 w-22 flex items-end justify-end">
                 <img
                   src={`${
                     slide?.profile_path
-                      ? `https://image.tmdb.org/t/p/original/${slide?.profile_path}`
+                      ? `https://image.tmdb.org/t/p/w500/${slide?.profile_path}`
                       : person
                   }`}
                   alt={slide.name || "Cast"}
-                  className="object-cover object-top"
+                  className="object-cover h-full w-full object-top"
                 />
               </div>
               <div className="info">

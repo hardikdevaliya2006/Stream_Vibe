@@ -6,6 +6,7 @@ import Description from "../Common/Movie-TV-Info/Description";
 import OtherInfo from "../Common/Movie-TV-Info/OtherInfo";
 import Trailer from "../Common/Movie-TV-Info/Trailer";
 import CastAndCrew from "../Common/Movie-TV-Info/CastAndCrew";
+import SimilarMoviesTV from "../Common/Movie-TV-Info/SimilarMoviesTVWrap";
 
 const MovieInformationWrap = () => {
   const location = useLocation();
@@ -15,7 +16,7 @@ const MovieInformationWrap = () => {
 
   useEffect(() => {
     dispatch(fetchDetailMovieAndTV({ type: type, id: id }));
-  }, []);
+  }, [id, dispatch]);
 
   const { movieDetail, tvDetail, detailsDataLoading, error } = useSelector(
     (state) => state.detailData
@@ -63,6 +64,12 @@ const MovieInformationWrap = () => {
             dataType={"crew"}
             castAndCrew={detailsData?.credits}
           ></CastAndCrew>
+        </div>
+        <div className="similarContant">
+          <SimilarMoviesTV
+            type={type}
+            genreId={movieDetail?.genres}
+          ></SimilarMoviesTV>
         </div>
       </div>
     </section>

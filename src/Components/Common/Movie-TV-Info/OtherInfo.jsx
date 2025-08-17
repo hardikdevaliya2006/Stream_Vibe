@@ -49,8 +49,8 @@ const OtherInfo = ({
           <span className="font-semibold">Availabel Language</span>
         </h3>
         <ul className="text-white gap-2 flex flex-wrap">
-          {spokenLanguages?.map((lang) => (
-            <li className="px-1.5 border border-gray-15 rounded-md py-0.5 bg-gray-08">
+          {spokenLanguages?.map((lang, i) => (
+            <li key={i} className="px-1.5 border border-gray-15 rounded-md py-0.5 bg-gray-08">
               {lang?.english_name}
             </li>
           ))}
@@ -90,8 +90,8 @@ const OtherInfo = ({
           <span className="font-semibold">Gernes</span>
         </h3>
         <ul className="text-white gap-2 flex flex-wrap">
-          {genres?.map((genre) => (
-            <li className="px-1.5 border border-gray-15 rounded-md py-0.5 bg-gray-08">
+          {genres?.map((genre,i) => (
+            <li key={i} className="px-1.5 border border-gray-15 rounded-md py-0.5 bg-gray-08">
               {genre?.name}
             </li>
           ))}

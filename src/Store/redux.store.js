@@ -6,6 +6,7 @@ import trendingMovieAndTVSlice from "./Reducer/trendingMovieAndTV.reducer";
 import newReleasedMovieAndTVSlice from "./Reducer/newReleasedMovieAndTV.reducer";
 import mustWatchMovieAndTVSlice from "./Reducer/mustWatchMovieAndTV.reducer";
 import detailMovieAndTVSlice from "./Reducer/detailMovieAndTV.reducer";
+import similarMoviesAndTVSlice from "./Reducer/similarMoviesAndTV.reducer"
 
 export const store = configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
     newReleasedData: newReleasedMovieAndTVSlice,
     mustWatchData: mustWatchMovieAndTVSlice,
     detailData: detailMovieAndTVSlice,
+    similarData: similarMoviesAndTVSlice
   },
 });

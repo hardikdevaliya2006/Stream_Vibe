@@ -21,8 +21,6 @@ const HeaderWrap = ({}) => {
   );
 
   const detailsData = type === "movie" ? movieDetail : tvDetail;
-  console.log(detailsData);
-
   if (detailsDataLoading) {
     return (
       <section
