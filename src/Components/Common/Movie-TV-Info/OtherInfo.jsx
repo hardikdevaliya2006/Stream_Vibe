@@ -164,7 +164,6 @@ const OtherInfo = ({
           </div>
         )}
       </div>
-      <div></div>
     </div>
   );
 };

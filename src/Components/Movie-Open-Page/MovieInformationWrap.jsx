@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import Description from "../Common/Movie-TV-Info/Description";
 import OtherInfo from "../Common/Movie-TV-Info/OtherInfo";
 import Trailer from "../Common/Movie-TV-Info/Trailer";
-import { video } from "framer-motion/client";
+import CastAndCrew from "../Common/Movie-TV-Info/CastAndCrew";
 
 const MovieInformationWrap = () => {
   const location = useLocation();
@@ -23,28 +23,8 @@ const MovieInformationWrap = () => {
   const detailsData = type === "movie" ? movieDetail : tvDetail;
 
   return (
-    <section className="pb-4 my-12 flex items-start gap-2 justify-center">
-      <div className="castCrewAndDescription flex flex-col lg:w-[70%] gap-4">
-        <div className="description">
-          <Description text={detailsData.overview}></Description>
-        </div>
-        <div className="movieTvInformation lg:hidden">
-          <OtherInfo
-            genres={detailsData.genres}
-            castAndDirector={detailsData?.credits}
-            popularity={detailsData.popularity}
-            releaseDate={detailsData.release_date}
-            runTime={detailsData.runtime}
-            spokenLanguages={detailsData?.spoken_languages}
-            voteAverage={detailsData.vote_average}
-          ></OtherInfo>
-        </div>
-        <div className="castWrap"></div>
-        <div className="trailer">
-          <Trailer videos={detailsData?.videos}></Trailer>
-        </div>
-      </div>
-      <div className="movieTvInformation lg:w-[30%] lg:flex hidden">
+    <section className="pb-4 my-12 flex items-start gap-2 flex-col lg:flex-row justify-center">
+      <div className="movieTvInformation flex flex-col lg:order-2 gap-2 w-full lg:w-[30%] ">
         <OtherInfo
           genres={detailsData.genres}
           castAndDirector={detailsData?.credits}
@@ -54,6 +34,29 @@ const MovieInformationWrap = () => {
           spokenLanguages={detailsData?.spoken_languages}
           voteAverage={detailsData.vote_average}
         ></OtherInfo>
+        {detailsData?.videos?.results.length > 0 &&
+          detailsData?.videos?.results.find((i) => i.type === "Trailer") && (
+            <div className="trailer">
+              <Trailer videos={detailsData?.videos}></Trailer>
+            </div>
+          )}
+      </div>
+      <div className="castCrewAndDescription w-full lg:w-[70%] flex flex-col gap-2">
+        <div className="description">
+          <Description text={detailsData.overview}></Description>
+        </div>
+        <div className="castWrap">
+          <CastAndCrew
+            dataType={"cast"}
+            castAndCrew={detailsData?.credits}
+          ></CastAndCrew>
+        </div>
+        <div className="crew">
+          <CastAndCrew
+            dataType={"crew"}
+            castAndCrew={detailsData?.credits}
+          ></CastAndCrew>
+        </div>
       </div>
     </section>
   );
