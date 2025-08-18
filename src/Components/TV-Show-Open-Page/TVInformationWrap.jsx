@@ -31,6 +31,13 @@ const TVInformationWrap = () => {
   return (
     <section className="pb-4 my-12 flex items-start gap-2 flex-col lg:flex-row justify-center">
       <div className="movieTvInformation flex flex-col lg:order-2 gap-2 w-full lg:w-[30%] ">
+        {console.log(detailsData)}
+        <div className="SeasonsandEpisodes">
+          <SeasonsAndEpisodesWrap
+            tvId={detailsData?.id}
+            seasonsAndEp={detailsData?.seasons}
+          ></SeasonsAndEpisodesWrap>
+        </div>
         <OtherInfo
           type={type}
           genres={detailsData.genres}
@@ -54,12 +61,6 @@ const TVInformationWrap = () => {
           )}
       </div>
       <div className="castCrewAndDescription w-full lg:w-[70%] flex flex-col gap-2">
-        <div className="SeasonsandEpisodes">
-          <SeasonsAndEpisodesWrap
-            seasonsAndEp={detailsData?.seasons}
-          ></SeasonsAndEpisodesWrap>
-        </div>
-
         <div className="description">
           {detailsData?.overview != ("" && null) && (
             <Description text={detailsData?.overview}></Description>
