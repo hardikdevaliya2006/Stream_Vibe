@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
-import { fetchDetailMovieAndTV } from "../../Store/Actions/fetchDetailMovieAndTV.action";
 import { useEffect } from "react";
-import Description from "../Common/Movie-TV-Info/Description";
 import OtherInfo from "../Common/Movie-TV-Info/OtherInfo";
 import Trailer from "../Common/Movie-TV-Info/Trailer";
+import { fetchDetailMovieAndTV } from "../../Store/Actions/fetchDetailMovieAndTV.action";
+import Description from "../Common/Movie-TV-Info/Description";
 import CastAndCrew from "../Common/Movie-TV-Info/CastAndCrew";
-import SimilarMoviesTV from "../Common/Movie-TV-Info/SimilarMoviesTVWrap";
+import SimilarMoviesTVWrap from "../Common/Movie-TV-Info/SimilarMoviesTVWrap";
 
-const MovieInformationWrap = () => {
+const TVInformationWrap = () => {
   const location = useLocation();
   const type = location.pathname.split("/")[1];
   const id = location.pathname.split("/")[2];
@@ -16,7 +16,7 @@ const MovieInformationWrap = () => {
 
   useEffect(() => {
     dispatch(fetchDetailMovieAndTV({ type: type, id: id }));
-  }, [id, dispatch]);
+  }, [id, dispatch, type]);
 
   const { movieDetail, tvDetail, detailsDataLoading, error } = useSelector(
     (state) => state.detailData
@@ -25,17 +25,24 @@ const MovieInformationWrap = () => {
 
   if (detailsDataLoading) {
     return <div>Loading........</div>;
-  }  
+  }
 
   return (
     <section className="pb-4 my-12 flex items-start gap-2 flex-col lg:flex-row justify-center">
       <div className="movieTvInformation flex flex-col lg:order-2 gap-2 w-full lg:w-[30%] ">
+        {console.log(tvDetail)}
         <OtherInfo
+          type={type}
           genres={detailsData.genres}
           castAndDirector={detailsData?.credits}
           popularity={detailsData.popularity}
-          releaseDate={detailsData.release_date}
-          runTime={detailsData.runtime}
+          releaseDate={detailsData?.first_air_date}
+          {...(type === "tv"
+            ? {
+                episode: detailsData?.number_of_episodes,
+                seasons: detailsData?.number_of_seasons,
+              }
+            : { runTime: detailsData?.runtime })}
           spokenLanguages={detailsData?.spoken_languages}
           voteAverage={detailsData.vote_average}
         ></OtherInfo>
@@ -63,14 +70,14 @@ const MovieInformationWrap = () => {
           ></CastAndCrew>
         </div>
         <div className="similarContant">
-          <SimilarMoviesTV
+          <SimilarMoviesTVWrap
             type={type}
-            genreId={movieDetail?.genres}
-          ></SimilarMoviesTV>
+            genreId={detailsData?.genres}
+          ></SimilarMoviesTVWrap>
         </div>
       </div>
     </section>
   );
 };
 
-export default MovieInformationWrap;
+export default TVInformationWrap;

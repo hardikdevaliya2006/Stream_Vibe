@@ -52,7 +52,7 @@ const HeaderWrap = ({}) => {
 
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/50 to-transparent" />
 
-          <div className="information absolute flex gap-2 2xl:gap-4 flex-col w-full items-center justify-center bottom-5 2xl:bottom-25 z-50">
+          <div className="information absolute flex gap-2 2xl:gap-4 flex-col w-full items-center justify-center bottom-5 2xl:bottom-10 z-50">
             <div className="text-white w-[95%] text-center flex justify-center items-center">
               <h3 className="max-w-full inline-block font-semibold leading-tight 2xl:text-4xl 2xl:font-extrabold lg:text-3xl text-2xl">
                 <div className="w-48 h-16 md:w-50 md:h-20 xl:w-60 xl:h-30 flex items-baseline-last justify-center">

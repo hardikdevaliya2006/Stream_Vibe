@@ -14,8 +14,6 @@ export const fetchSimilarMoviesAndTV = createAsyncThunk(
         },
       });
       const similarData = getData.data.results;
-      console.log(getData.data.results);
-
       return { type, similarData };
     } catch (error) {
       return thunkApi.rejectWithValue(error.message || "Fetch error");

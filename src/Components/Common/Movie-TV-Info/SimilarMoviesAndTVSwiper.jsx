@@ -6,6 +6,7 @@ import { NavLink } from "react-router";
 import TrendingContantLoader from "../Loader/TrendingContantLoader";
 
 const SimilarMoviesAndTVSwiper = ({
+  type,
   slides,
   swiperRef,
   slidesPerGroup,
@@ -37,8 +38,7 @@ const SimilarMoviesAndTVSwiper = ({
             : slides.map((slide, i) => (
                 <SwiperSlide key={i} tag="div" className="!w-fit">
                   {
-                    <NavLink to={`/movie/${slide.id}`}>
-                      {" "}
+                    <NavLink to={`/${type}/${slide.id}`}>
                       <div
                         key={slide.id}
                         className="relative cursor-pointer mr-[0.5rem] w-fit p-2 bg-gray-10 rounded-xl overflow-hidden group"
@@ -50,10 +50,10 @@ const SimilarMoviesAndTVSwiper = ({
                               key={slide.id}
                               src={`https://image.tmdb.org/t/p/w500/${slide.poster_path}`}
                               alt={slide.id}
-                              className="h-44 w-full lg:h-58 xl:h-70 rounded-md"
+                              className="h-44 w-full rounded-md"
                             />
                           </div>
-                          <div className="slideInformation flex justify-between items-center text-[0.725rem] lg:text-sm text-gray-60 ">
+                          <div className="slideInformation flex justify-between items-center text-[0.725rem] text-gray-60 ">
                             <div className="voterAvg flex items-center justify-center gap-0.5 px-1.5 py-0.5 bg-gray-08 border border-gray-15 rounded-full">
                               <AiFillThunderbolt></AiFillThunderbolt>
                               <p>{slide.vote_average.toFixed(1)}</p>

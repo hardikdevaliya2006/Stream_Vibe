@@ -37,7 +37,7 @@ const SimilarMoviesTVWrap = ({ type, genreId }) => {
   };
 
   return (
-    <div className="w-full py-6 px-4">
+    <div className="w-full ">
       <div className="slideHeader flex w-full items-center h-15 justify-between">
         <div className="text-white md:text-2xl text-lg font-semibold">
           You Might Like
@@ -56,6 +56,7 @@ const SimilarMoviesTVWrap = ({ type, genreId }) => {
       </div>
 
       <SimilarMoviesAndTVSwiper
+        type={type}
         slides={slides}
         swiperRef={swiperRef}
         slidesPerGroup={slidesPerGroup}

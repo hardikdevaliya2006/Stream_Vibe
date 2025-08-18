@@ -8,11 +8,14 @@ import { IoMdDisc } from "react-icons/io";
 import person from "../../../../public/Icons/person.svg";
 
 const OtherInfo = ({
+  type,
   genres,
   castAndDirector,
   popularity,
   releaseDate,
   runTime,
+  episode,
+  seasons,
   spokenLanguages,
   voteAverage,
 }) => {
@@ -20,7 +23,6 @@ const OtherInfo = ({
     const dateObj = new Date(dateStr);
 
     const day = dateObj.getDate();
-    const monthFull = dateObj.toLocaleString("en-US", { month: "long" });
     const monthShort = dateObj.toLocaleString("en-US", { month: "long" });
     const year = dateObj.getFullYear();
 
@@ -28,10 +30,11 @@ const OtherInfo = ({
   }
 
   const directorInfo = castAndDirector?.crew?.filter(
-    (person) => person.job == "Director"
+    (person) =>
+      person.known_for_department == "Directing" || person.job == "Director"
   );
   const music = castAndDirector?.crew?.filter(
-    (person) => person.job == "Music" || "Sound"
+    (person) => person.job == "Sound" || "Music"
   );
 
   return (
@@ -50,7 +53,10 @@ const OtherInfo = ({
         </h3>
         <ul className="text-white gap-2 flex flex-wrap">
           {spokenLanguages?.map((lang, i) => (
-            <li key={i} className="px-1.5 border border-gray-15 rounded-md py-0.5 bg-gray-08">
+            <li
+              key={i}
+              className="px-1.5 border border-gray-15 rounded-md py-0.5 bg-gray-08"
+            >
               {lang?.english_name}
             </li>
           ))}
@@ -90,8 +96,11 @@ const OtherInfo = ({
           <span className="font-semibold">Gernes</span>
         </h3>
         <ul className="text-white gap-2 flex flex-wrap">
-          {genres?.map((genre,i) => (
-            <li key={i} className="px-1.5 border border-gray-15 rounded-md py-0.5 bg-gray-08">
+          {genres?.map((genre, i) => (
+            <li
+              key={i}
+              className="px-1.5 border border-gray-15 rounded-md py-0.5 bg-gray-08"
+            >
               {genre?.name}
             </li>
           ))}
@@ -103,7 +112,15 @@ const OtherInfo = ({
           <span className="font-semibold">Other Info</span>
         </h3>
         <ul className="text-white flex items-center justify-center gap-1">
-          <li>{runTime} Min</li>
+          <li>
+            {type === "tv"
+              ? `${episode} Episode${episode > 1 ? "s" : ""}`
+              : `${runTime} Min`}
+          </li>
+          <li className="text-gray-65">|</li>
+          <li>
+            {type === "tv" && `${seasons} Season${seasons > 1 ? "s" : ""}`}
+          </li>
           <li className="text-gray-65">|</li>
           <li>{popularity} K</li>
         </ul>
@@ -148,7 +165,7 @@ const OtherInfo = ({
                     ? `https://image.tmdb.org/t/p/original/${music[0]?.profile_path}`
                     : person
                 }`}
-                alt={directorInfo[0].id}
+                alt={music[0].id}
                 className="h-10 w-10 object-cover rounded-md object-top"
               />
               <div className="w-full">
