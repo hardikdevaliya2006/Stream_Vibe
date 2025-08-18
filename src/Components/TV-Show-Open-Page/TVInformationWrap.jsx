@@ -7,11 +7,12 @@ import { fetchDetailMovieAndTV } from "../../Store/Actions/fetchDetailMovieAndTV
 import Description from "../Common/Movie-TV-Info/Description";
 import CastAndCrew from "../Common/Movie-TV-Info/CastAndCrew";
 import SimilarMoviesTVWrap from "../Common/Movie-TV-Info/SimilarMoviesTVWrap";
+import SeasonsAndEpisodesWrap from "./SeasonsAndEpisodesWrap";
 
 const TVInformationWrap = () => {
   const location = useLocation();
-  const type = location.pathname.split("/")[1];
-  const id = location.pathname.split("/")[2];
+  const type = location.pathname.split("/")[2];
+  const id = location.pathname.split("/")[3];
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,7 +31,6 @@ const TVInformationWrap = () => {
   return (
     <section className="pb-4 my-12 flex items-start gap-2 flex-col lg:flex-row justify-center">
       <div className="movieTvInformation flex flex-col lg:order-2 gap-2 w-full lg:w-[30%] ">
-        {console.log(tvDetail)}
         <OtherInfo
           type={type}
           genres={detailsData.genres}
@@ -54,6 +54,12 @@ const TVInformationWrap = () => {
           )}
       </div>
       <div className="castCrewAndDescription w-full lg:w-[70%] flex flex-col gap-2">
+        <div className="SeasonsandEpisodes">
+          <SeasonsAndEpisodesWrap
+            seasonsAndEp={detailsData?.seasons}
+          ></SeasonsAndEpisodesWrap>
+        </div>
+
         <div className="description">
           {detailsData?.overview != ("" && null) && (
             <Description text={detailsData?.overview}></Description>

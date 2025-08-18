@@ -11,7 +11,7 @@ import SimilarMoviesTV from "../Common/Movie-TV-Info/SimilarMoviesTVWrap";
 const MovieInformationWrap = () => {
   const location = useLocation();
   const type = location.pathname.split("/")[2];
-  const id = location.pathname.split("/")[1];
+  const id = location.pathname.split("/")[3];
   const dispatch = useDispatch();
 
   useEffect(() => {
