@@ -8,8 +8,8 @@ import { useEffect } from "react";
 
 const HeaderWrap = ({}) => {
   const location = useLocation();
-  const type = location.pathname.split("/")[1];
-  const id = location.pathname.split("/")[2];
+  const type = location.pathname.split("/")[2];
+  const id = location.pathname.split("/")[3];
   const dispatch = useDispatch();
 
   useEffect(() => {

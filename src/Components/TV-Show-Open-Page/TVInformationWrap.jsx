@@ -55,19 +55,25 @@ const TVInformationWrap = () => {
       </div>
       <div className="castCrewAndDescription w-full lg:w-[70%] flex flex-col gap-2">
         <div className="description">
-          <Description text={detailsData.overview}></Description>
+          {detailsData?.overview != ("" && null) && (
+            <Description text={detailsData?.overview}></Description>
+          )}
         </div>
         <div className="castWrap">
-          <CastAndCrew
-            dataType={"cast"}
-            castAndCrew={detailsData?.credits}
-          ></CastAndCrew>
+          {detailsData?.credits?.cast.length > 0 && (
+            <CastAndCrew
+              dataType={"cast"}
+              castAndCrew={detailsData?.credits}
+            ></CastAndCrew>
+          )}
         </div>
         <div className="crew">
-          <CastAndCrew
-            dataType={"crew"}
-            castAndCrew={detailsData?.credits}
-          ></CastAndCrew>
+          {detailsData?.credits?.crew.length > 0 && (
+            <CastAndCrew
+              dataType={"crew"}
+              castAndCrew={detailsData?.credits}
+            ></CastAndCrew>
+          )}
         </div>
         <div className="similarContant">
           <SimilarMoviesTVWrap

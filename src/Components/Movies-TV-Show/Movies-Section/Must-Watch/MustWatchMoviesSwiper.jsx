@@ -38,7 +38,7 @@ const MustWatchMoviesSwiper = ({
             : slides.map((slide, i) => (
                 <SwiperSlide key={i} tag="div" className="!w-fit">
                   {
-                    <NavLink to={`/movie/${slide.id}`}>
+                    <NavLink to={`/Movies-Shows/movie/${slide.id}`}>
                       <div
                         key={slide.id}
                         className="relative cursor-pointer mr-[0.5rem] w-fit p-2 bg-gray-10 rounded-xl overflow-hidden group"

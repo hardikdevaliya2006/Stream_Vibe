@@ -9,24 +9,15 @@ import TVShowOpenPage from "../Page/TVShowOpenPage";
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home></Home>} />
-      <Route
-        path={"/Movies-Shows"}
-        element={<MoviesAndTVShow></MoviesAndTVShow>}
-      />
-      <Route
-        path={"/movie/:id"}
-        element={<MoviesOpenPage></MoviesOpenPage>}
-      ></Route>
-      <Route
-        path={"/tv/:id"}
-        element={<TVShowOpenPage></TVShowOpenPage>}
-      ></Route>
-      <Route path={"/Support"} element={<Support></Support>} />
-      <Route
-        path={"/Subscriptions"}
-        element={<UpgradeSubscription></UpgradeSubscription>}
-      />
+      <Route path="/" element={<Home />} />
+
+      <Route path="/Movies-Shows" element={<MoviesAndTVShow />}>
+        <Route path="movie/:id" element={<MoviesOpenPage />} />
+        <Route path="tv/:id" element={<TVShowOpenPage />} />
+      </Route>
+
+      <Route path="/Support" element={<Support />} />
+      <Route path="/Subscriptions" element={<UpgradeSubscription />} />
     </Routes>
   );
 };

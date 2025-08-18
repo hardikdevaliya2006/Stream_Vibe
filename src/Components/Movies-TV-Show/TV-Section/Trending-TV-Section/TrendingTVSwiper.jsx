@@ -37,7 +37,7 @@ const GenresSwiper = ({
             : slides.map((slide, i) => (
                 <SwiperSlide key={i} tag="div" className="!w-fit">
                   {
-                    <NavLink to={`/tv/${slide.id}`}>
+                    <NavLink to={`/Movies-Shows/tv/${slide.id}`}>
                       <div
                         key={slide.id}
                         className="relative cursor-pointer mr-[0.5rem] w-fit p-2 bg-gray-10 rounded-xl overflow-hidden group"
