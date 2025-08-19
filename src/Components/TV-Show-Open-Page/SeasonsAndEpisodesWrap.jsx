@@ -35,7 +35,7 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
 
       <div className="episodeAndSeasonListWrap">
         <ul className="flex-col flex gap-2">
-          {episodeData.map((s) => (
+          {episodeData.filter((s) => s.episodes?.length > 2).map((s) => (
             <li key={s.season_number}>
               <div className="flex flex-col">
                 <div
