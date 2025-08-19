@@ -49,8 +49,10 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
                     }`}
                   >
                     <div className="seasonNumber flex items-center gap-1.5">
-                      <h2 className="text-white">Season 0{s.season_number}</h2>
-                      <p className="text-gray-60 text-[0.725rem]">
+                      <h2 className="text-white md:text-[1.1rem]">
+                        Season 0{s.season_number}
+                      </h2>
+                      <p className="text-gray-60 md:text-sm text-[0.725rem]">
                         {s.episode_count} Episode
                       </p>
                     </div>
@@ -84,7 +86,7 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
                                 <img
                                   src={`https://image.tmdb.org/t/p/w500/${ep.still_path}`}
                                   alt={ep.name}
-                                  className="w-120 xl:w-100"
+                                  className="w-120 md:w-70 xl:w-58"
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center">
                                   <div className="playIcon p-2 z-10 rounded-full bg-black/50">
@@ -97,22 +99,28 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
                                 </div>
                               </div>
 
-                              <div className="episodeNumber flex xss:gap-2 h-full xss:items-start xss:flex-col xss:justify-start xss:pl-3 items-center justify-center w-full">
-                                <div className="epName flex items-center justify-center gap-2">
-                                  <h2 className="text-xl font-semibold text-gray-60">
-                                    {ep.episode_number > 9 ? "" : "0"}
-                                    {ep.episode_number}
-                                  </h2>
-                                  <h3 className="capitalize hidden xss:text-xl xss:flex text-white">
-                                    {ep.name}
-                                  </h3>
+                              <div className="episodeNumber flex xss:gap-2 h-full xss:items-start xss:flex-col xss:justify-start pl-3 items-center justify-center w-full">
+                                <div className="epName flex items-center justify-center md:justify-between w-full gap-2">
+                                  <div className="epnumberAndName flex gap-2 w-full items-start md:items-center md:w-fit">
+                                    <h2 className="text-xl font-semibold text-gray-60">
+                                      {ep.episode_number > 9 ? "" : "0"}
+                                      {ep.episode_number}
+                                    </h2>
+                                    <h3 className="capitalize hidden xss:text-xl xss:flex text-white">
+                                      {ep.name}
+                                    </h3>
+                                  </div>
+                                  <div className="EpisodeLength md:flex  hidden border border-gray-15 rounded-md w-fit text-sm text-gray-65 gap-1 items-center p-1">
+                                    <IoTimeOutline />
+                                    <p>{ep.runtime} Min</p>
+                                  </div>
                                 </div>
                                 <div className="polt hidden xss:flex">
                                   <p className="text-sm line-clamp-3  text-gray-60">
                                     {ep.overview}
                                   </p>
                                 </div>
-                                <div className="EpisodeLength hidden xss:flex border border-gray-15 rounded-md w-fit text-sm text-gray-65 gap-1 items-center p-1">
+                                <div className="EpisodeLength md:hidden hidden xss:flex border border-gray-15 rounded-md w-fit text-sm text-gray-65 gap-1 items-center p-1">
                                   <IoTimeOutline />
                                   <p>{ep.runtime} Min</p>
                                 </div>
