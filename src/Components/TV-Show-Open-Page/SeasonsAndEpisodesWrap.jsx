@@ -5,6 +5,7 @@ import { FiArrowDown } from "react-icons/fi";
 import { fetchSeasonsAndEpisodes } from "../../Store/Actions/fetchSeasonsAndEpisodes.action";
 import { AnimatePresence, motion } from "framer-motion";
 import playIcon from "../../../public/Icons/play.svg";
+import { useNavigate } from "react-router";
 
 const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
   const dispatch = useDispatch();
@@ -25,6 +26,12 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
     setOpenSeason(openSeason === season ? null : season);
   };
 
+  const navigate = useNavigate();
+
+  const handleEpisodeClick = (season, episode) => {
+    navigate(`/Movies-Shows/tv/${tvId}/${season}/${episode}/watch`);
+  };
+
   console.log(episodeData);
 
   return (
@@ -41,9 +48,9 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
               <li key={s.season_number}>
                 <div className="flex flex-col">
                   <div
-                    onClick={() => toggleSeason(s.season_number)}
+                    onClick={() => toggleSeason(s.season_number)} // make sure toggle is used here
                     className={`cursor-pointer bg-gray-06 text-sm border border-gray-15 flex justify-between items-center px-4 py-4 ${
-                      openSeason === s.seaseason_numberson
+                      openSeason === s.season_number
                         ? "rounded-t-md border-b-0"
                         : "rounded-md"
                     }`}
@@ -79,24 +86,36 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
                         {s.episodes.map((ep) => (
                           <li
                             key={ep.id}
+                            onClick={() =>
+                              handleEpisodeClick(
+                                s.season_number,
+                                ep.episode_number
+                              )
+                            }
                             className="episodeList cursor-pointer flex-col flex gap-2 px-2 py-2 border-b border-gray-15 last:border-0"
                           >
                             <div className="episodeNumberAndPoster flex items-center xss:items-start justify-between">
                               <div className="poster relative border border-gray-15 rounded-md overflow-hidden">
                                 <img
-                                  src={`https://image.tmdb.org/t/p/w500/${ep.still_path}`}
+                                  src={`${
+                                    ep.still_path
+                                      ? `https://image.tmdb.org/t/p/w500/${ep.still_path}`
+                                      : "/img/notFound.jpeg"
+                                  }`}
                                   alt={ep.name}
                                   className="w-120 md:w-70 xl:w-58"
                                 />
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                  <div className="playIcon p-2 z-10 rounded-full bg-black/50">
-                                    <img
-                                      src={playIcon}
-                                      alt="play"
-                                      className="w-6 h-6"
-                                    />
+                                {ep.still_path && (
+                                  <div className="absolute inset-0 flex items-center justify-center">
+                                    <div className="playIcon p-2 z-10 rounded-full bg-black/50">
+                                      <img
+                                        src={playIcon}
+                                        alt="play"
+                                        className="w-6 h-6"
+                                      />
+                                    </div>
                                   </div>
-                                </div>
+                                )}
                               </div>
 
                               <div className="episodeNumber flex xss:gap-2 h-full xss:items-start xss:flex-col xss:justify-start pl-3 items-center justify-center w-full">

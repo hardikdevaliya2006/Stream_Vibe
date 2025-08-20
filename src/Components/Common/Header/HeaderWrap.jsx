@@ -74,7 +74,7 @@ const HeaderWrap = () => {
                 {detailsData.overview}
               </p>
             </div>
-            <NavLink to={`/Movies-Shows/${type}/${id}/watch`}>
+            <NavLink to={`/Movies-Shows/tv/${id}/1/1/watch`}>
               <div className="buttensWrap flex items-center justify-center 2xl:gap-4 gap-2">
                 <div className="playNow">
                   <div className="actionBtn cursor-pointer flex justify-center items-center gap-2 text-white bg-red-45 px-5 py-1.5 rounded-md">
@@ -84,7 +84,7 @@ const HeaderWrap = () => {
                       className="h-3 2xl:h-4 cursor-pointer"
                     />
                     <button className="cursor-pointer 2xl:font-semibold 2xl:text-[1.1rem]">
-                      Play Now
+                      Play S1 E1
                     </button>
                   </div>
                 </div>

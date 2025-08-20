@@ -1,72 +1,74 @@
 import { useState } from "react";
 import { useLocation } from "react-router";
-import { FiChevronsDown } from "react-icons/fi";
 
-const MovieTVPlayer = () => {
+const TVPlayer = () => {
   const locationTemp = useLocation();
   const location = locationTemp.pathname.split("/");
   const type = location[2];
   const id = location[3];
+
   const servers = [
     {
       name: "VidFast",
-      url: "https://vidfast.pro/movie/",
+      url: "https://vidfast.pro/tv/",
       img: `/Icons/streming.png`,
     },
     {
       name: "VidSrc XYZ",
-      url: "https://vidsrc.xyz/embed/movie/",
+      url: "https://vidsrc.xyz/embed/tv/",
       img: `/Icons/vidsrcxyz.png`,
     },
     {
       name: "VidSrc CC",
-      url: "https://vidsrc.cc/v3/embed/movie/",
+      url: "https://vidsrc.cc/v3/embed/tv/",
       img: `/Icons/vidscrccc.png`,
     },
     {
       name: "111Movies",
-      url: "https://111movies.com/movie/",
+      url: "https://111movies.com/tv/",
       img: `/Icons/111movies.png`,
     },
     {
       name: "AutoEmbed",
-      url: "https://player.autoembed.cc/embed/movie/",
+      url: "https://player.autoembed.cc/embed/tv/",
       img: `/Icons/AutoEmbed.png`,
     },
     {
       name: "MoviesAPI",
-      url: "https://moviesapi.club/movie/",
+      url: "https://moviesapi.club/tv/",
       img: `/Icons/vidfast.png`,
     },
     {
       name: "VidLink",
-      url: "https://vidlink.pro/movie/",
+      url: "https://vidlink.pro/tv/",
       img: `/Icons/vidlink.png`,
     },
     {
       name: "VidSrc ICU",
-      url: "https://vidsrc.icu/embed/movie/",
+      url: "https://vidsrc.icu/embed/tv/",
       img: `/Icons/vidsrcicu.png`,
     },
   ];
 
   const [currentServer, setCurrentServer] = useState(servers[0].url);
+  const currentSeason = location[4];
+  const currentEpisode = location[5];
 
   return (
-    <div className="movie-player space-y-4">
+    <div className="movie-player w-full space-y-4">
       <div className="aspect-video w-full rounded-xl overflow-hidden shadow-lg">
         <iframe
-          src={`${currentServer}${id}`}
+          src={`${currentServer}${id}/${currentSeason}/${currentEpisode}`}
           allowFullScreen
           className="w-full h-full border-0"
         ></iframe>
       </div>
-      <div className="space-y-3 my-12 w-full max-w-md">
+      <div className="my-12 w-full grid grid-cols-1 gap-4 lg:grid-cols-2">
         {servers.map((server, index) => (
           <button
             key={index}
             onClick={() => setCurrentServer(server.url)}
-            className={`flex items-center justify-between w-full px-4 py-3 rounded-lg border  transition ${
+            className={`flex items-center justify-between w-full px-5 py-3 rounded-lg border transition ${
               currentServer === server.url
                 ? "bg-gray-15 border-gray-20 text-white"
                 : "bg-gray-10 border-gray-15 text-gray-300 hover:bg-gray-15"
@@ -109,7 +111,7 @@ const MovieTVPlayer = () => {
                       100% { box-shadow:0 0 0 0 rgba(34,197,94,0); }
                     }
                   `}</style>
-            </div>{" "}
+            </div>
           </button>
         ))}
       </div>
@@ -117,4 +119,4 @@ const MovieTVPlayer = () => {
   );
 };
 
-export default MovieTVPlayer;
+export default TVPlayer;
