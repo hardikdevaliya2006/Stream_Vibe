@@ -11,42 +11,42 @@ const MovieTVPlayer = () => {
     {
       name: "VidFast",
       url: "https://vidfast.pro/movie/",
-      img: `/public/Icons/streming.png`,
+      img: `/Icons/streming.png`,
     },
     {
       name: "VidSrc XYZ",
       url: "https://vidsrc.xyz/embed/movie/",
-      img: `/public/Icons/vidsrcxyz.png`,
+      img: `/Icons/vidsrcxyz.png`,
     },
     {
       name: "VidSrc CC",
       url: "https://vidsrc.cc/v3/embed/movie/",
-      img: `/public/Icons/vidscrccc.png`,
+      img: `/Icons/vidscrccc.png`,
     },
     {
       name: "111Movies",
       url: "https://111movies.com/movie/",
-      img: `/public/Icons/111movies.png`,
+      img: `/Icons/111movies.png`,
     },
     {
       name: "AutoEmbed",
       url: "https://player.autoembed.cc/embed/movie/",
-      img: `/public/Icons/AutoEmbed.png`,
+      img: `/Icons/AutoEmbed.png`,
     },
     {
       name: "MoviesAPI",
       url: "https://moviesapi.club/movie/",
-      img: `/public/Icons/vidfast.png`,
+      img: `/Icons/vidfast.png`,
     },
     {
       name: "VidLink",
       url: "https://vidlink.pro/movie/",
-      img: `/public/Icons/vidlink.png`,
+      img: `/Icons/vidlink.png`,
     },
     {
       name: "VidSrc ICU",
       url: "https://vidsrc.icu/embed/movie/",
-      img: `/public/Icons/vidsrcicu.png`,
+      img: `/Icons/vidsrcicu.png`,
     },
   ];
 
