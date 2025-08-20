@@ -88,7 +88,7 @@ const SwiperCarousel = () => {
                 <div className="buttensWrap flex items-center justify-center 2xl:gap-4 gap-2">
                   <div className="playNow">
                     {img.media_type === "movie" ? (
-                      <NavLink to={`/movie/${img.id}`}>
+                      <NavLink to={`/Movies-Shows/movie/${img.id}`}>
                         <div className="actionBtn cursor-pointer flex justify-center items-center gap-2 text-white bg-red-45 px-5 py-1.5 rounded-md">
                           <img
                             src={playBtn}
@@ -101,7 +101,7 @@ const SwiperCarousel = () => {
                         </div>
                       </NavLink>
                     ) : (
-                      <NavLink to={`/tv/${img.id}`}>
+                      <NavLink to={`/Movies-Shows/tv/${img.id}`}>
                         <div className="actionBtn cursor-pointer flex justify-center items-center gap-2 text-white bg-red-45 px-5 py-1.5 rounded-md">
                           <img
                             src={playBtn}

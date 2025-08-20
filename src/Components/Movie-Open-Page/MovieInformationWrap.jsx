@@ -25,7 +25,7 @@ const MovieInformationWrap = () => {
 
   if (detailsDataLoading) {
     return <div>Loading........</div>;
-  }  
+  }
 
   return (
     <section className="pb-4 my-12 flex items-start gap-2 flex-col lg:flex-row justify-center">

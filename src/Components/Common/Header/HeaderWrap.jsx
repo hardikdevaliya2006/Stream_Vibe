@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import { fetchDetailMovieAndTV } from "../../../Store/Actions/fetchDetailMovieAndTV.action";
 import playBtn from "../../../../public/Logo/streamvibeplayerlogo.svg";
 import LikeButton from "../AnimationIcon/LikeButton";
 import SaveButton from "../AnimationIcon/SaveButton";
 import { useEffect } from "react";
 
-const HeaderWrap = ({}) => {
+const HeaderWrap = () => {
   const location = useLocation();
   const type = location.pathname.split("/")[2];
   const id = location.pathname.split("/")[3];
@@ -74,30 +74,31 @@ const HeaderWrap = ({}) => {
                 {detailsData.overview}
               </p>
             </div>
+            <NavLink to={`/Movies-Shows/${type}/${id}/watch`}>
+              <div className="buttensWrap flex items-center justify-center 2xl:gap-4 gap-2">
+                <div className="playNow">
+                  <div className="actionBtn cursor-pointer flex justify-center items-center gap-2 text-white bg-red-45 px-5 py-1.5 rounded-md">
+                    <img
+                      src={playBtn}
+                      alt="playNow"
+                      className="h-3 2xl:h-4 cursor-pointer"
+                    />
+                    <button className="cursor-pointer 2xl:font-semibold 2xl:text-[1.1rem]">
+                      Play Now
+                    </button>
+                  </div>
+                </div>
 
-            <div className="buttensWrap flex items-center justify-center 2xl:gap-4 gap-2">
-              <div className="playNow">
-                <div className="actionBtn cursor-pointer flex justify-center items-center gap-2 text-white bg-red-45 px-5 py-1.5 rounded-md">
-                  <img
-                    src={playBtn}
-                    alt="playNow"
-                    className="h-3 2xl:h-4 cursor-pointer"
-                  />
-                  <button className="cursor-pointer 2xl:font-semibold 2xl:text-[1.1rem]">
-                    Play Now
-                  </button>
+                <div className="flex items-center justify-center gap-2">
+                  <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15 p-[0.56rem]">
+                    <SaveButton />
+                  </div>
+                  <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15 p-[0.56rem]">
+                    <LikeButton />
+                  </div>
                 </div>
               </div>
-
-              <div className="flex items-center justify-center gap-2">
-                <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15 p-[0.56rem]">
-                  <SaveButton />
-                </div>
-                <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15 p-[0.56rem]">
-                  <LikeButton />
-                </div>
-              </div>
-            </div>
+            </NavLink>
           </div>
         </div>
       </div>
