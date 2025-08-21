@@ -17,10 +17,7 @@ const AppRouter = () => {
       <Route path="/Movies-Shows/movie/:id" element={<MoviesOpenPage />} />
       <Route path="/Movies-Shows/tv/:id" element={<TVShowOpenPage />} />
 
-      <Route
-        path="/Movies-Shows/movie/:id/watch"
-        element={<PlayMovie />}
-      />
+      <Route path="/Movies-Shows/movie/:id/watch" element={<PlayMovie />} />
       <Route path="/Movies-Shows/tv/:id/:s/:e/watch" element={<PlayTV />} />
 
       <Route path="/Support" element={<Support />} />

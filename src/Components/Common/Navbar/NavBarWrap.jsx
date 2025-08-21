@@ -4,9 +4,12 @@ import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import NavLinks from "./NavLinks";
 import { useState } from "react";
 import MobileMenuWrap from "./MobileMenuWrap";
+import SerachMoviesTV from "../Search-Handel/SerachMoviesTV";
 
 const NavBarWrap = () => {
   const [menu, setMenu] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
   const handleMenu = () => setMenu((prev) => !prev);
 
   return (
@@ -17,15 +20,19 @@ const NavBarWrap = () => {
       <div className="lg:flex items-center justify-center text-sm border-2 border-gray-15 rounded-xl px-1 py-1 gap-2 bg-gray-06 hidden">
         <NavLinks />
       </div>
-      <div className="lg:flex hidden w-[20%] items-center justify-end">
-        <HiMiniMagnifyingGlass className="text-white text-3xl rounded-full cursor-pointer p-1.5 hover:bg-gray-15" />
+      <div className="flex mr-2.5 items-center justify-end">
+        <HiMiniMagnifyingGlass
+          onClick={() => setIsOpen(true)}
+          className="text-white md:text-[2.5rem] text-[2rem] rounded-full cursor-pointer p-1.5 hover:bg-gray-15"
+        />
       </div>
+      <SerachMoviesTV isOpen={isOpen} onClose={() => setIsOpen(false)} />
       <div className="lg:hidden">
         <div
           className="bg-gray-10 cursor-pointer border-2 border-gray-15 rounded-md w-fit px-1 py-1"
           onClick={handleMenu}
         >
-          <CgMenuRightAlt className="text-white md:text-3xl text-2xl" />
+          <CgMenuRightAlt className="text-white md:text-3xl text-xl" />
         </div>
         <MobileMenuWrap isOpen={menu} />
       </div>

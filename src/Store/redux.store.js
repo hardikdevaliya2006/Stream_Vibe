@@ -8,6 +8,7 @@ import mustWatchMovieAndTVSlice from "./Reducer/mustWatchMovieAndTV.reducer";
 import detailMovieAndTVSlice from "./Reducer/detailMovieAndTV.reducer";
 import similarMoviesAndTVSlice from "./Reducer/similarMoviesAndTV.reducer";
 import seasonsAndEpisodesSlice from "./Reducer/seasonsAndEpisodes.reducer";
+import searchResultsSlice from "./Reducer/searchResults.reducer";
 
 export const store = configureStore({
   reducer: {
@@ -19,6 +20,7 @@ export const store = configureStore({
     mustWatchData: mustWatchMovieAndTVSlice,
     detailData: detailMovieAndTVSlice,
     similarData: similarMoviesAndTVSlice,
-    episodeData: seasonsAndEpisodesSlice
+    episodeData: seasonsAndEpisodesSlice,
+    searchData: searchResultsSlice
   },
 });
