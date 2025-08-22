@@ -14,7 +14,7 @@ const NavBarWrap = () => {
 
   return (
     <div className="flex relative items-center justify-between w-full h-16 px-4">
-      <div className="lg:w-[20%] w-full">
+      <div className="w-full lg:w-fit">
         <img src={streamvibedesktoplogo} alt="logo" className="h-10 md:h-12" />
       </div>
       <div className="lg:flex items-center justify-center text-sm border-2 border-gray-15 rounded-xl px-1 py-1 gap-2 bg-gray-06 hidden">

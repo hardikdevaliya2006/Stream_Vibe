@@ -43,12 +43,12 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
       <div className="episodeAndSeasonListWrap">
         <ul className="flex-col flex gap-2">
           {episodeData
-            .filter((s) => s.episodes?.length > 2)
+            .filter((s) => s.episodes?.length > 1)
             .map((s) => (
               <li key={s.season_number}>
                 <div className="flex flex-col">
                   <div
-                    onClick={() => toggleSeason(s.season_number)} // make sure toggle is used here
+                    onClick={() => toggleSeason(s.season_number)}
                     className={`cursor-pointer bg-gray-06 text-sm border border-gray-15 flex justify-between items-center px-4 py-4 ${
                       openSeason === s.season_number
                         ? "rounded-t-md border-b-0"
@@ -95,7 +95,7 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
                             className="episodeList cursor-pointer flex-col flex gap-2 px-2 py-2 border-b border-gray-15 last:border-0"
                           >
                             <div className="episodeNumberAndPoster flex items-center xss:items-start justify-between">
-                              <div className="poster relative border border-gray-15 rounded-md overflow-hidden">
+                              <div className="poster  relative border border-gray-15 rounded-md overflow-hidden">
                                 <img
                                   src={`${
                                     ep.still_path
@@ -103,7 +103,7 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
                                       : "/img/notFound.jpeg"
                                   }`}
                                   alt={ep.name}
-                                  className="w-120 md:w-70 xl:w-58"
+                                  className="w-70 md:w-70 xl:w-58"
                                 />
                                 {ep.still_path && (
                                   <div className="absolute inset-0 flex items-center justify-center">
@@ -121,38 +121,46 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
                               <div className="episodeNumber flex xss:gap-2 h-full xss:items-start xss:flex-col xss:justify-start pl-3 items-center justify-center w-full">
                                 <div className="epName flex items-center justify-center md:justify-between w-full gap-2">
                                   <div className="epnumberAndName flex gap-2 w-full items-start md:items-center md:w-fit">
-                                    <h2 className="text-xl font-semibold text-gray-60">
+                                    <h2 className="text-xl font-semibold text-gray-60 flex-shrink-0">
                                       {ep.episode_number > 9 ? "" : "0"}
                                       {ep.episode_number}
                                     </h2>
-                                    <h3 className="capitalize hidden xss:text-xl xss:flex text-white">
-                                      {ep.name}
-                                    </h3>
+                                    <div className="flex-1 min-w-0 max-w-[100px] md:max-w-[300px]">
+                                      <h3 className="capitalize hidden xss:text-xl xss:block line-clamp-1 text-white break-words overflow-hidden text-ellipsis whitespace-nowrap">
+                                        {ep.name}
+                                      </h3>
+                                    </div>
                                   </div>
-                                  <div className="EpisodeLength md:flex  hidden border border-gray-15 rounded-md w-fit text-sm text-gray-65 gap-1 items-center p-1">
+                                  <div className="EpisodeLength md:flex hidden border border-gray-15 rounded-md w-fit text-sm text-gray-65 gap-1 items-center p-1">
                                     <IoTimeOutline />
-                                    <p>{ep.runtime} Min</p>
+                              {!ep.runtime ? "Coming Soon" : <p>{ep.runtime} Min</p>}
                                   </div>
                                 </div>
                                 <div className="polt hidden xss:flex">
-                                  <p className="text-sm line-clamp-3  text-gray-60">
+                                  <p className="text-sm line-clamp-2  text-gray-60">
                                     {ep.overview}
                                   </p>
                                 </div>
                                 <div className="EpisodeLength md:hidden hidden xss:flex border border-gray-15 rounded-md w-fit text-sm text-gray-65 gap-1 items-center p-1">
                                   <IoTimeOutline />
-                                  <p>{ep.runtime} Min</p>
+                                  {!ep.runtime ? (
+                                    "Coming Soon"
+                                  ) : (
+                                    <p>{ep.runtime} Min</p>
+                                  )}
                                 </div>
                               </div>
                             </div>
 
                             <div className="EpisodeLength xss:hidden border border-gray-15 rounded-md w-fit text-sm text-gray-65 flex gap-1 items-center p-1">
                               <IoTimeOutline />
-                              <p>{ep.runtime} Min</p>
+                              {!ep.runtime ? "Coming Soon" : <p>{ep.runtime} Min</p>}
                             </div>
 
-                            <div className="episodeName px-1 xss:hidden text-white">
-                              <h3 className="capitalize">{ep.name}</h3>
+                            <div className="episodeName px-1 xss:hidden block text-white">
+                              <h3 className="capitalize text-base line-clamp-1">
+                                {ep.name}
+                              </h3>
                             </div>
                           </li>
                         ))}

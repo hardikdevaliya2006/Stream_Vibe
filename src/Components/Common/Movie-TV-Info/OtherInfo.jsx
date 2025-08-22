@@ -29,12 +29,14 @@ const OtherInfo = ({
     return `${day} ${monthShort} ${year}`;
   }
 
+  console.log(runTime);
+
   const directorInfo = castAndDirector?.crew?.filter(
     (person) =>
       person.known_for_department == "Directing" || person.job == "Director"
   );
   const music = castAndDirector?.crew?.filter(
-    (person) => person.job == "Sound" || "Music"
+    (person) => person.job === "Sound" || person.job === "Music"
   );
 
   return (
@@ -52,14 +54,16 @@ const OtherInfo = ({
           <span className="font-semibold">Availabel Language</span>
         </h3>
         <ul className="text-white gap-2 flex flex-wrap">
-          {spokenLanguages?.map((lang, i) => (
-            <li
-              key={i}
-              className="px-1.5 border border-gray-15 rounded-md py-0.5 bg-gray-08"
-            >
-              {lang?.english_name}
-            </li>
-          ))}
+          {spokenLanguages?.length > 0
+            ? spokenLanguages.map((lang, i) => (
+                <li
+                  key={i}
+                  className="px-1.5 border border-gray-15 rounded-md py-0.5 bg-gray-08"
+                >
+                  {lang?.english_name}
+                </li>
+              ))
+            : "No Language Available"}
         </ul>
       </div>
       <div className="Ratings flex flex-col items-start justify-center gap-2">
@@ -96,14 +100,16 @@ const OtherInfo = ({
           <span className="font-semibold">Gernes</span>
         </h3>
         <ul className="text-white gap-2 flex flex-wrap">
-          {genres?.map((genre, i) => (
-            <li
-              key={i}
-              className="px-1.5 border border-gray-15 rounded-md py-0.5 bg-gray-08"
-            >
-              {genre?.name}
-            </li>
-          ))}
+          {genres?.length > 0
+            ? genres?.map((genre, i) => (
+                <li
+                  key={i}
+                  className="px-1.5 border border-gray-15 rounded-md py-0.5 bg-gray-08"
+                >
+                  {genre?.name}
+                </li>
+              ))
+            : "No Genres Available"}
         </ul>
       </div>
       <div className="otherInfo flex flex-col items-start justify-center gap-2">
@@ -115,6 +121,8 @@ const OtherInfo = ({
           <li>
             {type === "tv"
               ? `${episode} Episode${episode > 1 ? "s" : ""}`
+              : !runTime || runTime === 0
+              ? "Coming Soon"
               : `${runTime} Min`}
           </li>
           <li className="text-gray-65">|</li>
@@ -125,64 +133,65 @@ const OtherInfo = ({
           <li>{popularity} K</li>
         </ul>
       </div>
-      {castAndDirector?.crew.length > 0 && castAndDirector?.cast.length > 0 && (
-        <div className="dirctorAndSound w-full flex flex-col gap-4">
-          {directorInfo?.length > 0 && (
-            <div className="director flex-col flex gap-2">
-              <h3 className="text-gray-60 font-semibold">
-                <span className="font-semibold">Director</span>
-              </h3>
-              <div className="info px-2 border flex gap-2 border-gray-15 rounded-md py-2 w-full bg-gray-08">
-                <img
-                  src={`${
-                    directorInfo[0]?.profile_path
-                      ? `https://image.tmdb.org/t/p/original/${directorInfo[0]?.profile_path}`
-                      : person
-                  }`}
-                  alt={directorInfo[0]?.id}
-                  className="h-10 w-10 object-cover rounded-md object-top"
-                />
-                <div className="w-full">
-                  <h2 className="text-white">{directorInfo[0]?.name}</h2>
-                  <div className="text-sm flex items-center justify-start gap-0.5">
-                    <AiFillThunderbolt className="text-gray-65"></AiFillThunderbolt>
-                    <p className="text-gray-65">
-                      {directorInfo[0]?.popularity.toFixed(1)}
-                    </p>
+      {castAndDirector?.crew?.length > 0 &&
+        castAndDirector?.cast?.length > 0 && (
+          <div className="dirctorAndSound w-full flex flex-col gap-4">
+            {directorInfo?.length > 0 && (
+              <div className="director flex-col flex gap-2">
+                <h3 className="text-gray-60 font-semibold">
+                  <span className="font-semibold">Director</span>
+                </h3>
+                <div className="info px-2 border flex gap-2 border-gray-15 rounded-md py-2 w-full bg-gray-08">
+                  <img
+                    src={`${
+                      directorInfo[0]?.profile_path
+                        ? `https://image.tmdb.org/t/p/original/${directorInfo[0]?.profile_path}`
+                        : person
+                    }`}
+                    alt={directorInfo[0]?.id}
+                    className="h-10 w-10 object-cover rounded-md object-top"
+                  />
+                  <div className="w-full">
+                    <h2 className="text-white">{directorInfo[0]?.name}</h2>
+                    <div className="text-sm flex items-center justify-start gap-0.5">
+                      <AiFillThunderbolt className="text-gray-65"></AiFillThunderbolt>
+                      <p className="text-gray-65">
+                        {directorInfo[0]?.popularity.toFixed(1)}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )}
-          {music?.length > 0 && (
-            <div className="sound flex-col flex gap-2">
-              <h3 className="text-gray-60 font-semibold ">
-                <span className="font-semibold">Sound</span>
-              </h3>
-              <div className="info px-2 border flex gap-2 border-gray-15 rounded-md py-2 w-full bg-gray-08">
-                <img
-                  src={`${
-                    music[0]?.profile_path
-                      ? `https://image.tmdb.org/t/p/original/${music[0]?.profile_path}`
-                      : person
-                  }`}
-                  alt={music[0].id}
-                  className="h-10 w-10 object-cover rounded-md object-top"
-                />
-                <div className="w-full">
-                  <h2 className="text-white">{music[0]?.name}</h2>
-                  <div className="text-sm flex items-center justify-start gap-0.5">
-                    <AiFillThunderbolt className="text-gray-65"></AiFillThunderbolt>
-                    <p className="text-gray-65">
-                      {music[0]?.popularity.toFixed(1)}
-                    </p>
+            )}
+            {music?.length > 0 && (
+              <div className="sound flex-col flex gap-2">
+                <h3 className="text-gray-60 font-semibold ">
+                  <span className="font-semibold">Sound</span>
+                </h3>
+                <div className="info px-2 border flex gap-2 border-gray-15 rounded-md py-2 w-full bg-gray-08">
+                  <img
+                    src={`${
+                      music[0]?.profile_path
+                        ? `https://image.tmdb.org/t/p/original/${music[0]?.profile_path}`
+                        : person
+                    }`}
+                    alt={music[0].id}
+                    className="h-10 w-10 object-cover rounded-md object-top"
+                  />
+                  <div className="w-full">
+                    <h2 className="text-white">{music[0]?.name}</h2>
+                    <div className="text-sm flex items-center justify-start gap-0.5">
+                      <AiFillThunderbolt className="text-gray-65"></AiFillThunderbolt>
+                      <p className="text-gray-65">
+                        {music[0]?.popularity.toFixed(1)}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          )}
-        </div>
-      )}
+            )}
+          </div>
+        )}
     </div>
   );
 };

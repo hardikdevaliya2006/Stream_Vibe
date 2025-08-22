@@ -27,7 +27,7 @@ const TVInformationWrap = () => {
   if (detailsDataLoading) {
     return <div>Loading........</div>;
   }
- 
+
   return (
     <section className="pb-4 my-12 flex items-start gap-2 flex-col lg:flex-row justify-center">
       <div className="movieTvInformation flex flex-col lg:order-2 gap-2 w-full lg:w-[30%] ">
@@ -72,22 +72,22 @@ const TVInformationWrap = () => {
             <Description text={detailsData?.overview}></Description>
           )}
         </div>
-        <div className="castWrap">
           {detailsData?.credits?.cast.length > 0 && (
+        <div className="castWrap">
             <CastAndCrew
               dataType={"cast"}
               castAndCrew={detailsData?.credits}
             ></CastAndCrew>
-          )}
         </div>
-        <div className="crew">
-          {detailsData?.credits?.crew.length > 0 && (
+          )}
+        {detailsData?.credits?.crew.length > 0 && (
+          <div className="crew">
             <CastAndCrew
               dataType={"crew"}
               castAndCrew={detailsData?.credits}
             ></CastAndCrew>
-          )}
-        </div>
+          </div>
+        )}
         <div className="similarContant">
           <SimilarMoviesTVWrap
             type={type}

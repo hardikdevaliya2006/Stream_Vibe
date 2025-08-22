@@ -69,6 +69,7 @@ const SerachMoviesTV = ({ isOpen, onClose }) => {
               onChange={handelChange}
               placeholder="Search Movies And TV Here"
               className="w-full p-3 bg-gray-10 border rounded-md border-gray-15 text-white outline-none"
+              autoFocus
             />
           </div>
 
@@ -94,9 +95,11 @@ const SerachMoviesTV = ({ isOpen, onClose }) => {
                       className="w-16 h-24 object-cover rounded-md"
                     />
                   ) : (
-                    <div className="w-16 h-24 bg-gray-600 rounded-md flex items-center justify-center text-xs">
-                      No Image
-                    </div>
+                    <img
+                      src="/img/notFoundMovie.jpeg"
+                      alt={item.title || item.name}
+                      className="w-16 h-24 object-cover rounded-md"
+                    />
                   )}
                   <div>
                     <h3 className="text-lg font-medium">
