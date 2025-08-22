@@ -30,8 +30,6 @@ const OtherInfo = ({
     return `${day} ${monthShort} ${year}`;
   }
 
-  console.log(runTime);
-
   const directorInfo = castAndDirector?.crew?.filter(
     (person) =>
       person.known_for_department == "Directing" || person.job == "Director"

@@ -32,7 +32,7 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp, detailsDataLoading }) => {
     navigate(`/Movies-Shows/tv/${tvId}/${season}/${episode}/watch`);
   };
 
-  if (episodeData || detailsDataLoading) {
+  if (episodeDataLoading || detailsDataLoading) {
     return (
       <section className="episodeAndSeasonListWraper flex gap-4 flex-col bg-gray-10 backdrop-blur-2xl border border-gray-15 p-4 rounded-md">
         <h1 className="animate-pulse bg-gray-30 h-4 w-20 rounded-full"></h1>
