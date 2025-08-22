@@ -16,7 +16,7 @@ const detailMovieAndTVSlice = createSlice({
         state.detailsDataLoading = true;
       })
       .addCase(fetchDetailMovieAndTV.fulfilled, (state, action) => {
-        state.detailsDataLoading = false;
+        state.detailsDataLoading = true;
         const { fullDetails, type } = action.payload;
         if (type === "movie") {
           state.movieDetail = fullDetails;

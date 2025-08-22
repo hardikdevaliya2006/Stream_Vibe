@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import playIcon from "../../../public/Icons/play.svg";
 import { useNavigate } from "react-router";
 
-const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
+const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp, detailsDataLoading }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,7 +32,18 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
     navigate(`/Movies-Shows/tv/${tvId}/${season}/${episode}/watch`);
   };
 
-  console.log(episodeData);
+  if (episodeData || detailsDataLoading) {
+    return (
+      <section className="episodeAndSeasonListWraper flex gap-4 flex-col bg-gray-10 backdrop-blur-2xl border border-gray-15 p-4 rounded-md">
+        <h1 className="animate-pulse bg-gray-30 h-4 w-20 rounded-full"></h1>
+        <ul className="flex-col flex gap-2">
+          <li className="bg-gray-30 rounded-md animate-pulse border border-gray-15 px-4 py-6"></li>
+          <li className="bg-gray-30 rounded-md animate-pulse border border-gray-15 px-4 py-6"></li>
+          <li className="bg-gray-30 rounded-md animate-pulse border border-gray-15 px-4 py-6"></li>
+        </ul>
+      </section>
+    );
+  }
 
   return (
     <section className="episodeAndSeasonListWraper flex gap-4 flex-col bg-gray-10 backdrop-blur-2xl border border-gray-15 p-4 rounded-md">
@@ -133,7 +144,11 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
                                   </div>
                                   <div className="EpisodeLength md:flex hidden border border-gray-15 rounded-md w-fit text-sm text-gray-65 gap-1 items-center p-1">
                                     <IoTimeOutline />
-                              {!ep.runtime ? "Coming Soon" : <p>{ep.runtime} Min</p>}
+                                    {!ep.runtime ? (
+                                      "Coming Soon"
+                                    ) : (
+                                      <p>{ep.runtime} Min</p>
+                                    )}
                                   </div>
                                 </div>
                                 <div className="polt hidden xss:flex">
@@ -154,7 +169,11 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp }) => {
 
                             <div className="EpisodeLength xss:hidden border border-gray-15 rounded-md w-fit text-sm text-gray-65 flex gap-1 items-center p-1">
                               <IoTimeOutline />
-                              {!ep.runtime ? "Coming Soon" : <p>{ep.runtime} Min</p>}
+                              {!ep.runtime ? (
+                                "Coming Soon"
+                              ) : (
+                                <p>{ep.runtime} Min</p>
+                              )}
                             </div>
 
                             <div className="episodeName px-1 xss:hidden block text-white">

@@ -15,11 +15,11 @@ const seasonsAndEpisodesSlice = createSlice({
         state.episodeDataLoading = true;
       })
       .addCase(fetchSeasonsAndEpisodes.fulfilled, (state, action) => {
-        state.episodeDataLoading = false;
+        state.episodeDataLoading = true;
         state.episodeData = action.payload;
       })
       .addCase(fetchSeasonsAndEpisodes.rejected, (state, action) => {
-        state.episodeDataLoading = true;
+        state.episodeDataLoading = false;
         state.error =
           action.payload || "Something went wrong in seasonsAndEpisodesSlice";
       });

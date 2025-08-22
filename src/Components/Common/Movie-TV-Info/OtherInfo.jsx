@@ -18,6 +18,7 @@ const OtherInfo = ({
   seasons,
   spokenLanguages,
   voteAverage,
+  detailsDataLoading,
 }) => {
   function formatDate(dateStr) {
     const dateObj = new Date(dateStr);
@@ -38,6 +39,29 @@ const OtherInfo = ({
   const music = castAndDirector?.crew?.filter(
     (person) => person.job === "Sound" || person.job === "Music"
   );
+
+  if (detailsDataLoading) {
+    return (
+      <ul className="flex w-full flex-col items-start justify-center gap-4 bg-gray-10 backdrop-blur-2xl border border-gray-15 p-4 rounded-md">
+        <li className="flex flex-col items-start justify-center gap-2">
+          <h1 className="h-4 w-20 rounded-full animate-pulse bg-gray-30"></h1>
+          <p className="h-4 w-35 rounded-full animate-pulse bg-gray-30"></p>
+        </li>
+        <li className="flex flex-col items-start justify-center gap-2">
+          <h1 className="h-4 w-20 rounded-full animate-pulse bg-gray-30"></h1>
+          <p className="h-4 w-35 rounded-full animate-pulse bg-gray-30"></p>
+        </li>
+        <li className="flex flex-col items-start justify-center gap-2">
+          <h1 className="h-4 w-20 rounded-full animate-pulse bg-gray-30"></h1>
+          <p className="h-4 w-35 rounded-full animate-pulse bg-gray-30"></p>
+        </li>
+        <li className="flex flex-col items-start justify-center gap-2">
+          <h1 className="h-4 w-20 rounded-full animate-pulse bg-gray-30"></h1>
+          <p className="h-4 w-35 rounded-full animate-pulse bg-gray-30"></p>
+        </li>
+      </ul>
+    );
+  }
 
   return (
     <div className="text-sm flex w-full flex-col items-start justify-center gap-4 bg-gray-10 backdrop-blur-2xl border border-gray-15 p-4 rounded-md">

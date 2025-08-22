@@ -23,10 +23,6 @@ const MovieInformationWrap = () => {
   );
   const detailsData = type === "movie" ? movieDetail : tvDetail;
 
-  if (detailsDataLoading) {
-    return <div>Loading........</div>;
-  }
-
   return (
     <section className="pb-4 my-12 flex items-start gap-2 flex-col lg:flex-row justify-center">
       <div className="movieTvInformation flex flex-col lg:order-2 gap-2 w-full lg:w-[30%] ">
@@ -38,6 +34,7 @@ const MovieInformationWrap = () => {
           runTime={detailsData.runtime}
           spokenLanguages={detailsData?.spoken_languages}
           voteAverage={detailsData.vote_average}
+          detailsDataLoading={detailsDataLoading}
         ></OtherInfo>
         {detailsData?.videos?.results.length > 0 &&
           detailsData?.videos?.results.find((i) => i.type === "Trailer") && (
