@@ -5,6 +5,7 @@ import NavLinks from "./NavLinks";
 import { useState } from "react";
 import MobileMenuWrap from "./MobileMenuWrap";
 import SerachMoviesTV from "../Search-Handel/SerachMoviesTV";
+import { Link } from "react-router";
 
 const NavBarWrap = () => {
   const [menu, setMenu] = useState(false);
@@ -14,9 +15,15 @@ const NavBarWrap = () => {
 
   return (
     <div className="flex relative items-center justify-between w-full h-16 px-4">
-      <div className="w-full lg:w-fit">
-        <img src={streamvibedesktoplogo} alt="logo" className="h-10 md:h-12" />
-      </div>
+      
+        <Link to={"/"}className="w-full lg:w-fit">
+          <img
+            src={streamvibedesktoplogo}
+            alt="logo"
+            className="h-10 md:h-12"
+          />
+        </Link>
+      
       <div className="lg:flex items-center justify-center text-sm border-2 border-gray-15 rounded-xl px-1 py-1 gap-2 bg-gray-06 hidden">
         <NavLinks />
       </div>
