@@ -1,4 +1,4 @@
-plans = [
+const plans = [
   {
     name: "Basic",
     price: "$9.99/Month",
@@ -49,3 +49,6 @@ plans = [
     },
   },
 ];
+
+
+export default plans

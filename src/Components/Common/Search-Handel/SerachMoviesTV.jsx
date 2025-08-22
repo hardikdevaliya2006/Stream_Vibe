@@ -69,7 +69,6 @@ const SerachMoviesTV = ({ isOpen, onClose }) => {
               onChange={handelChange}
               placeholder="Search Movies And TV Here"
               className="w-full p-3 bg-gray-10 border rounded-md border-gray-15 text-white outline-none"
-              autoFocus
             />
           </div>
 
