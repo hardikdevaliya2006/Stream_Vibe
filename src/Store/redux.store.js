@@ -9,6 +9,7 @@ import detailMovieAndTVSlice from "./Reducer/detailMovieAndTV.reducer";
 import similarMoviesAndTVSlice from "./Reducer/similarMoviesAndTV.reducer";
 import seasonsAndEpisodesSlice from "./Reducer/seasonsAndEpisodes.reducer";
 import searchResultsSlice from "./Reducer/searchResults.reducer";
+import contactSlice from "./Reducer/contactFrom.reducer";
 
 export const store = configureStore({
   reducer: {
@@ -21,6 +22,7 @@ export const store = configureStore({
     detailData: detailMovieAndTVSlice,
     similarData: similarMoviesAndTVSlice,
     episodeData: seasonsAndEpisodesSlice,
-    searchData: searchResultsSlice
+    searchData: searchResultsSlice,
+    sendFromData: contactSlice,
   },
 });
