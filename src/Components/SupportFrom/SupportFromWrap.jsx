@@ -13,7 +13,9 @@ const SupportFromWrap = () => {
           />
         </div>
       </div>
-      <div className="SupportSecation mt-5"></div>
+      <div className="SupportSecation mt-5">
+        
+      </div>
     </section>
   );
 };

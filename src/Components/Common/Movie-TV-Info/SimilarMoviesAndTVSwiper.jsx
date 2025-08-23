@@ -48,7 +48,11 @@ const SimilarMoviesAndTVSwiper = ({
                           <div className="genreMoviesPosterWrap ">
                             <img
                               key={slide.id}
-                              src={`https://image.tmdb.org/t/p/w500/${slide.poster_path}`}
+                              src={
+                                slide.poster_path == null
+                                  ? "/img/notFoundMovie.jpeg"
+                                  : `https://image.tmdb.org/t/p/w200/${slide.poster_path}`
+                              }
                               alt={slide.id}
                               className="h-44 w-full rounded-md"
                             />

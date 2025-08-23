@@ -45,7 +45,11 @@ const GenresSwiper = ({
                           return (
                             <img
                               key={img.id}
-                              src={`https://image.tmdb.org/t/p/w200/${img.poster_path}`}
+                              src={
+                                img.poster_path == null
+                                  ? "/img/notFoundMovie.jpeg"
+                                  : `https://image.tmdb.org/t/p/w200/${img.poster_path}`
+                              }
                               alt={img.id}
                               className="h-22 w-full lg:h-28 xl:h-30 rounded-md"
                             />

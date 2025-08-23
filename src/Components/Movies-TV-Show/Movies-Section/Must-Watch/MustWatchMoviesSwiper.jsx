@@ -13,7 +13,7 @@ const MustWatchMoviesSwiper = ({
   onSlideChange,
   loading,
 }) => {
-  const skeletonCount = 8;  
+  const skeletonCount = 8;
   return (
     <Swiper
       modules={[Navigation, FreeMode]}
@@ -48,7 +48,11 @@ const MustWatchMoviesSwiper = ({
                           <div className="genreMoviesPosterWrap ">
                             <img
                               key={slide.id}
-                              src={`https://image.tmdb.org/t/p/w500/${slide.poster_path}`}
+                              src={
+                                slide.poster_path == null
+                                  ? "/img/notFoundMovie.jpeg"
+                                  : `https://image.tmdb.org/t/p/w200/${slide.poster_path}`
+                              }
                               alt={slide.id}
                               className="h-44 w-full lg:h-58 xl:h-70 rounded-md"
                             />
@@ -59,7 +63,10 @@ const MustWatchMoviesSwiper = ({
                               <p>{slide.vote_average.toFixed(1)}</p>
                             </div>
                             <div className="star flex items-center justify-center px-1.5 py-1 bg-gray-08 border border-gray-15 rounded-full">
-                              <StarRating voteAverage={slide.vote_average} textSize={"text-[0.725rem] lg:text-sm"} />
+                              <StarRating
+                                voteAverage={slide.vote_average}
+                                textSize={"text-[0.725rem] lg:text-sm"}
+                              />
                             </div>
                           </div>
                         </div>

@@ -14,29 +14,24 @@ const NavBarWrap = () => {
   const handleMenu = () => setMenu((prev) => !prev);
 
   return (
-    <div className="flex relative items-center justify-between w-full h-16 px-4">
-      
-        <Link to={"/"}className="w-full lg:w-fit">
-          <img
-            src={streamvibedesktoplogo}
-            alt="logo"
-            className="h-10 md:h-12"
-          />
-        </Link>
-      
-      <div className="lg:flex items-center justify-center text-sm border-2 border-gray-15 rounded-xl px-1 py-1 gap-2 bg-gray-06 hidden">
+    <div className="grid grid-cols-2 lg:grid-cols-[1fr_2fr_1fr] items-center w-full h-16 px-4">
+      <Link to={"/"} className="w-full lg:w-fit">
+        <img src={streamvibedesktoplogo} alt="logo" className="h-10 md:h-12" />
+      </Link>
+
+      <div className="lg:flex w-fit justify-self-center items-center justify-center text-sm border-2 border-gray-15 rounded-xl px-1 py-1 gap-2 bg-gray-06 hidden">
         <NavLinks />
       </div>
-      <div className="flex mr-2.5 items-center justify-end">
-        <HiMiniMagnifyingGlass
-          onClick={() => setIsOpen(true)}
-          className="text-white md:text-[2.5rem] text-[2rem] rounded-full cursor-pointer p-1.5 hover:bg-gray-15"
-        />
-      </div>
-      <SerachMoviesTV isOpen={isOpen} onClose={() => setIsOpen(false)} />
-      <div className="lg:hidden">
+      <div className="flex justify-end items-center">
+        <div className="flex mr-2.5 items-center justify-end">
+          <HiMiniMagnifyingGlass
+            onClick={() => setIsOpen(true)}
+            className="text-white md:text-[2.5rem] text-[2rem] rounded-full cursor-pointer p-1.5 hover:bg-gray-15"
+          />
+        </div>
+        <SerachMoviesTV isOpen={isOpen} onClose={() => setIsOpen(false)} />
         <div
-          className="bg-gray-10 cursor-pointer border-2 border-gray-15 rounded-md w-fit px-1 py-1"
+          className="bg-gray-10 lg:hidden flex cursor-pointer border-2 border-gray-15 rounded-md w-fit px-1 py-1"
           onClick={handleMenu}
         >
           <CgMenuRightAlt className="text-white md:text-3xl text-xl" />
