@@ -10,6 +10,7 @@ import similarMoviesAndTVSlice from "./Reducer/similarMoviesAndTV.reducer";
 import seasonsAndEpisodesSlice from "./Reducer/seasonsAndEpisodes.reducer";
 import searchResultsSlice from "./Reducer/searchResults.reducer";
 import contactSlice from "./Reducer/contactFrom.reducer";
+import loginRequestSlice from "./Reducer/loginRequest.reducer";
 
 export const store = configureStore({
   reducer: {
@@ -24,5 +25,6 @@ export const store = configureStore({
     episodeData: seasonsAndEpisodesSlice,
     searchData: searchResultsSlice,
     sendFromData: contactSlice,
+    loginData: loginRequestSlice,
   },
 });

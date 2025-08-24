@@ -1,8 +1,8 @@
 import { RxArrowTopRight } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
-const MobileMenuWrap = ({ isOpen }) => {
+const MobileMenuWrap = ({ isToken, cleartoken, handleMenu, isOpen }) => {
   const menuVariants = {
     hidden: {
       y: "-5%",
@@ -104,6 +104,40 @@ const MobileMenuWrap = ({ isOpen }) => {
                     <RxArrowTopRight className="text-lg text-shadow-white"></RxArrowTopRight>
                   </div>
                 </NavLink>
+              </li>
+              <li className="w-full flex gap-2">
+                {isToken ? (
+                  <div className="login flex items-center justify-end">
+                    <button
+                      onClick={() => {
+                        cleartoken();
+                        handleMenu();
+                      }}
+                      className="px-3 cursor-pointer py-1 rounded-lg text-white bg-gray-08 border border-gray-15"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <div className="login cursor-pointer flex items-center justify-end">
+                      <Link
+                        to={`/login`}
+                        className="px-3 py-1 rounded-md text-white bg-gray-08 border border-gray-15"
+                      >
+                        Login
+                      </Link>
+                    </div>
+                    <div className="Singup cursor-pointer flex items-center justify-end">
+                      <Link
+                        to={`/singup`}
+                        className="px-3 py-1 rounded-md text-white bg-gray-08 border border-gray-15"
+                      >
+                        Singup
+                      </Link>
+                    </div>
+                  </>
+                )}
               </li>
             </ul>
           </div>

@@ -2,6 +2,7 @@ import NavBarWrap from "../../Common/Navbar/NavBarWrap";
 import playBtn from "../../../../public/Logo/streamvibeplayerlogo.svg";
 import streamvibetransperentlogo from "../../../../public/Logo/streamvibetransperentlogo.svg";
 import HeaderText from "./HeaderText";
+import { Link } from "react-router";
 
 const HeroSecationWrap = () => {
   return (
@@ -19,12 +20,14 @@ const HeroSecationWrap = () => {
         </div>
         <div className="acationSecation flex flex-col items-center justify-center gap-5">
           <HeaderText></HeaderText>
+          <Link to={"/Movies-Shows"} >
           <div className="actionBtn cursor-pointer flex justify-center items-center gap-2 text-white bg-red-45 w-fit px-3 py-2 rounded-md">
             <img src={playBtn} alt="playNow" className="h-3 cursor-pointer" />
             <button className="text- font-semibold cursor-pointer">
               Start Watching Now
             </button>
           </div>
+          </Link>
         </div>
       </div>
       <div

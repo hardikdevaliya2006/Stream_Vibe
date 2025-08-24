@@ -6,12 +6,31 @@ import { useState } from "react";
 import MobileMenuWrap from "./MobileMenuWrap";
 import SerachMoviesTV from "../Search-Handel/SerachMoviesTV";
 import { Link } from "react-router";
+import toast from "react-hot-toast";
 
 const NavBarWrap = () => {
   const [menu, setMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleMenu = () => setMenu((prev) => !prev);
+  const [isToken, removeToken] = useState(sessionStorage.getItem("token"));
+
+  const cleartoken = () => {
+    sessionStorage.removeItem("token");
+    removeToken(false);
+    toast.success("Logout Successfully.", {
+      style: {
+        border: "1px solid #262626",
+        padding: "12px",
+        color: "#A6A6A6",
+        background: "#141414",
+      },
+      iconTheme: {
+        primary: "#E50000",
+        secondary: "#FFFAEE",
+      },
+    });
+  };
 
   return (
     <div className="grid grid-cols-2 lg:grid-cols-[1fr_2fr_1fr] items-center w-full h-16 px-4">
@@ -36,7 +55,43 @@ const NavBarWrap = () => {
         >
           <CgMenuRightAlt className="text-white md:text-3xl text-xl" />
         </div>
-        <MobileMenuWrap isOpen={menu} />
+        <div className="authBtn lg:flex hidden items-center justify-center gap-2">
+          {isToken ? (
+            <div className="login flex items-center justify-end">
+              <button
+                onClick={cleartoken}
+                className="px-3.5 cursor-pointer py-1.5 rounded-lg text-white bg-gray-08 border border-gray-15"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <>
+              <div className="login cursor-pointer flex items-center justify-end">
+                <Link
+                  to={`/login`}
+                  className="px-3.5 py-1.5 rounded-lg text-white bg-gray-08 border border-gray-15"
+                >
+                  Login
+                </Link>
+              </div>
+              <div className="Singup cursor-pointer flex items-center justify-end">
+                <Link
+                  to={`/singup`}
+                  className="px-3.5 font-semibold py-1.5 rounded-lg text-white bg-red-45 border border-gray-15"
+                >
+                  Singup
+                </Link>
+              </div>
+            </>
+          )}
+        </div>
+        <MobileMenuWrap
+          isToken={isToken}
+          cleartoken={cleartoken}
+          handleMenu={handleMenu}
+          isOpen={menu}
+        />
       </div>
     </div>
   );
