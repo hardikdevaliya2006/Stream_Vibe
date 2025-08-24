@@ -8,12 +8,20 @@ import TVShowOpenPage from "../Page/TVShowOpenPage";
 import PlayTV from "../Page/PlayTV";
 import PlayMovie from "../Page/PlayMovie";
 import ScrollToTop from "./ScrollToTop";
+import Login from "../Page/Login";
+import SingUp from "../Page/SingUp";
 
 const AppRouter = () => {
   return (
     <>
       <ScrollToTop />
       <Routes>
+        {/* Protected Routes */}
+
+        {/* Public Routes */}
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/singup" element={<SingUp />}></Route>
+        
         <Route path="/" element={<Home />} />
         <Route path="/Movies-Shows" element={<MoviesAndTVShow />} />
 

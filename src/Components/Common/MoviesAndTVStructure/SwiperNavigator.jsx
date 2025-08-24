@@ -24,7 +24,7 @@ const SwiperNavigator = ({
           <li
             key={i}
             onClick={() => onDotClick(i)}
-            className={`text-xl transition ${
+            className={`text-xl cursor-pointer transition ${
               i === activeGroup
                 ? "bg-red-45 md:h-[0.3rem] h-1 rounded-md md:w-3.5 w-3"
                 : "bg-white/40 md:h-[0.3rem] h-1 rounded-md md:w-3.5 w-3"

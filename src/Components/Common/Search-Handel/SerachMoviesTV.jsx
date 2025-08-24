@@ -57,7 +57,7 @@ const SerachMoviesTV = ({ isOpen, onClose }) => {
             <div className="serchHearder flex items-center justify-between w-full">
               <h2 className="text-xl font-semibold mb-4">Search</h2>
               <button
-                className="absolute top-4 right-4 text-white text-2xl"
+                className="cursor-pointer text-white text-2xl"
                 onClick={onClose}
               >
                 ✕
@@ -72,7 +72,7 @@ const SerachMoviesTV = ({ isOpen, onClose }) => {
             />
           </div>
 
-          <div className="flex-1 overflow-y-auto mt-4 space-y-4">
+          <div className="flex-1 noScrollBar overflow-y-auto mt-4 space-y-4">
             {loadingSearchData && (
               <p className="text-center text-gray-400">Loading...</p>
             )}

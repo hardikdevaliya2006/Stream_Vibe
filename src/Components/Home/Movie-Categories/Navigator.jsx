@@ -18,7 +18,7 @@ const Navigator = () => {
           {[...Array(4)].map((_, index) => (
             <div
               key={index}
-              className={`h-1 rounded-full w-5 ${
+              className={`h-1 cursor-pointer rounded-full w-5 ${
                 index === currentSlide ? "bg-red-45" : "bg-gray-20"
               }`}
             ></div>

@@ -130,3 +130,11 @@ body,
   animation: pulseGlow 1.5s infinite ease-in-out;
   pointer-events: none;
 }
+
+.noScrollBar::-webkit-scrollbar {
+  display: none;
+}
+.noScrollBar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
