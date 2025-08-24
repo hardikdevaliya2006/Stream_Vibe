@@ -29,17 +29,17 @@ const LoginFrom = () => {
   }, [navigate, status]);
 
   return (
-    <section className="flex items-center justify-center h-full flex-col">
-      <form
-        onSubmit={handleSubmit}
-        className="w-[18rem] md:w-[22rem] lg:w-[24rem] flex-col items-center justify-center flex gap-4"
-      >
-        <div className="title mb-4 w-full flex-col flex items-start justify-center">
+    <section className="flex items-center justify-center w-full h-[90%] flex-col">
+        <div className="title w-[18rem] md:w-[22rem] lg:w-[24rem] mb-4 flex-col flex items-start justify-center">
           <h1 className="text-2xl lg:text-[1.8rem] font-extrabold text-white">
             Login
           </h1>
           <p className="text-gray-65">Or register for an account</p>
         </div>
+      <form
+        onSubmit={handleSubmit}
+        className="w-[18rem] md:w-[22rem] lg:w-[24rem] flex-col items-center justify-center flex gap-4"
+      >
         <div className="emmailInput flex-col flex items-start justify-center gap-2">
           <label htmlFor="email" className="text-white font-semibold">
             Email
