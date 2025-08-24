@@ -23,18 +23,21 @@ export const sendRequestloginUser = createAsyncThunk(
       sessionStorage.setItem("token", token);
       return response.data;
     } catch (error) {
-      toast.error("Login Error.", {
+      const apiErrorMsg =
+        error?.response?.data?.error || "Something went wrong";
+      toast.error(apiErrorMsg, {
         style: {
-          border: "1px solid #713200",
-          padding: "16px",
-          color: "#713200",
+          border: "1px solid #262626",
+          padding: "12px",
+          color: "#A6A6A6",
+          background: "#141414",
         },
         iconTheme: {
-          primary: "#713200",
+          primary: "#E50000",
           secondary: "#FFFAEE",
         },
       });
-      return thunkApi.rejectWithValue(error || "Error in Login");
+      return thunkApi.rejectWithValue(apiErrorMsg);
     }
   }
 );

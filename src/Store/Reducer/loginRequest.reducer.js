@@ -19,9 +19,9 @@ const loginRequestSlice = createSlice({
         state.token = action.payload.token;
       })
       .addCase(sendRequestloginUser.rejected, (state, action) => {
-        state.error = action.error.message;
+        state.error = action.payload || action.error.message;
         state.status = "failed";
-      })
+      });
   },
 });
 

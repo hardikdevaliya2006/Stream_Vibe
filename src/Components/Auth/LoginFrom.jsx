@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router";
 const LoginFrom = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { status, error } = useSelector((state) => {
+  const { status } = useSelector((state) => {
     return state.loginData;
   });
 
@@ -105,7 +105,6 @@ const LoginFrom = () => {
               "Login"
             )}
           </button>
-          {error && <p className="text-red-500 text-sm">{error}</p>}
           <Link
             to={"/singup"}
             className="text-center hover:underline text-gray-65 text-sm"
