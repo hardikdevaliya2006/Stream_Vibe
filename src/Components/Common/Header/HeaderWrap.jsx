@@ -74,14 +74,14 @@ const HeaderWrap = () => {
                 {detailsData.overview}
               </p>
             </div>
-            <NavLink
-              to={
-                type == "tv"
-                  ? `/Movies-Shows/tv/${id}/1/1/watch`
-                  : `/Movies-Shows/movie/${id}/watch`
-              }
-            >
-              <div className="buttensWrap flex items-center justify-center 2xl:gap-4 gap-2">
+            <div className="buttensWrap flex items-center justify-center 2xl:gap-4 gap-2">
+              <NavLink
+                to={
+                  type == "tv"
+                    ? `/Movies-Shows/tv/${id}/1/1/watch`
+                    : `/Movies-Shows/movie/${id}/watch`
+                }
+              >
                 <div className="playNow">
                   <div className="actionBtn cursor-pointer flex justify-center items-center gap-2 text-white bg-red-45 px-5 py-1.5 rounded-md">
                     <img
@@ -94,17 +94,17 @@ const HeaderWrap = () => {
                     </button>
                   </div>
                 </div>
+              </NavLink>
 
-                <div className="flex items-center justify-center gap-2">
-                  <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15 p-[0.56rem]">
-                    <SaveButton />
-                  </div>
-                  <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15 p-[0.56rem]">
-                    <LikeButton />
-                  </div>
+              <div className="flex items-center justify-center gap-2">
+                <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15 p-[0.56rem]">
+                  <SaveButton />
+                </div>
+                <div className="cursor-pointer flex items-center justify-center bg-gray-06 border rounded-md border-gray-15 p-[0.56rem]">
+                  <LikeButton />
                 </div>
               </div>
-            </NavLink>
+            </div>
           </div>
         </div>
       </div>
