@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../Store/Reducer/userData.reducer";
+import { logout } from "../../Store/Reducer/loginRequest.reducer";
 import { useNavigate } from "react-router";
 import { IoExitOutline } from "react-icons/io5";
 import { useEffect } from "react";
@@ -58,7 +58,10 @@ const UserProfileData = () => {
         </div>
       </div>
       <div className="logout mt-10 flex flex-col gap-2 items-center justify-center">
-        <button onClick={logoutUser} className="p-2 flex items-center justify-center gap-2 font-semibold w-[18rem] md:w-[22rem] lg:w-[24rem] text-green-400 border border-green-500/20 bg-green-500/10 rounded-lg shadow-md cursor-pointer">
+        <button
+          onClick={logoutUser}
+          className="p-2 flex items-center justify-center gap-2 font-semibold w-[18rem] md:w-[22rem] lg:w-[24rem] text-green-400 border border-green-500/20 bg-green-500/10 rounded-lg shadow-md cursor-pointer"
+        >
           <span>Logout</span>
           <span>
             <IoExitOutline></IoExitOutline>

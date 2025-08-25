@@ -226,9 +226,9 @@ const SupportFromWrap = () => {
                   id="checkBox"
                   className="w-4 h-4 mt-1 accent-red-500"
                 />
-                <label htmlFor="checkBox">
+                <p>
                   I agree with Terms of Use and Privacy Policy
-                </label>
+                </p>
               </label>
             </div>
             {errors.agree && (
