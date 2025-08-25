@@ -6,12 +6,11 @@ import { useEffect, useState } from "react";
 import MobileMenuWrap from "./MobileMenuWrap";
 import SerachMoviesTV from "../Search-Handel/SerachMoviesTV";
 import { Link } from "react-router";
-import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import fetchUserData from "../../../Store/Actions/fetchUserData.action";
 
 const NavBarWrap = () => {
-  const { userData, userDataLoading, error } = useSelector(
+  const { userData, error } = useSelector(
     (state) => state.getuserData
   );
 
@@ -27,23 +26,6 @@ const NavBarWrap = () => {
       dispatch(fetchUserData());
     }
   }, [dispatch]);
-
-  const cleartoken = () => {
-    localStorage.removeItem("token");
-    removeToken(false);
-    toast.success("Logout Successfully.", {
-      style: {
-        border: "1px solid #262626",
-        padding: "12px",
-        color: "#A6A6A6",
-        background: "#141414",
-      },
-      iconTheme: {
-        primary: "#E50000",
-        secondary: "#FFFAEE",
-      },
-    });
-  };
 
   return (
     <div className="grid grid-cols-2 lg:grid-cols-[1fr_2fr_1fr] items-center w-full h-16 px-4">
@@ -70,13 +52,13 @@ const NavBarWrap = () => {
         </div>
         <div className="authBtn lg:flex hidden items-center justify-center gap-2">
           {isToken ? (
-            <div className="login flex items-center justify-end">
+            <Link to={`/${userData?.name}`} className="login flex items-center justify-end">
               <div className="profileIcon bg-gray-12 rounded-full flex items-center border border-gray-30 justify-center h-10 w-10">
                 <h1 className="text-white font-extrabold capitalize">
                   {userData?.name?.charAt(0) || ""}
                 </h1>
               </div>
-            </div>
+            </Link>
           ) : (
             <>
               <div className="login cursor-pointer flex items-center justify-end">
@@ -100,8 +82,6 @@ const NavBarWrap = () => {
         </div>
         <MobileMenuWrap
           isToken={isToken}
-          cleartoken={cleartoken}
-          handleMenu={handleMenu}
           isOpen={menu}
           userData={userData}
         />

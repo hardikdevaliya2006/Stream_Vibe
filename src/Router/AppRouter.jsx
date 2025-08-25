@@ -37,7 +37,7 @@ const AppRouter = () => {
         <Route path="/Subscriptions" element={<UpgradeSubscription />} />
       </Routes>
     </>
-  );
-};
+  )
+}
 
-export default AppRouter;
+export default AppRouter

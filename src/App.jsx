@@ -4,10 +4,10 @@ import AppRouter from "./Router/AppRouter";
 const App = () => {
   return (
     <>
-      <AppRouter></AppRouter>;
+      <AppRouter></AppRouter>
       <Toaster position="top-center" reverseOrder={false} />
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

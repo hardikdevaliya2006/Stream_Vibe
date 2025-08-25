@@ -2,13 +2,7 @@ import { RxArrowTopRight } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, NavLink } from "react-router";
 
-const MobileMenuWrap = ({
-  isToken,
-  cleartoken,
-  handleMenu,
-  isOpen,
-  userData,
-}) => {
+const MobileMenuWrap = ({ isToken, isOpen, userData }) => {
   const menuVariants = {
     hidden: {
       y: "-5%",
