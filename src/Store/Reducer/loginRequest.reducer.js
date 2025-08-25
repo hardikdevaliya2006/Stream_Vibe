@@ -9,14 +9,19 @@ const loginRequestSlice = createSlice({
     token: localStorage.getItem("token") || null,
     user: null,
     status: "idle",
+    otp: null,
+    isOtpVerified: false,
     error: null,
   },
+
   reducers: {
     logout: (state) => {
       localStorage.removeItem("token");
       state.user = null;
       state.token = null;
       state.status = "idle";
+      state.otp = null;
+      state.isOtpVerified = false;
       state.error = null;
       toast.success("Logout Successfully.", {
         style: {
@@ -31,7 +36,27 @@ const loginRequestSlice = createSlice({
         },
       });
     },
+    setOtp: (state, action) => {
+      state.otp = action.payload;
+    },
+    verifyOtp: (state, action) => {
+      if (state.otp && state.otp === action.payload) {
+        state.isOtpVerified = true;
+        toast.success("OTP Verified Successfully!", {
+          style: {
+            border: "1px solid #262626",
+            padding: "12px",
+            color: "#A6A6A6",
+            background: "#141414",
+          },
+          iconTheme: { primary: "#00C851", secondary: "#FFFAEE" },
+        });
+      } else {
+        toast.error("Invalid OTP, please try again.");
+      }
+    }
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(sendRequestloginUser.pending, (state) => {
@@ -53,7 +78,7 @@ const loginRequestSlice = createSlice({
       })
       .addCase(sendRequestCreateUser.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.token = action.payload.token;
+        state.token = action.payload.token || null;
         state.user = action.payload.user || null;
         state.error = null;
       })
@@ -64,5 +89,5 @@ const loginRequestSlice = createSlice({
   },
 });
 
-export const { logout } = loginRequestSlice.actions;
+export const { logout, setOtp, verifyOtp } = loginRequestSlice.actions;
 export default loginRequestSlice.reducer;

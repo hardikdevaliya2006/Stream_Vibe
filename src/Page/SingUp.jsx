@@ -1,6 +1,6 @@
 import AuthFooter from "../Components/Auth/AuthFooter";
+import AuthForm from "../Components/Auth/AuthForm";
 import AuthHeader from "../Components/Auth/AuthHeader";
-import SingupFrom from "../Components/Auth/SingupFrom";
 
 const SingUp = () => {
   return ( 
@@ -9,7 +9,7 @@ const SingUp = () => {
         <AuthHeader type={"Login"} ></AuthHeader>
       </header>
       <div className="main">
-        <SingupFrom></SingupFrom>
+        <AuthForm></AuthForm>
       </div>
       <footer>
           <AuthFooter></AuthFooter>
