@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
-import SingupFrom from "./singupFrom";
+import SingupFrom from "./SingupFrom";
 import OtpForm from "./otpFrom";
-import { Link } from "react-router";
 
 const AuthForm = () => {
   const { status, error } = useSelector((state) => state.loginData);
@@ -12,15 +11,6 @@ const AuthForm = () => {
 
   return (
     <section className="flex items-center justify-center w-full h-[90%] flex-col">
-      {/* <div className="title w-[18rem] md:w-[22rem] lg:w-[24rem] mb-4 flex-col flex items-start justify-center">
-        <h1 className="text-2xl lg:text-[1.8rem] font-extrabold text-white">
-          {step === "signup" ? "Signup" : "Verify OTP"}
-        </h1>
-        <Link to={"/login"} className="text-gray-65">
-          Or Have account then login
-        </Link>
-      </div> */}
-
       <div className="relative w-[18rem] md:w-[22rem] lg:w-[24rem] overflow-hidden">
         <motion.div
           className="flex w-[200%]"
