@@ -2,7 +2,13 @@ import { RxArrowTopRight } from "react-icons/rx";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, NavLink } from "react-router";
 
-const MobileMenuWrap = ({ isToken, cleartoken, handleMenu, isOpen }) => {
+const MobileMenuWrap = ({
+  isToken,
+  cleartoken,
+  handleMenu,
+  isOpen,
+  userData,
+}) => {
   const menuVariants = {
     hidden: {
       y: "-5%",
@@ -107,17 +113,19 @@ const MobileMenuWrap = ({ isToken, cleartoken, handleMenu, isOpen }) => {
               </li>
               <li className="w-full flex gap-2">
                 {isToken ? (
-                  <div className="login flex items-center justify-end">
-                    <button
-                      onClick={() => {
-                        cleartoken();
-                        handleMenu();
-                      }}
-                      className="px-3 cursor-pointer py-1 rounded-lg text-white bg-gray-08 border border-gray-15"
-                    >
-                      Logout
-                    </button>
-                  </div>
+                  <NavLink
+                    to={`/${userData.name}`}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-white flex w-full bg-gray-15 rounded-md px-2.5 py-1.5"
+                        : "text-gray-75 w-full flex px-2.5 py-1.5"
+                    }
+                  >
+                    <div className="navElm w-full flex items-center justify-between">
+                      <p className="capitalize">{userData.name} Profile</p>
+                      <RxArrowTopRight className="text-lg text-shadow-white"></RxArrowTopRight>
+                    </div>
+                  </NavLink>
                 ) : (
                   <>
                     <div className="login cursor-pointer flex items-center justify-end">

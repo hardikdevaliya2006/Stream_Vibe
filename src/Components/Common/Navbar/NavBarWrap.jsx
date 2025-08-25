@@ -2,18 +2,29 @@ import streamvibedesktoplogo from "../../../../public/Logo/streamvibedesktoplogo
 import { CgMenuRightAlt } from "react-icons/cg";
 import { HiMiniMagnifyingGlass } from "react-icons/hi2";
 import NavLinks from "./NavLinks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MobileMenuWrap from "./MobileMenuWrap";
 import SerachMoviesTV from "../Search-Handel/SerachMoviesTV";
 import { Link } from "react-router";
 import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import fetchUserData from "../../../Store/Actions/fetchUserData.action";
 
 const NavBarWrap = () => {
+  const { userData, userDataLoading, error } = useSelector(
+    (state) => state.getuserData
+  );
+
   const [menu, setMenu] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const handleMenu = () => setMenu((prev) => !prev);
   const [isToken, removeToken] = useState(sessionStorage.getItem("token"));
+
+  useEffect(() => {
+    dispatch(fetchUserData());
+  }, [isToken]);
 
   const cleartoken = () => {
     sessionStorage.removeItem("token");
@@ -58,12 +69,11 @@ const NavBarWrap = () => {
         <div className="authBtn lg:flex hidden items-center justify-center gap-2">
           {isToken ? (
             <div className="login flex items-center justify-end">
-              <button
-                onClick={cleartoken}
-                className="px-3.5 cursor-pointer py-1.5 rounded-lg text-white bg-gray-08 border border-gray-15"
-              >
-                Logout
-              </button>
+              <div className="profileIcon bg-gray-12 rounded-full flex items-center border border-gray-30 justify-center h-10 w-10">
+                <h1 className="text-white font-extrabold capitalize">
+                  {userData.name.charAt(0)}
+                </h1>
+              </div>
             </div>
           ) : (
             <>
@@ -91,6 +101,7 @@ const NavBarWrap = () => {
           cleartoken={cleartoken}
           handleMenu={handleMenu}
           isOpen={menu}
+          userData={userData}
         />
       </div>
     </div>

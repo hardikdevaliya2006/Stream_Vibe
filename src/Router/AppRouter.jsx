@@ -10,6 +10,7 @@ import PlayMovie from "../Page/PlayMovie";
 import ScrollToTop from "./ScrollToTop";
 import Login from "../Page/Login";
 import SingUp from "../Page/SingUp";
+import UserProfile from "../Page/UserProfile";
 
 const AppRouter = () => {
   return (
@@ -21,7 +22,8 @@ const AppRouter = () => {
         {/* Public Routes */}
         <Route path="/login" element={<Login />}></Route>
         <Route path="/singup" element={<SingUp />}></Route>
-        
+        <Route path="/:userName" element={<UserProfile />}></Route>
+
         <Route path="/" element={<Home />} />
         <Route path="/Movies-Shows" element={<MoviesAndTVShow />} />
 
