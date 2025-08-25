@@ -20,7 +20,7 @@ export const sendRequestloginUser = createAsyncThunk(
           secondary: "#FFFAEE",
         },
       });
-      sessionStorage.setItem("token", token);
+      localStorage.setItem("token", token);
       return response.data;
     } catch (error) {
       const apiErrorMsg =

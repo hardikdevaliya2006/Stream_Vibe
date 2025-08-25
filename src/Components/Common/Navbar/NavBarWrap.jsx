@@ -20,14 +20,16 @@ const NavBarWrap = () => {
   const dispatch = useDispatch();
 
   const handleMenu = () => setMenu((prev) => !prev);
-  const [isToken, removeToken] = useState(sessionStorage.getItem("token"));
+  const [isToken, removeToken] = useState(localStorage.getItem("token"));
 
   useEffect(() => {
-    dispatch(fetchUserData());
-  }, [isToken]);
+    if (localStorage.getItem("token")) {
+      dispatch(fetchUserData());
+    }
+  }, [dispatch]);
 
   const cleartoken = () => {
-    sessionStorage.removeItem("token");
+    localStorage.removeItem("token");
     removeToken(false);
     toast.success("Logout Successfully.", {
       style: {
@@ -71,7 +73,7 @@ const NavBarWrap = () => {
             <div className="login flex items-center justify-end">
               <div className="profileIcon bg-gray-12 rounded-full flex items-center border border-gray-30 justify-center h-10 w-10">
                 <h1 className="text-white font-extrabold capitalize">
-                  {userData.name.charAt(0)}
+                  {userData?.name?.charAt(0) || ""}
                 </h1>
               </div>
             </div>
