@@ -46,15 +46,27 @@ const UserProfileData = () => {
             readOnly
           />
         </div>
-        <div className="flex-col flex items-start justify-center gap-2">
+        <div className="flex-col w-full flex items-start justify-center gap-2">
           <label htmlFor="name" className="text-white font-semibold">
             Your Name
           </label>
-          <input
-            value={userData?.name}
-            className="p-2 w-[18rem] md:w-[22rem] lg:w-[24rem] hover:border-gray-65 pl-3 transition-all text-white outline-0 bg-gray-08 border border-gray-15 rounded-lg placeholder:text-gray-65"
-            readOnly
-          />
+          <div className="nameWrap gap-2 flex items-center justify-center w-full">
+            <input
+              value={userData?.name}
+              className="p-2 w-[83%] md:w-[86%]  hover:border-gray-65 pl-3 transition-all text-white outline-0 bg-gray-08 border border-gray-15 rounded-lg placeholder:text-gray-65"
+              readOnly={false}
+            />
+            <button  className="h-10 w-10 flex items-center justify-center bg-gray-08 border border-gray-15 rounded-lg transition-all hover:border-gray-65">
+              <lord-icon
+                src="https://cdn.lordicon.com/exymduqj.json"
+                trigger="click"
+                stroke="bold"
+                state="hover-line"
+                colors="primary:#ffffff,secondary:#ffffff"
+                className="w-6 h-6"
+              ></lord-icon>
+            </button>
+          </div>
         </div>
       </div>
       <div className="logout mt-10 flex flex-col gap-2 items-center justify-center">
