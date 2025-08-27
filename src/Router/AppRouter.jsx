@@ -11,6 +11,7 @@ import ScrollToTop from "./ScrollToTop";
 import Login from "../Page/Login";
 import SingUp from "../Page/SingUp";
 import UserProfile from "../Page/UserProfile";
+import PrivateRoute from "./PrivateRoute";
 
 const AppRouter = () => {
   return (
@@ -30,14 +31,28 @@ const AppRouter = () => {
         <Route path="/Movies-Shows/movie/:id" element={<MoviesOpenPage />} />
         <Route path="/Movies-Shows/tv/:id" element={<TVShowOpenPage />} />
 
-        <Route path="/Movies-Shows/movie/:id/watch" element={<PlayMovie />} />
-        <Route path="/Movies-Shows/tv/:id/:s/:e/watch" element={<PlayTV />} />
+        <Route
+          path="/Movies-Shows/movie/:id/watch"
+          element={
+            <PrivateRoute>
+              <PlayMovie />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/Movies-Shows/tv/:id/:s/:e/watch"
+          element={
+            <PrivateRoute>
+              <PlayTV />
+            </PrivateRoute>
+          }
+        />
 
         <Route path="/Support" element={<Support />} />
         <Route path="/Subscriptions" element={<UpgradeSubscription />} />
       </Routes>
     </>
-  )
-}
+  );
+};
 
-export default AppRouter
+export default AppRouter;
