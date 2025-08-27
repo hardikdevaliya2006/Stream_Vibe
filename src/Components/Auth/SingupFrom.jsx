@@ -3,6 +3,7 @@ import { sendRequestCreateUser } from "../../Store/Actions/sendRequestCreateUser
 import emailjs from "@emailjs/browser";
 import { Link } from "react-router";
 import { setOtp } from "../../Store/Reducer/loginRequest.reducer";
+import toast from "react-hot-toast";
 
 const SingupFrom = ({ status, setFrom, fromData, setStep }) => {
   const dispatch = useDispatch();
@@ -15,8 +16,17 @@ const SingupFrom = ({ status, setFrom, fromData, setStep }) => {
     e.preventDefault();
     const response = await dispatch(sendRequestCreateUser(fromData));
     if (response.meta.requestStatus === "fulfilled") {
+      setStep("otp");
+      toast.success("OTP Sent Successfully", {
+        style: {
+          border: "1px solid #262626",
+          padding: "12px",
+          color: "#A6A6A6",
+          background: "#141414",
+        },
+        iconTheme: { primary: "#00C851", secondary: "#FFFAEE" },
+      });
       await sendOtp();
-      setStep("otp"); // This will trigger the slide animation
     }
   };
 
@@ -34,7 +44,7 @@ const SingupFrom = ({ status, setFrom, fromData, setStep }) => {
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
-      console.log("✅ OTP Sent:", otp);
+      console.log(otp)
     } catch (error) {
       console.error("EmailJS Error:", error);
     }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { verifyOtp } from "../../Store/Reducer/loginRequest.reducer";
 
-const OtpForm = ({ status, error, setStep }) => {
+const OtpForm = ({ status, fromData, error, setStep }) => {
   const dispatch = useDispatch();
   const [otp, setOtpInput] = useState("");
   const navigate = useNavigate();
@@ -24,8 +24,11 @@ const OtpForm = ({ status, error, setStep }) => {
     <section className="w-full ">
       <div className="title w-[18rem] md:w-[22rem] lg:w-[24rem] mb-8 flex-col flex items-start justify-center">
         <h1 className="text-2xl lg:text-[1.8rem] font-extrabold text-white">
-          Verify OTP
+          Singup
         </h1>
+        <p className="text-gray-65">
+          OTP has been sent to your register Email {fromData.email}
+        </p>
       </div>
 
       <form
@@ -79,15 +82,6 @@ const OtpForm = ({ status, error, setStep }) => {
             ) : (
               "Verify OTP"
             )}
-          </button>
-
-          <button
-            type="button"
-            onClick={() => setStep("signup")}
-            className="w-full font-semibold cursor-pointer text-gray-65 hover:text-white px-6 py-2 rounded-lg border border-gray-65 hover:border-white transition-all"
-            disabled={status === "loading"}
-          >
-            Back to Signup
           </button>
 
           {error && <p className="text-red-500 text-sm">{error}</p>}

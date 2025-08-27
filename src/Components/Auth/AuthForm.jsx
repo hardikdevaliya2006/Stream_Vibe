@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
-import SingupFrom from "./SingupFrom";
 import OtpForm from "./otpFrom";
+import SingupFrom from "./singupFrom";
 
 const AuthForm = () => {
   const { status, error } = useSelector((state) => state.loginData);
   const [fromData, setFrom] = useState({ name: "", email: "", password: "" });
-  const [step, setStep] = useState("signup"); // "signup" or "otp"
+  const [step, setStep] = useState("signup");
 
   return (
     <section className="flex items-center justify-center w-full h-[90%] flex-col">

@@ -51,10 +51,22 @@ const loginRequestSlice = createSlice({
           },
           iconTheme: { primary: "#00C851", secondary: "#FFFAEE" },
         });
+        toast.success("Singup Successfully!", {
+          style: {
+            border: "1px solid #262626",
+            padding: "12px",
+            color: "#A6A6A6",
+            background: "#141414",
+          },
+          iconTheme: {
+            primary: "#E50000",
+            secondary: "#FFFAEE",
+          },
+        });
       } else {
         toast.error("Invalid OTP, please try again.");
       }
-    }
+    },
   },
 
   extraReducers: (builder) => {

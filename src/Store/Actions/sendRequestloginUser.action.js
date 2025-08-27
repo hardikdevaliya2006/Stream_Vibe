@@ -6,20 +6,23 @@ export const sendRequestloginUser = createAsyncThunk(
   "loginRequest/sendRequestloginUser",
   async (credentials, thunkApi) => {
     try {
-      const response = await authApi.post("/login", credentials);
+      const { newUser, ...loginData } = credentials;
+      const response = await authApi.post("/login", loginData);
       const token = response?.data?.token;
-      toast.success("Login Successfully.", {
-        style: {
-          border: "1px solid #262626",
-          padding: "12px",
-          color: "#A6A6A6",
-          background: "#141414",
-        },
-        iconTheme: {
-          primary: "#E50000",
-          secondary: "#FFFAEE",
-        },
-      });
+      if (!newUser) {
+        toast.success("Login Successfully.", {
+          style: {
+            border: "1px solid #262626",
+            padding: "12px",
+            color: "#A6A6A6",
+            background: "#141414",
+          },
+          iconTheme: {
+            primary: "#E50000",
+            secondary: "#FFFAEE",
+          },
+        });
+      }
       localStorage.setItem("token", token);
       return response.data;
     } catch (error) {
