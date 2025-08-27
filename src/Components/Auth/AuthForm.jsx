@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import OtpForm from "./otpFrom";
-import SingupFrom from "./singupFrom";
+import SingupFrom from "./SingupFrom";
 
 const AuthForm = () => {
   const { status, error } = useSelector((state) => state.loginData);
