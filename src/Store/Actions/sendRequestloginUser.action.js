@@ -10,6 +10,7 @@ export const sendRequestloginUser = createAsyncThunk(
       const response = await authApi.post("/login", loginData);
       const token = response?.data?.token;
       if (!newUser) {
+        localStorage.setItem("token", token);
         toast.success("Login Successfully.", {
           style: {
             border: "1px solid #262626",
