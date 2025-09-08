@@ -42,6 +42,10 @@ const loginRequestSlice = createSlice({
     verifyOtp: (state, action) => {
       if (state.otp && state.otp === action.payload) {
         state.isOtpVerified = true;
+
+        if (state.token) {
+          localStorage.setItem("token", state.token);
+        }
         toast.success("OTP Verified Successfully!", {
           style: {
             border: "1px solid #262626",

@@ -33,7 +33,7 @@ const SingupFrom = ({ status, setFrom, fromData, setStep }) => {
   const sendOtp = async () => {
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     dispatch(setOtp(otp));
-
+    console.log(otp)
     try {
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -114,19 +114,6 @@ const SingupFrom = ({ status, setFrom, fromData, setStep }) => {
           />
         </div>
         <div className="submit flex flex-col mt-4 items-start justify-center gap-4">
-          <div className="checkBox flex items-start justify-center gap-2">
-            <label
-              htmlFor="checkbox"
-              className="text-gray-65 flex gap-2 items-start"
-            >
-              <input
-                type="checkbox"
-                id="checkBox"
-                className="w-4 h-4 mt-1 accent-red-500"
-              />
-              Allow to send me OTP at my register Mail
-            </label>
-          </div>
           <button
             type="submit"
             className="bg-red-45 md:w-[22rem] lg:w-[24rem] w-[18rem] font-extrabold cursor-pointer text-white px-6 py-2 rounded-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"

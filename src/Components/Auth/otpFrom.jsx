@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { verifyOtp } from "../../Store/Reducer/loginRequest.reducer";
 
-const OtpForm = ({ status, fromData, error, setStep }) => {
+const OtpForm = ({ status, fromData, error }) => {
   const dispatch = useDispatch();
   const [otp, setOtpInput] = useState("");
   const navigate = useNavigate();
@@ -16,9 +16,10 @@ const OtpForm = ({ status, fromData, error, setStep }) => {
 
   useEffect(() => {
     if (isOtpVerified) {
+      setOtpInput("");
       navigate("/");
     }
-  }, [isOtpVerified, dispatch]);
+  }, [isOtpVerified, navigate]);
 
   return (
     <section className="w-full ">
