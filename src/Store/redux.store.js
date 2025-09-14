@@ -12,6 +12,7 @@ import searchResultsSlice from "./Reducer/searchResults.reducer";
 import contactSlice from "./Reducer/contactFrom.reducer";
 import loginRequestSlice from "./Reducer/loginRequest.reducer";
 import userDataSlice from "./Reducer/userData.reducer";
+import updateUserNameSlice from "./Reducer/updateUserName.reducer";
 
 export const store = configureStore({
   reducer: {
@@ -27,6 +28,7 @@ export const store = configureStore({
     searchData: searchResultsSlice,
     sendFromData: contactSlice,
     loginData: loginRequestSlice,
-    getuserData: userDataSlice
+    getuserData: userDataSlice,
+    updateUsername: updateUserNameSlice,
   },
 });

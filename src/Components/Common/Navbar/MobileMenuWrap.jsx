@@ -108,7 +108,7 @@ const MobileMenuWrap = ({ isToken, isOpen, userData }) => {
               <li className="w-full flex gap-2">
                 {isToken ? (
                   <NavLink
-                    to={`/${userData.name}`}
+                    to={`/${userData?.name}`}
                     className={({ isActive }) =>
                       isActive
                         ? "text-white flex w-full bg-gray-15 rounded-md px-2.5 py-1.5"
@@ -116,7 +116,7 @@ const MobileMenuWrap = ({ isToken, isOpen, userData }) => {
                     }
                   >
                     <div className="navElm w-full flex items-center justify-between">
-                      <p className="capitalize">{userData.name} Profile</p>
+                      <p className="capitalize">{userData?.name} Profile</p>
                       <RxArrowTopRight className="text-lg text-shadow-white"></RxArrowTopRight>
                     </div>
                   </NavLink>

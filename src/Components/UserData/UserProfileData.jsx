@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Store/Reducer/loginRequest.reducer";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { IoExitOutline } from "react-icons/io5";
 import React, { useEffect } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
@@ -37,7 +37,7 @@ const UserProfileData = () => {
             </div>
           </div>
           <div className="hiMsg flex items-center justify-center mt-5">
-            <div className="bg-gray-30 h-8 rounded-full w-40"></div>
+            <div className="bg-gray-30 animate-pulse h-8 rounded-full w-40"></div>
           </div>
           <div className="userInfo w-full flex flex-col items-center justify-center gap-4 mt-10">
             <div className="flex-col w-full flex items-start justify-center gap-2">
@@ -99,12 +99,15 @@ const UserProfileData = () => {
                 <FaLock></FaLock>
               </span>
             </button>
-            <button className="p-2 flex items-center justify-center gap-2 font-semibold w-[18rem] md:w-[22rem] lg:w-[24rem] text-blue-400 border border-blue-500/20 bg-blue-500/10 rounded-lg shadow-md cursor-pointer">
+            <Link
+              to={"/update-user"}
+              className="p-2 flex items-center justify-center gap-2 font-semibold w-[18rem] md:w-[22rem] lg:w-[24rem] text-blue-400 border border-blue-500/20 bg-blue-500/10 rounded-lg shadow-md cursor-pointer"
+            >
               <span>Change Name</span>
               <span>
                 <MdModeEditOutline></MdModeEditOutline>
               </span>
-            </button>
+            </Link>
             <button
               onClick={logoutUser}
               className="p-2 flex items-center justify-center gap-2 font-semibold w-[18rem] md:w-[22rem] lg:w-[24rem] text-green-400 border border-green-500/20 bg-green-500/10 rounded-lg shadow-md cursor-pointer"

@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import streamvibedesktoplogo from "../../../public/Logo/streamvibedesktoplogo.svg";
+import { IoMdArrowRoundForward } from "react-icons/io";
 
 const AuthHeader = ({ type }) => {
   return (
@@ -10,9 +11,11 @@ const AuthHeader = ({ type }) => {
       <div className="login cursor-pointer flex items-center justify-end">
         <Link
           to={`/${type}`}
-          className="lg:px-3.5 lg:py-1.5 px-3 py-1 font-extrabold rounded-md text-white bg-red-45"
+          className={`font-extrabold rounded-md text-white bg-red-45 ${
+            type === "" ? "md:text-xl p-2" : "lg:px-3.5 lg:py-1.5 px-3 py-1"
+          }`}
         >
-          {type}
+          {type === "" ? <IoMdArrowRoundForward></IoMdArrowRoundForward> : type}
         </Link>
       </div>
     </div>

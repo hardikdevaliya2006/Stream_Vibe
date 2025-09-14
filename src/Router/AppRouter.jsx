@@ -12,6 +12,7 @@ import Login from "../Page/Login";
 import SingUp from "../Page/SingUp";
 import UserProfile from "../Page/UserProfile";
 import PrivateRoute from "./PrivateRoute";
+import UpdateUserData from "../Page/UpdateUserData";
 
 const AppRouter = () => {
   return (
@@ -19,18 +20,6 @@ const AppRouter = () => {
       <ScrollToTop />
       <Routes>
         {/* Protected Routes */}
-
-        {/* Public Routes */}
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/singup" element={<SingUp />}></Route>
-        <Route path="/:userName" element={<UserProfile />}></Route>
-
-        <Route path="/" element={<Home />} />
-        <Route path="/Movies-Shows" element={<MoviesAndTVShow />} />
-
-        <Route path="/Movies-Shows/movie/:id" element={<MoviesOpenPage />} />
-        <Route path="/Movies-Shows/tv/:id" element={<TVShowOpenPage />} />
-
         <Route
           path="/Movies-Shows/movie/:id/watch"
           element={
@@ -48,8 +37,24 @@ const AppRouter = () => {
           }
         />
 
+        {/* Public Routes */}
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/singup" element={<SingUp />}></Route>
+        <Route path="/:userName" element={<UserProfile />}></Route>
+
+        <Route path="/" element={<Home />} />
+        <Route path="/Movies-Shows" element={<MoviesAndTVShow />} />
+
+        <Route path="/Movies-Shows/movie/:id" element={<MoviesOpenPage />} />
+        <Route path="/Movies-Shows/tv/:id" element={<TVShowOpenPage />} />
+
         <Route path="/Support" element={<Support />} />
         <Route path="/Subscriptions" element={<UpgradeSubscription />} />
+
+        <Route
+          path="/update-user"
+          element={<UpdateUserData></UpdateUserData>}
+        ></Route>
       </Routes>
     </>
   );
