@@ -2,14 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 import { sendRequestToChangeUserName } from "../Actions/sendRequestToChangeUserName.action";
 import toast from "react-hot-toast";
 
+const initialState = {
+  flag: null,
+  isUpdating: false,
+  error: null,
+};
+
 const updateUserName = createSlice({
   name: "updateUserNameSlice",
-  initialState: {
-    flag: {},
-    isUpdating: false,
-    error: null,
+  initialState,
+  reducers: {
+    resetUpdateUsernameState: () => initialState,
   },
-  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(sendRequestToChangeUserName.pending, (state) => {
@@ -40,4 +44,5 @@ const updateUserName = createSlice({
   },
 });
 
+export const { resetUpdateUsernameState } = updateUserName.actions;
 export default updateUserName.reducer;

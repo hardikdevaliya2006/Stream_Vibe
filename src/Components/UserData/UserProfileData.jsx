@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Store/Reducer/loginRequest.reducer";
 import { Link, useNavigate } from "react-router";
 import { IoExitOutline } from "react-icons/io5";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { MdModeEditOutline } from "react-icons/md";
 import fetchUserData from "../../Store/Actions/fetchUserData.action";
@@ -11,6 +11,7 @@ import { FaLock } from "react-icons/fa";
 const UserProfileData = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [showConfirm, setShowConfirm] = useState(false);
 
   const { userData, userDataLoading, error } = useSelector(
     (state) => state.getuserData
@@ -25,6 +26,19 @@ const UserProfileData = () => {
   const logoutUser = () => {
     dispatch(logout());
     navigate("/");
+  };
+
+  const handleDeleteClick = () => {
+    setShowConfirm(true);
+  };
+
+  const handleConfirm = () => {
+    setShowConfirm(false);
+    console.log("User deleted!");
+  };
+
+  const handleCancel = () => {
+    setShowConfirm(false);
   };
 
   return (
@@ -117,12 +131,50 @@ const UserProfileData = () => {
                 <IoExitOutline></IoExitOutline>
               </span>
             </button>
-            <button className="p-2 flex items-center justify-center gap-2 font-semibold w-[18rem] md:w-[22rem] lg:w-[24rem] text-red-400 border border-red-500/20 bg-red-500/10 rounded-lg shadow-md cursor-pointer">
-              <span>Delete My Account</span>
-              <span>
-                <RiDeleteBinLine></RiDeleteBinLine>
-              </span>
-            </button>
+            <>
+              <button
+                onClick={handleDeleteClick}
+                className="p-2 flex items-center justify-center gap-2 font-semibold w-[18rem] md:w-[22rem] lg:w-[24rem] text-red-400 border border-red-500/20 bg-red-500/10 rounded-lg shadow-md cursor-pointer"
+              >
+                <span>Delete My Account</span>
+                <span>
+                  <RiDeleteBinLine></RiDeleteBinLine>
+                </span>
+              </button>
+              {showConfirm && (
+                <div className="fixed inset-0 backdrop-blur-md flex items-center justify-center z-50">
+                  <div className="bg-gray-06 p-6 rounded-lg w-[20rem] flex flex-col items-center gap-4 ">
+                    <h2 className="text-lg w-full text-white">
+                      Are you sure you want to delete your account?
+                    </h2>
+                    <div className="icon flex rounded items-center justify-center bg-gray-08 w-fit">
+                      <lord-icon
+                        src="https://cdn.lordicon.com/jzwvffwx.json"
+                        trigger="loop"
+                        delay="1500"
+                        state="in-warning"
+                        colors="primary:#e83a30"
+                        className="w-20 h-20"
+                      ></lord-icon>
+                    </div>
+                    <div className="grid grid-cols-2 w-full gap-1">
+                      <button
+                        onClick={handleCancel}
+                        className="px-4 py-2 rounded text-green-400 font-semibold bg-green-500/10"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={handleConfirm}
+                        className="px-4 py-2 rounded text-red-400 font-semibold bg-red-500/10"
+                      >
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </>
           </div>
         </>
       )}

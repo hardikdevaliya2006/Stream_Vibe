@@ -54,19 +54,20 @@ const NavBarWrap = () => {
           <CgMenuRightAlt className="text-white md:text-3xl text-xl" />
         </div>
         <div className="authBtn lg:flex hidden items-center justify-center gap-2">
-          {hasValidToken ? (
+          {hasValidToken && userData ? (
             <Link
               to={`/${userData?.name}`}
               className="login flex items-center justify-end"
             >
               <div className="profileIcon bg-gray-12 rounded-full flex items-center border border-gray-30 justify-center h-10 w-10">
                 <h1 className="text-white font-extrabold capitalize">
-                  {userData?.name?.charAt(0) || ""}
+                  {userData?.name?.charAt(0)}
                 </h1>
               </div>
             </Link>
-          ) : (
+          ) : !hasValidToken || (!userData && error === "User not found") ? (
             <>
+              {localStorage.removeItem("token")}
               <div className="login cursor-pointer flex items-center justify-end">
                 <Link
                   to={`/login`}
@@ -84,8 +85,9 @@ const NavBarWrap = () => {
                 </Link>
               </div>
             </>
-          )}
+          ) : null}
         </div>
+
         <MobileMenuWrap
           isToken={hasValidToken}
           isOpen={menu}

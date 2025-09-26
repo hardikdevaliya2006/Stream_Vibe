@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { sendRequestToChangeUserName } from "../../Store/Actions/sendRequestToChangeUserName.action";
+import { resetUpdateUsernameState } from "../../Store/Reducer/updateUserName.reducer";
 
 const UpdateUserName = () => {
   const navigate = useNavigate();
@@ -18,8 +19,9 @@ const UpdateUserName = () => {
   useEffect(() => {
     if (flag?.message === "User updated") {
       navigate("/");
+      dispatch(resetUpdateUsernameState())
     }
-  }, [flag, navigate]);
+  }, [flag, navigate, dispatch]);
   return (
     <section>
       <div className="title w-[18rem] md:w-[22rem] lg:w-[24rem] mb-8 flex-col flex items-start justify-center">
