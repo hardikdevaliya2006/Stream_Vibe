@@ -7,21 +7,37 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { MdModeEditOutline } from "react-icons/md";
 import fetchUserData from "../../Store/Actions/fetchUserData.action";
 import { FaLock } from "react-icons/fa";
+import { AnimatePresence, motion } from "framer-motion";
+import { sendRequestDeleteUser } from "../../Store/Actions/sendRequestDeleteUser.action";
+import { resetDeleteState } from "../../Store/Reducer/deleteUser.reducer";
 
 const UserProfileData = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const [showConfirm, setShowConfirm] = useState(false);
 
   const { userData, userDataLoading, error } = useSelector(
     (state) => state.getuserData
   );
+  const {
+    actionLoading,
+    isDelete,
+    error: deleteError,
+  } = useSelector((state) => state.deleteUser);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
       dispatch(fetchUserData());
     }
   }, [dispatch]);
+
+  useEffect(() => {
+    if (isDelete) {
+      navigate("/");
+      dispatch(resetDeleteState());
+    }
+  }, [isDelete, dispatch, navigate]);
 
   const logoutUser = () => {
     dispatch(logout());
@@ -34,7 +50,7 @@ const UserProfileData = () => {
 
   const handleConfirm = () => {
     setShowConfirm(false);
-    console.log("User deleted!");
+    dispatch(sendRequestDeleteUser());
   };
 
   const handleCancel = () => {
@@ -141,39 +157,56 @@ const UserProfileData = () => {
                   <RiDeleteBinLine></RiDeleteBinLine>
                 </span>
               </button>
-              {showConfirm && (
-                <div className="fixed inset-0 backdrop-blur-md flex items-center justify-center z-50">
-                  <div className="bg-gray-06 p-6 rounded-lg w-[20rem] flex flex-col items-center gap-4 ">
-                    <h2 className="text-lg w-full text-white">
-                      Are you sure you want to delete your account?
-                    </h2>
-                    <div className="icon flex rounded items-center justify-center bg-gray-08 w-fit">
-                      <lord-icon
-                        src="https://cdn.lordicon.com/jzwvffwx.json"
-                        trigger="loop"
-                        delay="1500"
-                        state="in-warning"
-                        colors="primary:#e83a30"
-                        className="w-20 h-20"
-                      ></lord-icon>
-                    </div>
-                    <div className="grid grid-cols-2 w-full gap-1">
-                      <button
-                        onClick={handleCancel}
-                        className="px-4 py-2 rounded text-green-400 font-semibold bg-green-500/10"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        onClick={handleConfirm}
-                        className="px-4 py-2 rounded text-red-400 font-semibold bg-red-500/10"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
+              <AnimatePresence>
+                {showConfirm && (
+                  <motion.div
+                    className="fixed inset-0 backdrop-blur-md flex items-center justify-center z-50"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    <motion.div
+                      className="bg-gray-06 p-6 rounded-lg w-[20rem] flex flex-col items-center gap-4 "
+                      initial={{ scale: 0.6, opacity: 0, y: 30 }}
+                      animate={{
+                        scale: 1,
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                          type: "spring",
+                          stiffness: 260,
+                          damping: 18,
+                        },
+                      }}
+                      exit={{
+                        scale: 0.85,
+                        opacity: 0,
+                        y: 20,
+                        transition: { duration: 0.2, ease: "easeInOut" },
+                      }}
+                    >
+                      <h2 className="text-lg w-full text-white">
+                        Are you sure you want to delete your account?
+                      </h2>
+                      <div className="grid grid-cols-2 w-full gap-1">
+                        <button
+                          onClick={handleCancel}
+                          className="px-4 py-2 rounded text-green-400 font-semibold bg-green-500/10"
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          onClick={handleConfirm}
+                          className="px-4 py-2 rounded text-red-400 font-semibold bg-red-500/10"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </>
           </div>
         </>
