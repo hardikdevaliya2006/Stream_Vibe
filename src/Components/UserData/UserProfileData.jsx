@@ -123,12 +123,15 @@ const UserProfileData = () => {
             </div>
           </div>
           <div className="mt-10 flex flex-col gap-2 items-center justify-center">
-            <button className="p-2 flex items-center justify-center gap-2 font-semibold w-[18rem] md:w-[22rem] lg:w-[24rem] text-yellow-400 border border-yellow-500/20 bg-yellow-500/10 rounded-lg shadow-md cursor-pointer">
+            <Link
+              to={"/forgot-Password"}
+              className="p-2 flex items-center justify-center gap-2 font-semibold w-[18rem] md:w-[22rem] lg:w-[24rem] text-yellow-400 border border-yellow-500/20 bg-yellow-500/10 rounded-lg shadow-md cursor-pointer"
+            >
               <span>Forgot My Password</span>
               <span>
                 <FaLock></FaLock>
               </span>
-            </button>
+            </Link>
             <Link
               to={"/update-user"}
               className="p-2 flex items-center justify-center gap-2 font-semibold w-[18rem] md:w-[22rem] lg:w-[24rem] text-blue-400 border border-blue-500/20 bg-blue-500/10 rounded-lg shadow-md cursor-pointer"

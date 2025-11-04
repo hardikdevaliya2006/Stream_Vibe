@@ -1,8 +1,7 @@
 import AuthFooter from "../Components/Auth/AuthFooter"
 import AuthHeader from "../Components/Auth/AuthHeader"
-import UpdateUserName from "../Components/UserData/UpdateUserName"
 
-const UpdateUserData = () => {
+const UpdateUserData = ({ children }) => {
   return (
     <main className="userProfile h-full">
       <div className="mainContant h-full grid grid-rows-[60px_2fr] ">
@@ -10,7 +9,7 @@ const UpdateUserData = () => {
           <AuthHeader type={""}/>
         </header>
         <div className="Main xl:w-[78vw] h-full flex items-center justify-center lg:w-[80vw] lg:m-auto mx-4">
-          <UpdateUserName></UpdateUserName>
+          {children}
         </div>
         <footer>
           <AuthFooter></AuthFooter>

@@ -12,7 +12,8 @@ import Login from "../Page/Login";
 import SingUp from "../Page/SingUp";
 import UserProfile from "../Page/UserProfile";
 import PrivateRoute from "./PrivateRoute";
-import UpdateUserData from "../Page/UpdateUserData";
+import UpdateUserName from "../Components/UserData/UpdateUserName";
+import ForgotPassword from "../Components/UserData/ForgotPassword";
 
 const AppRouter = () => {
   return (
@@ -51,10 +52,8 @@ const AppRouter = () => {
         <Route path="/Support" element={<Support />} />
         <Route path="/Subscriptions" element={<UpgradeSubscription />} />
 
-        <Route
-          path="/update-user"
-          element={<UpdateUserData></UpdateUserData>}
-        ></Route>
+        <Route path="/update-user" element={<UpdateUserName />}></Route>
+        <Route path="/forgot-Password" element={<ForgotPassword />}></Route>
       </Routes>
     </>
   );
