@@ -54,7 +54,7 @@ const NavBarWrap = () => {
           <CgMenuRightAlt className="text-white md:text-3xl text-xl" />
         </div>
         <div className="authBtn lg:flex hidden items-center justify-center gap-2">
-          {hasValidToken && userData ? (
+          {hasValidToken && userData?.name ? (
             <Link
               to={`/${userData?.name}`}
               className="login flex items-center justify-end"

@@ -13,7 +13,8 @@ import contactSlice from "./Reducer/contactFrom.reducer";
 import loginRequestSlice from "./Reducer/loginRequest.reducer";
 import userDataSlice from "./Reducer/userData.reducer";
 import updateUserNameSlice from "./Reducer/updateUserName.reducer";
-import deleteUserSlice from "./Reducer/deleteUser.reducer"
+import deleteUserSlice from "./Reducer/deleteUser.reducer";
+import forgotPasswordSlice from "./Reducer/forgotPasswordSlice.reducer";
 
 export const store = configureStore({
   reducer: {
@@ -31,6 +32,7 @@ export const store = configureStore({
     loginData: loginRequestSlice,
     getuserData: userDataSlice,
     updateUsername: updateUserNameSlice,
-    deleteUser: deleteUserSlice
+    deleteUser: deleteUserSlice,
+    forgotPassword: forgotPasswordSlice,
   },
 });
