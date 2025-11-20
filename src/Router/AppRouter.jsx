@@ -21,7 +21,7 @@ const AppRouter = () => {
       <ScrollToTop />
       <Routes>
         {/* Protected Routes */}
-        <Route
+        {/* <Route
           path="/Movies-Shows/movie/:id/watch"
           element={
             <PrivateRoute>
@@ -36,7 +36,7 @@ const AppRouter = () => {
               <PlayTV />
             </PrivateRoute>
           }
-        />
+        /> */}
 
         {/* Public Routes */}
         <Route path="/login" element={<Login />}></Route>

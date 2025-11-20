@@ -97,12 +97,12 @@ const SeasonsAndEpisodesWrap = ({ tvId, seasonsAndEp, detailsDataLoading }) => {
                         {s.episodes.map((ep) => (
                           <li
                             key={ep.id}
-                            onClick={() =>
-                              handleEpisodeClick(
-                                s.season_number,
-                                ep.episode_number
-                              )
-                            }
+                            // onClick={() =>
+                            //   handleEpisodeClick(
+                            //     s.season_number,
+                            //     ep.episode_number
+                            //   )
+                            // }
                             className="episodeList cursor-pointer flex-col flex gap-2 px-2 py-2 border-b border-gray-15 last:border-0"
                           >
                             <div className="episodeNumberAndPoster flex items-center xss:items-start justify-between">
