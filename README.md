@@ -61,7 +61,7 @@ The project focuses on excellent UX, fast performance, and organized data presen
 - #### Axios / Fetch API
 - #### TMDB-style API (custom or public)
 - #### Context API / Custom Hooks
-- 
+  
 ## 🗂️ Folder Structure
 ```
 ├── public/
@@ -83,6 +83,7 @@ The project focuses on excellent UX, fast performance, and organized data presen
 ├── .gitignore
 └── README.md
 ```
+
 ## 🌟 Features
 
 - 🎞️ Trending, Top-Rated & Popular sections
@@ -104,7 +105,8 @@ The project focuses on excellent UX, fast performance, and organized data presen
 ## 🛠️ Installation & Setup
 
 Clone the repo:
-```
+
+```bash
 git clone https://github.com/hardikdevaliya2006/Stream_Vibe.git
 cd Stream_Vibe
 ```
